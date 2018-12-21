@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="26px" height="27px" viewBox="0 0 26 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>kyc</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HEADER" transform="translate(-853.000000, -37.202920)">
+            <g id="kyc" transform="translate(852.427843, 38.057523)">
+                <circle id="Oval" stroke="#FFFFFF" stroke-width="1.19999993" stroke-linecap="round" stroke-linejoin="round" cx="19.7222745" cy="15.0097595" r="3.45801624"></circle>
+                <path d="M25.7707094,25.2324913 L25.7707094,24.5261099 C25.7707094,21.1801672 23.058318,18.4677757 19.7123753,18.4677757 C16.3664326,18.4677757 13.6540411,21.1801672 13.6540411,24.5261099 L13.6540411,25.2324913" id="Path" stroke="#FFFFFF" stroke-width="1.19999993" stroke-linecap="round" stroke-linejoin="round"></path>
+                <g id="Group-4" opacity="0.509602865">
+                    <path d="M10.8525566,25.1433981 L4.60613687,25.1433981 C2.74507998,25.1433981 1.23049644,23.6288146 1.23049644,21.7677577 L1.23049644,6.65162004 L7.33832678,0.543789704 L16.3466341,0.543789704 C18.207691,0.543789704 19.7222745,2.05837324 19.7222745,3.91943013 L19.7222745,8.66116552" id="Path" stroke="#FFFFFF" stroke-width="1.19999993" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M8.07255368,0.0761040726 L8.07255368,4.00610188 C8.07255368,5.9760504 6.468877,7.57972708 4.49892848,7.57972708 L0.568930672,7.57972708" id="Path" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
