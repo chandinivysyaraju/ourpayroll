@@ -27,7 +27,7 @@ async function issueDashboard(){
     // $("#balance1").text(bel+" "+"BEL");
 
     const res6 = await recentIssued();
-    console.log(JSON.stringify(res6));
+    //console.log(JSON.stringify(res6));
     var n=res6.length;
     var i;
     for(i=0;i<n;i++){
@@ -154,6 +154,6 @@ async function recentIssued(){
 
 function add_issuedemployee(name,empid){
 
-   add_div=' <tr><td class="table_prppic"><a href=""><img src="lib/img/profile.jpg" width="40"></a></td><td class="table_proname">'+name+' <br><span>emp'+empid+'</span></td><td class="table_issued">Issued</td><td class="table_viewbtn"><a href="#">View Certificate</a></td></tr> '
+   add_div=' <tr><td class="table_prppic"><a href=""><img src="lib/img/profile.jpg" width="40"></a></td><td class="table_proname">'+name+' <br><span>emp'+empid+'</span></td><td class="table_issued">Issued</td><td class="table_viewbtn"><a href="#">View Certificate</a></td></tr> ';
    document.getElementById('recent_div').innerHTML+=add_div;
 }
