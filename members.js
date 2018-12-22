@@ -1,19 +1,12 @@
-var prev_select='';
 async function issueDashboard(){
     const res1 = await getEmployee();
-    console.log(res1);
+    //console.log(res1);
     var n=res1.employees.length;
     var i;
     for(i=0;i<n;i++)
     add_employee(res1.employees[i].name,res1.employees[i].designation,res1.employees[i].empID);
     }
-// $("#members_div").click(function(evt){
-//     if(prev_select!='')
-//     document.getElementById(prev_select).classList.remove('active');
-//     prev_select = this.id;
-//     console.log('prev_select');
-//     document.getElementById(prev_select).classList.add('active');
-// });
+
  async function getEmployee(){
         let result;
           try{
