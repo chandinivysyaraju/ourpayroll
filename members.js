@@ -1,3 +1,13 @@
+var prevTextBoxText = '';
+
+setInterval(function(){
+  searchBoxText=document.getElementById('search').value;
+  if(searchBoxText!= prevTextBoxText){
+    prevTextBoxText = searchBoxText;
+    find(searchBoxText);
+  }
+},1000);
+
 async function issueDashboard(){
   const res1 = await getEmployee();
   // console.log(res1);
@@ -30,9 +40,9 @@ function add_employee(emp_name,designation,emp_id){
       document.getElementById('members_div').innerHTML+=add_div;
 }
 
-async function find(){
+async function find(text){
 document.getElementById('members_div').innerHTML="";
-const res2 = await findEmployee();
+const res2 = await findEmployee(text);
 //console.log(res2);
 var n=res2.length;
 var i;
@@ -40,9 +50,8 @@ for(i=0;i<n;i++)
 add_employee(res2[i].name,res2[i].designation,res2[i].empID);
 }
 
-async function findEmployee(){
+async function findEmployee(text){
 let result;
-var text=$("#search").val();
 try{
     result = await $.ajax({
     url: HOST_URL+"/"+dappid+"/"+"searchEmployee",
@@ -51,6 +60,7 @@ try{
     contentType: 'application/json;charset=UTF-8',
     dataType: 'json'
     });
+    setTimeout(function(){},500);
     return result;
 }
 catch (error){
