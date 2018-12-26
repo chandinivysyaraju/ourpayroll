@@ -57,7 +57,7 @@ header.bel_dashboard_header .profile {
 }
 section.bel_dashboard_sec1 .leftbar_menus ul>li {
     text-align: center;
-    padding: 5px 5px;
+    padding: 2px 5px;
 }
 section.bel_dashboard_sec1 .leftbar_menus ul>li>a>svg {
     display: block;
@@ -70,6 +70,7 @@ section.bel_dashboard_sec1 .leftbar_menus ul>li.active>a>svg{
 }
 section.bel_dashboard_sec1 .leftbar_menus ul>li.active>a>svg g {
    stroke: #ffffff;
+       fill: #ffffff;
 }
 
 header.bel_dashboard_header .profile h6 {
@@ -142,6 +143,7 @@ section.bel_dashboard_sec1 .leftbar_menus ul>li>a {
     border-radius: 10px;
     width: 80%;
     box-shadow: inset 0 2px 5px #f3f3f3, 0 2px 5px #f3f3f3;
+        min-height: 600px;
 }
 .member_views {
     overflow-y: auto !important;
@@ -209,7 +211,8 @@ header.bel_dashboard_header ul.nav.navbar-nav.menu li.active a:hover {
     overflow-y: auto;
     margin: 15px 0px 0;
 }
-header.bel_dashboard_header ul.nav.navbar-nav.menu li a:hover{
+header.bel_dashboard_header ul.nav.navbar-nav.menu li a:hover, 
+header.bel_dashboard_header ul.nav.navbar-nav.menu li a.active{
     background: #3534f1;
 }
 .wallet_details3 a {
@@ -238,7 +241,7 @@ td.table_viewbtn a{
     color: #445DF7;
     border: 1px solid #445DF7;
     border-radius: 12px;
-    padding: 12px 15px;
+    padding: 7px 15px;
         display: inline-block;
 }
 td.table_prppic a img {
@@ -250,6 +253,9 @@ table.dataTable tbody tr:nth-child(even) {
 table.dataTable tbody tr td{
 	border:0 !important;
 	    padding: 15px 7px;
+}
+table.dataTable thead tr th{
+        padding: 15px 7px;
 }
 .wallet_details1 h5 {
     color: #485673;
@@ -329,7 +335,7 @@ table.dataTable tbody tr td{
     font-size: 1rem;
     line-height: 1.5;
     color: #495057;
-    background-color: #e6e6e6;
+    background-color: #F2F5F7;
     background-clip: padding-box;
     border: 0;
 }
@@ -548,3 +554,360 @@ ul.members_title_head li {
 
 
 
+
+.certificate .card ul.nav>li>a.active{
+    color: #2134A5;
+    font-weight: 700;
+    background: #ffffff;
+    padding: 20px 15px;
+    margin-right: 7px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.certificate .card ul.nav>li>a{
+    text-align: center;
+    color: #A6ADD1;
+    font-weight: 700;
+    background: #F3F5FE;
+    padding: 20px 15px;
+    margin-right: 7px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.certificate .card .tab-content {
+    background: #f9f9f9;
+   /* min-height: 600px;*/
+}
+.rightside.certificate_sec {
+    background: none;
+    border: 0;
+    box-shadow: none;
+}
+.rightside.certificate_sec .card{
+    background: none;
+        border: 0;
+}
+div#issuer {
+    background: #ffffff;
+}
+.issuer_table .table-responsive {
+    padding: 10px 10px;
+    border-radius: 0;
+    box-shadow: 0px 0px 30px #ffffff;
+    background: #ffffff;
+    border:0;
+}
+.issuer_table .table-responsive div#example_filter, div#example_length {
+    display: none;
+}
+.certificate_sec .certificate .card .tab-content {
+    background: #f9f9f9;
+    height: 80vh;
+    overflow-y: auto;
+}
+form#payslip input {
+    border: 0;
+    border-bottom: 1px solid #000;
+    border-radius: 0;
+    background: transparent;
+}
+form#payslip label {
+    font-size: 12px;
+    position: relative;
+    top: 7px;
+    display: block;
+}
+form#payslip label span {
+    float: right;
+}
+#issCertify .topsec {
+    margin: auto;
+}
+#issCertify .topsec svg {
+    background: #415BF6;
+    border-radius: 50px;
+    padding: 10px;
+}
+#issCertify .modal-header {
+    background: #3535F0;
+    padding-bottom: 100px;
+    border: 0;
+    border-radius: 10px;
+}
+#issCertify .modal-body {
+    position: relative;
+    width: 95%;
+    margin: auto;
+    padding: 35px 10px 30px;
+    top: -75px;
+    background: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+}
+#issCertify .modal-content {
+    background: transparent;
+    border: 0;
+}
+#issCertify button.btn.btn-info.btn-lg {
+    background: #415BF6;
+    border-color: #415BF6;
+    border-radius: 5px;
+    border-width: 2px;
+     font-weight: 700;
+}
+#issCertify button.btn.btn-default {
+    border-color: #415BF6;
+    background: #ffffff;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #3535f0;
+    font-weight: 700;
+}
+#issCertify p.p2 {
+    color: #F14444;
+    font-weight: 700;
+    padding: 0px 28px;
+}
+#issCertify p.p1{
+    color: #8F8F8F;
+    font-weight: 700;
+    padding: 0px 25px;
+}
+.enter_details h4 {
+    color: #6A82B4;
+    font-size: 18px;
+}
+.iss_new_certify_payslip h4 {
+    color: #415BF6;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+.iss_new_certify_payslip h5 {
+    color: #000000;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+.iss_new_certify {
+    padding-top: 4px;
+    background: #ffffff;
+}
+.enter_details {
+    padding: 25px 0px;
+}
+form#enter_details_form input {
+    font-size: 12px;
+}
+.iss_new_certify .left {
+    border: 2px solid #F6F8F9;
+
+}
+.iss_new_certify_payslip {
+    border: 2px solid #F6F8F9;
+     padding: 2px 0px;
+}
+.iss_new_certify .right {
+    background: #F9FAFB;
+}
+.title_sec_certify {
+    padding: 25px 0px;
+    background: #ffffff;
+}
+.iss_new_certify_earnings .table-responsive {
+    background: #f9fafb;
+    box-shadow: none;
+    padding: 30px 30px;
+}
+.iss_new_certify_earnings tr:first-child {
+    background: #4DA1FF;
+}
+.iss_new_certify_earnings tr:first-child th {
+    color: #fff;
+    padding: 7px 15px;
+}
+.iss_new_certify_earnings tr td {
+    padding: 7px 20px;
+}
+.iss_new_certify_earnings tr:last-child td {
+    padding: 7px 15px;
+    border-top: 2px solid #415bf694;
+    border-bottom: 2px solid #415bf694;
+    font-weight: bold;
+}
+.iss_new_certify_deductions .table-responsive {
+    background: #f9fafb;
+    box-shadow: none;
+    padding: 30px 30px;
+}
+.iss_new_certify_deductions tr:first-child {
+    background: #4DA1FF;
+}
+.iss_new_certify_deductions tr:first-child th {
+    color: #fff;
+    padding: 7px 15px;
+}
+.iss_new_certify_deductions tr td {
+    padding: 7px 20px;
+}
+.iss_new_certify_deductions tr:last-child td {
+    padding: 7px 15px;
+    border-top: 2px solid #415bf694;
+    border-bottom: 2px solid #415bf694;
+    font-weight: bold;
+}
+.iss_new_certify_netsal {
+    padding: 7px 30px;
+    margin-bottom: 20px;
+}
+.iss_new_certify_netsal h4{
+    color: #415BF6;
+    font-weight: 700;
+    font-size: 18px;
+}
+.iss_new_certify_netsal button {
+    background: #fff;
+    color: #415BF6;
+    border-color: #415BF6;
+    font-weight: 700;
+    width: 150px;
+}
+#certificates_issued .member_views_details {
+    box-shadow: none;
+}
+#certificates_issued .member_views_details p.p4 {
+    color: #4ad534;
+    font-weight: 700;
+    padding: 7px 0px 0px;
+}
+#certificates_issued .member_views_details p.p4 span {
+    color: #7f838696;
+    font-size: 12px;
+}
+#certificates_issued .member_views_details p.p5{
+    color: #D84242;
+     font-weight: 700;
+    padding: 7px 0px 0px;
+}
+#certificates_issued .member_views_details.active p.p4 {
+    color: #ffffff;
+    font-weight: 700;
+    padding: 7px 0px 0px;
+}
+#certificates_issued .member_views_details.active p.p4 span {
+    color: #ffffff91;
+    font-size: 12px;
+}
+#certificates_issued form#payslip input {
+    font-weight: 600;
+    border: 0;
+    border-bottom: 0;
+}
+#certificates_issued form#payslip label {
+    top: 0;
+}
+table.dataTable.display tbody tr.odd>.sorting_1, table.dataTable.order-column.stripe
+ tbody tr.odd>.sorting_1 {
+    background-color: #f9f9f9;
+}
+
+table.dataTable thead th:second-child, table.dataTable thead td:second-child {
+    padding: 20px 7px;
+    border-bottom: 1px solid #d6d6d6;
+    border-top: 1px solid #d6d6d6;
+}
+td.table_viewbtn a.td_pending {
+    color: #F64343;
+    border: 1px solid #F64343;
+}
+td.table_viewbtn a.td_authorized {
+    color: #3535F0;
+    border: 1px solid #3535F0;
+}
+td.table_viewbtn a.td_issued {
+    color: #4ad534;
+    border: 1px solid #4ad534;
+}
+label.calender_icon {
+    position: absolute;
+    right: 0;
+    background: #415bf6;
+    padding: 10px 12px;
+    border: 1px solid #415bf6;
+}
+.searchempbtn, .datebtn {
+    background: #F2F5F7;
+        border: 0;
+    padding: 10px 15px;
+}
+label.searchfaicon {
+    position: absolute;
+    right: 35px;
+}
+.reg_bar {
+    padding: 0px 0px 10px;
+    background: #fff;
+    display: contents;
+}
+#issCertify a.btn.btn-info.btn-lg {
+    border-color: #415BF6;
+    background: #415BF6;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #ffffff;
+    font-weight: 700;
+}
+tr.dtable_search th input[type="text"] {
+    border-radius: 5px;
+    border-top: 1px solid #d6d6d6;
+    padding: 4px 0px;
+    border-left: 1px solid #d6d6d6;
+    box-shadow: none !important;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+        width: 100%;
+}
+tr.dtable_search th.searchviewicon:after {
+    content: "\f002";
+    font-family: FontAwesome;
+    margin-right: 12px;
+    float: right;
+    margin-top: -30px;
+    right: 2px;
+    color: #000000;
+    position: relative;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0em .5em;
+}
+div#certificates_issued {
+    background: #fff;
+}
+[type="search"] {
+    background: #F2F5F7 !important;
+    padding-left: 7px;
+    padding-right: 0px;
+    border: 0;
+}
+label.auth_search {
+    position: relative;
+    top: -32px;
+    float: right;
+}
+
+
+@media (min-width: 576px){
+    #issCertify .modal-dialog {
+        max-width: 350px;
+        margin: 7.75rem auto;
+    }
+}
+@media(min-width: 1280px){
+    .certificate .card ul.nav>li{        
+      width: 24%;
+    }
+}

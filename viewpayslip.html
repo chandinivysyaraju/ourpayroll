@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Smart Commerce">
+        <meta name="keywords" content="Smart Commerce">
+        <meta name="author" content="Smart Commerce">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BelBooks</title>
+        <link rel="shortcut icon" href="lib/img/logo.png">
+        <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/bootstrap-grid.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/bootstrap-grid.min.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/datatables.min.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/custom.css">
+        <style type="text/css">
+            div#navbarTogglerDemo02 {display: block !important;}
+            div#navbarTogglerDemo02 .menu {float: right;}
+            section.bel_dashboard_sec1 {top: 70px;position: relative;z-index: 99;}
+            .certificate {padding: 0px 50px;}
+            .iss_new_certify {overflow-y: auto;height: 90vh;padding-top: 4px;background: #F9FAFB;    border-radius: 10px;}
+            form#payslip {padding-top: 20px;}
+            header.bel_dashboard_header { padding-bottom: 200px;}
+            form#payslip input {border: 0;border-bottom: 0;}
+            form#payslip input { border: 0; border-bottom: 0; font-weight: 600; font-size: 13px;}
+            form#payslip label {top: 0;}
+            .iss_new_certify_payslip {border: 0;}
+            @media (min-width: 1024px){
+                .iss_new_certifysec1 {
+                    padding: 0px 20%;
+                    background: #fff;
+                }
+                .iss_new_certifysec2 {
+                    padding: 0px 20%;
+                }
+            }
+
+        </style>
+    </head>
+    
+    <body>
+        <header class="bel_dashboard_header">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg navbar-light land_page menubar navbar-expand-md">
+                    <div class="login_logo">
+                    	<a href="dashboard.html"><img src="lib/img/logo.svg" class="img-fluid"></a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="nav navbar-nav menu">
+                           
+                            <li class="nav-item"><a href="#" class="nav-link active"><img class="menuicon n" src="lib/img/print.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Print</a>
+                            </li>
+                            <li class="nav-item"><a href="#" class="nav-link active"><img class="menuicon n" src="lib/img/shape.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Share</a>
+                            </li>
+                            <li class="nav-item"><a href="#" class="nav-link active"><img class="menuicon n" src="lib/img/download.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Download</a>
+                            </li>
+                           
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
+        </header>
+
+        <section class="bel_dashboard_sec1">
+            <div class="container-fluid">
+                <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding certificate">
+                            <div class="col-12 nopadding iss_new_certify">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-12 iss_new_certifysec1">
+                                    <div class="iss_new_certify_payslip">
+                                        <div class="title_sec_certify">
+                                            <h4>PAY SLIP</h4>
+                                            <h5>Belfrics BT Private Limited</h5>
+                                        </div>
+                                        <form class="form-inline" role="form" method="post" action="#" id="payslip">
+                                            <div class="form-group col-md-6 col-12">
+                                                <label for="ps_empname" class="col-md-5 col-12">Employee name <span>:</span></label>
+                                                <input type="text" class="form-control col-md-7 col-12" id="ps_empname" name="ps_empname" value="Lewis Underwood" disabled="">
+                                            </div>
+                                            <div class="form-group col-md-6 col-12">
+                                                <label for="ps_pay" class="col-md-5 col-12">Pay <span>:</span></label>
+                                                <input type="text" class="form-control col-md-7 col-12" id="ps_pay" name="ps_pay" value="$ 6690" disabled=""> 
+                                            </div>
+                                            <div class="form-group col-md-6 col-12">
+                                                <label for="ps_idnum" class="col-md-5 col-12">ID Number <span>:</span></label>
+                                                <input type="text" class="form-control col-md-7 col-12" id="ps_idnum" name="ps_idnum" value="EMP 123456789" disabled=""> 
+                                            </div>
+                                            <div class="form-group col-md-6 col-12">
+                                                <label for="ps_paycycle" class="col-md-5 col-12">Paycycle <span>:</span></label>
+                                                <input type="text" class="form-control col-md-7 col-12" id="ps_paycycle" name="ps_paycycle" value="Dec, 2018" disabled=""> 
+                                            </div>
+                                            <div class="form-group col-md-6 col-12">
+                                                <label for="ps_bankdetails" class="col-md-5 col-12">Bank Details <span>:</span></label>
+                                                <input type="text" class="form-control col-md-7 col-12" id="ps_bankdetails" name="ps_bankdetails" value="HDFC Bank" disabled=""> 
+                                            </div>
+                                      </form>
+                                    </div>
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-12 iss_new_certifysec2">
+                                    <div class="iss_new_certify_earnings">
+                                        <div class="table-responsive">
+                                            <table class="display" style="width:100%;">
+                                              <tr>
+                                                <th>Earnings</th>
+                                                <th>Amount</th>
+                                              </tr>
+                                              <tr>
+                                                <td>Basic Salary</td>
+                                                <td>$ 6600</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Reimbursement</td>
+                                                <td>$ 50</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Total Earnings</td>
+                                                <td>$ 6650</td>
+                                              </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="iss_new_certify_deductions">
+                                        <div class="table-responsive">
+                                            <table class="display" style="width:100%;">
+                                              <tr>
+                                                <th>Deductions</th>
+                                                <th>Amount</th>
+                                              </tr>
+                                              <tr>
+                                                <td>Tax Deducted at source (T.D.S.)</td>
+                                                <td>$ 20</td>
+                                              </tr>
+                                              <tr>
+                                                <td>UIF</td>
+                                                <td>$ 5</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Other</td>
+                                                <td>$ 35</td>
+                                              </tr>
+                                              <tr>
+                                                <td>Total Deductions</td>
+                                                <td>$ 60</td>
+                                              </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="iss_new_certify_netsal">
+                                        <h4>Net Salary: $ 6590</h4>
+                                        <p>(Six thousand five hundred and ninety only)</p>
+                                    </div>
+                                </div>
+                                    
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="lib/js/bootstrap.min.js"></script>
+       <script type="text/javascript" src="lib/js/datatables.min.js"></script>
+
+    </body>
+
+</html>
