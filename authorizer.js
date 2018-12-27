@@ -30,7 +30,7 @@ async function pendingSigns(){
             result = await $.ajax({
             url: HOST_URL+"/"+dappid+"/"+"authorizers/pendingSigns",
             type: 'post',
-            data:'{"aid":"'+3+'"}',
+            data:'{"aid":"'+1+'"}',
             contentType: 'application/json;charset=UTF-8',
             dataType: 'json'
             });
@@ -56,7 +56,7 @@ async function sign(pid){
               result = await $.ajax({
               url: HOST_URL+"/"+dappid+"/"+"authorizer/authorize",
               type: 'post',
-              data:'{"aid":"'+3+'","pid":"'+pid+'","secret":"'+secret+'"}',
+              data:'{"aid":"'+1+'","pid":"'+pid+'","secret":"'+secret+'"}',
               contentType: 'application/json;charset=UTF-8',
               dataType: 'json'
               });
@@ -133,7 +133,7 @@ async function authorizedPayslips(){
                    result = await $.ajax({
                    url: HOST_URL+"/"+dappid+"/"+"authorizer/authorizedAssets",
                    type: 'post',
-                   data:'{"aid":"'+3+'"}',
+                   data:'{"aid":"'+1+'"}',
                    contentType: 'application/json;charset=UTF-8',
                    dataType: 'json'
                    });
