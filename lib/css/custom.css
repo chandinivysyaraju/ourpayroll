@@ -250,6 +250,12 @@ td.table_viewbtn a{
     border-radius:12px;
     padding: 7px 15px;
 }
+.btn-primary {
+    color: #ffffff;
+    border: 1px solid blue;
+    border-radius:12px;
+    padding: 7px 15px;
+}
 td.table_prppic a img {
     border-radius: 50px;
 }

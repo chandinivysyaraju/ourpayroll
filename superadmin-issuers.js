@@ -26,7 +26,7 @@ function getIssuers(){
 
             issuer_data += '<td>'+timestamp+'</td>';
 
-            issuer_data += '<td> <button type="button" class="btn btn-danger">REMOVE</button> </td>';
+            issuer_data += '<td> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">REMOVE</button> </td>';
 
             issuer_data += '</tr>';
 
@@ -43,12 +43,12 @@ $("#example").delegate("tbody tr td:nth-child(5)", "click", function(){
       var $name = $(this).closest("tr"),$tds = $name.find("td:nth-child(1)");            
       $.each($tds, function() {
       var x = $(this).text();
-      var res = window.confirm("Do you want remove issuer with id : "+x);
-      if(res===true){
-        removeIssuer(x);
-      }
-      
-          });
+      // var res = window.confirm("Do you want remove issuer with id : "+x);
+      // if(res===true){
+      //   removeIssuer(x);
+      // }
+      document.getElementById("val").innerText=x;
+   });
  });
 }
 
@@ -77,7 +77,7 @@ if(count===0)
 
           authorizer_data += '<td>'+timestamp+'</td>';
 
-          authorizer_data += '<td> <button type="button" class="btn btn-danger" >REMOVE</button> </td>';
+          authorizer_data += '<td> <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal1">REMOVE</button> </td>';
 
           authorizer_data += '</tr>';
 
@@ -94,10 +94,11 @@ $("#example1").delegate("tbody tr td:nth-child(5)", "click", function(){
     var $name = $(this).closest("tr"),$tds = $name.find("td:nth-child(1)");            
     $.each($tds, function() {
     var y = $(this).text();
-    var res = window.confirm("Do you want remove authorizer with id : "+y);
-    if(res===true){
-      removeAuthorizer(y);
-    }
+    // var res = window.confirm("Do you want remove authorizer with id : "+y);
+    // if(res===true){
+    //   removeAuthorizer(y);
+    // }
+    document.getElementById("val1").innerText=y;
   });
 });
 }
@@ -166,4 +167,12 @@ function remove_info()
     entries.innerText="";
     entries=document.getElementById('example1_info');
     entries.innerText="";
+}
+
+function remove(){
+  removeIssuer(document.getElementById('val').innerText);
+}
+
+function remove1(){
+  removeAuthorizer(document.getElementById('val1').innerText)
 }
