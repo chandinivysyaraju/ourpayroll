@@ -17,7 +17,8 @@
         <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/datatables.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/custom.css">
-		
+        <script src="authorizer.js"></script>
+        <script src="constant.js"></script>
 		<style>
         table#example2 thead tr th, table#example thead tr th { border-top: 0;}
 		.reject a{color:#D0021B !important ; border:1px solid #D0021B !important}
@@ -34,7 +35,7 @@
 		
     </head>
     
-    <body>
+    <body onload="authorizer()">
         <header class="bel_dashboard_header">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg navbar-light land_page menubar navbar-expand-md">
@@ -132,10 +133,10 @@
                     <div class="col-xl-10 col-lg-9 col-md-9 col-12 nopadding rightside certificate_sec">
                         <div class="col-xl-12 col-xl-12 col-lg-12 col-12 nopadding certificate">
                             <div class="card">
-                                <ul class="nav nav-tabs" role="tablist">
-                                    <li role="presentation" class="nav-item"><a href="#issuer" aria-controls="issuer" role="tab" class="active show nav-link" data-toggle="tab">Authorize</a></li>
-                                    <li role="presentation" class="nav-item"><a href="#issue_new_certificate" aria-controls="issue_new_certificate" role="tab" data-toggle="tab" class="nav-link">Authorize New Certificate</a></li>
-                                    <li role="presentation" class="nav-item"><a href="#certificates_issued" aria-controls="certificates_issued" role="tab" data-toggle="tab" class="nav-link">Authorized Certificate</a></li>
+                                <ul class="nav nav-tabs" role="tablist" id='testing_list'>
+                                    <li  role="presentation" class="nav-item"><a href="#issuer" aria-controls="issuer" id ="testing" role="tab" class="active show nav-link" data-toggle="tab">Authorize</a></li>
+                                    <!-- <li role="presentation" class="nav-item"><a href="#issuer" aria-controls="issuer" role="tab" class="active show nav-link" data-toggle="tab" style="display: none">issue_new_certificate</a></li> -->
+                                    <li role="presentation" class="nav-item"><a href="#certificates_issued" onclick="authorizedAssets()" aria-controls="certificates_issued" role="tab" data-toggle="tab" class="nav-link">Authorized Certificate</a></li>
                                 </ul>
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane active" id="issuer">
@@ -158,7 +159,7 @@
                                                                 <label class="custom-control-label" for="opt1"></label>
                                                                 </div>
                                                             </th>
-                                                            <th class="searchviewicon"> <input type="search" placeholder="Search..." class="form-control"
+                                                            <th class="searchviewicon"> <input type="search" placeholder="Search..." class="form-control">
                                                                </th>
                                                            <th class="searchviewicon"> <input type="search" placeholder="Search..." class="form-control">
                                                           </th>
@@ -167,77 +168,14 @@
                                                             <th class="searchviewicon"> <input type="search" placeholder="Search..." class="form-control">
                                                            </th>
                                                             <th>
-                                                                <input type="submit" name="signin" class="sign_btn" value="Sign">
+                                                                <input type="submit" name="signin" class="sign_btn" value="SignAll">
                                                             </th>
-                                                            <th></th>
+                                                            <!-- <th></th> -->
                                                         </tr>
 														
 													 </thead>
-                                                    <tbody>
-                                                        <tr>
-															<td>
-																<div class="custom-control custom-checkbox">
-																<input type="checkbox" class="custom-control-input" id="opt2" name="opt2">
-																<label class="custom-control-label" for="opt2"></label>
-																</div>
-															</td>
-                                                            <td>HJK45678</td>
-                                                            <td>Reynoldsiel</td>
-                                                            <td>Reynoldsiel</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-															<td class="table_viewbtn">
-                                                                <a href="#" class="td_authorized">Sign</a>
-                                                                <a href="#" class="td_pending">Reject</a>
-                                                            </td>
-                                                        </tr>
-                                                       <tr>
-                                                            <td>
-                                                                <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="opt2" name="opt2">
-                                                                <label class="custom-control-label" for="opt2"></label>
-                                                                </div>
-                                                            </td>
-                                                            <td>HJK45678</td>
-                                                            <td>Reynoldsiel</td>
-                                                            <td>Reynoldsiel</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-                                                            <td class="table_viewbtn">
-                                                                <a href="#" class="td_authorized">Sign</a>
-                                                                <a href="#" class="td_pending">Reject</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="opt2" name="opt2">
-                                                                <label class="custom-control-label" for="opt2"></label>
-                                                                </div>
-                                                            </td>
-                                                            <td>HJK45678</td>
-                                                            <td>Reynoldsiel</td>
-                                                            <td>Reynoldsiel</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-                                                            <td class="table_viewbtn">
-                                                                <a href="#" class="td_authorized">Sign</a>
-                                                                <a href="#" class="td_pending">Reject</a>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="opt2" name="opt2">
-                                                                <label class="custom-control-label" for="opt2"></label>
-                                                                </div>
-                                                            </td>
-                                                            <td>HJK45678</td>
-                                                            <td>Reynoldsiel</td>
-                                                            <td>Reynoldsiel</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-                                                            <td class="table_viewbtn">
-                                                                <a href="#" class="td_authorized">Sign</a>
-                                                                <a href="#" class="td_pending">Reject</a>
-                                                            </td>
-                                                        </tr>
+                                                    <tbody id="pending">
+                                                        <tr></tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -246,78 +184,7 @@
                                     <div role="tabpanel" class="tab-pane" id="issue_new_certificate">
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding">
                                             <div class="col-12 nopadding iss_new_certify">
-                                                <div class="col-xl-4 col-lg-4 col-md-4 col-12 left">
-                                                    <div class="enter_details">
-                                                        <h4>Enter Details</h4>
-                                                        <form  method="post" action="#" id="enter_details_form">
-                                                            <div class="form-group">
-                                                                <div class="input-group">
-                                                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control" name="employeeid" id="employeeid" placeholder="Employee ID" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control" name="designation" id="designation" placeholder="Designation" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control" name="actual_salary" id="actual_salary" placeholder="Actual Salary" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="input-group">
-                                                                    <input type="date" class="form-control" name="monthc" id="monthc" placeholder="Month" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="input-group">
-                                                                    <input type="date" class="form-control" name="yearc" id="yearc" placeholder="Year" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control" name="lop" id="lop" placeholder="Loss of pay" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control" name="pending_amt" id="pending_amt" placeholder="Pending Amount" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control" name="ptdeduction" id="ptdeduction" placeholder="PT Deduction" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control" name="tds_deduction" id="tds_deduction" placeholder="TDS Deduction" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control" name="reimbursement" id="reimbursement" placeholder="Reimbursement" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group ">
-                                                                <input type="submit" class="btn btn-primary btn-lg"
-                                                                value="Generate Certificate">
-                                                            </div>                  
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-8 col-lg-8 col-md-8 col-12 nopadding right">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding ">
                                                     <div class="iss_new_certify_payslip">
                                                         <div class="title_sec_certify">
                                                             <h4>PAY SLIP</h4>
@@ -329,12 +196,16 @@
                                                                 <input type="text" class="form-control col-md-7 col-12" id="ps_empname" name="ps_empname">
                                                             </div>
                                                             <div class="form-group col-md-6 col-12">
-                                                                <label for="ps_pay" class="col-md-5 col-12">Pay <span>:</span></label>
-                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_pay" name="ps_pay"> 
+                                                                <label for="ps_designation" class="col-md-5 col-12">Designation <span>:</span></label>
+                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_designation" name="ps_designation"> 
                                                             </div>
                                                             <div class="form-group col-md-6 col-12">
-                                                                <label for="ps_idnum" class="col-md-5 col-12">ID Number <span>:</span></label>
+                                                                <label for="ps_idnum" class="col-md-5 col-12">Employee ID <span>:</span></label>
                                                                 <input type="text" class="form-control col-md-7 col-12" id="ps_idnum" name="ps_idnum"> 
+                                                            </div>
+                                                            <div class="form-group col-md-6 col-12">
+                                                                <label for="ps_pay" class="col-md-5 col-12">Pay <span>:</span></label>
+                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_pay" name="ps_pay"> 
                                                             </div>
                                                             <div class="form-group col-md-6 col-12">
                                                                 <label for="ps_paycycle" class="col-md-5 col-12">Paycycle <span>:</span></label>
@@ -355,15 +226,15 @@
                                                               </tr>
                                                               <tr>
                                                                 <td>Basic Salary</td>
-                                                                <td>$ 6600</td>
+                                                                <td>$<span  id="basic"></span></td>
                                                               </tr>
                                                               <tr>
-                                                                <td>Reimbursement</td>
-                                                                <td>$ 50</td>
+                                                                <td>Allowances</td>
+                                                                <td>$ <span id="allowances"></span></td>
                                                               </tr>
                                                               <tr>
                                                                 <td>Total Earnings</td>
-                                                                <td>$ 6650</td>
+                                                                <td>$ <span id="earnings"></span></td>
                                                               </tr>
                                                             </table>
                                                         </div>
@@ -376,28 +247,24 @@
                                                                 <th>Amount</th>
                                                               </tr>
                                                               <tr>
-                                                                <td>Tax Deducted at source (T.D.S.)</td>
-                                                                <td>$ 20</td>
+                                                                <td>professionalTax</td>
+                                                                <td>$ <span id="pt"></span></td>
                                                               </tr>
                                                               <tr>
-                                                                <td>UIF</td>
-                                                                <td>$ 5</td>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>Other</td>
-                                                                <td>$ 35</td>
+                                                                <td>providentFund</td>
+                                                                <td>$ <span id="pf"></span></td>
                                                               </tr>
                                                               <tr>
                                                                 <td>Total Deductions</td>
-                                                                <td>$ 60</td>
+                                                                <td>$ <span id="total"></span></td>
                                                               </tr>
                                                             </table>
                                                         </div>
                                                     </div>
                                                     <div class="iss_new_certify_netsal">
-                                                        <h4>Net Salary: $ 6590</h4>
-                                                        <p>(Six thousand five hundred and ninety only)</p>
-                                                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#issCertify">Issue Certificate</button>
+                                                        <h4>Net Salary: $<span id="netsalary"></span></h4>
+                                                        <p id="words"></p>
+                                                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#issCertify" onclick="signhere()">Sign</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -423,7 +290,7 @@
                                                                 <label class="custom-control-label" for="opt1"></label>
                                                                 </div>
                                                             </th>
-                                                            <th class="searchviewicon"> <input type="search" placeholder="Search..." class="form-control"
+                                                            <th class="searchviewicon"> <input type="search" placeholder="Search..." class="form-control">
                                                                </th>
                                                            <th class="searchviewicon"> <input type="search" placeholder="Search..." class="form-control">
                                                           </th>
@@ -437,59 +304,8 @@
                                                         </tr>
                                                         
                                                      </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="opt2" name="opt2">
-                                                                <label class="custom-control-label" for="opt2"></label>
-                                                                </div>
-                                                            </td>
-                                                            <td>HJK45678</td>
-                                                            <td>Reynoldsiel</td>
-                                                            <td>Reynoldsiel</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-                                                            
-                                                        </tr>
-                                                       <tr>
-                                                            <td>
-                                                                <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="opt2" name="opt2">
-                                                                <label class="custom-control-label" for="opt2"></label>
-                                                                </div>
-                                                            </td>
-                                                            <td>HJK45678</td>
-                                                            <td>Reynoldsiel</td>
-                                                            <td>Reynoldsiel</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-                                                            
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="opt2" name="opt2">
-                                                                <label class="custom-control-label" for="opt2"></label>
-                                                                </div>
-                                                            </td>
-                                                            <td>HJK45678</td>
-                                                            <td>Reynoldsiel</td>
-                                                            <td>Reynoldsiel</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-                                                           
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                <div class="custom-control custom-checkbox">
-                                                                <input type="checkbox" class="custom-control-input" id="opt2" name="opt2">
-                                                                <label class="custom-control-label" for="opt2"></label>
-                                                                </div>
-                                                            </td>
-                                                            <td>HJK45678</td>
-                                                            <td>Reynoldsiel</td>
-                                                            <td>Reynoldsiel</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-                                                           
-                                                        </tr>
+                                                    <tbody id="payslips"> 
+                                                     <tr></tr>
                                                     </tbody>
                                                 </table>
                                             </div>
