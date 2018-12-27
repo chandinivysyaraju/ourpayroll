@@ -244,6 +244,12 @@ td.table_viewbtn a{
     padding: 7px 15px;
         display: inline-block;
 }
+.btn-danger {
+    color: #ffffff;
+    border: 1px solid red;
+    border-radius:12px;
+    padding: 7px 15px;
+}
 td.table_prppic a img {
     border-radius: 50px;
 }

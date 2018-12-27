@@ -21,10 +21,11 @@
     		div#example1_length , div#example1_filter {display: none;}
             table#example, table#example1 {padding: 15px;}
         </style>
+        <script src="superadmin-issuers.js"></script>
 	
     </head>
     
-    <body>
+    <body onload="getIssuers();getAuthorizers();">
         <header class="bel_dashboard_header">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg navbar-light land_page menubar navbar-expand-md">
@@ -143,49 +144,21 @@
                                                 <table id="example" class="display" style="width:100%;">
                                                     <thead>
                                                         <tr>
-                                                            <th>Employee ID</th>
+                                                            <th>EmployeeID</th>
                                                             <th>Email</th>
                                                             <th>Designation</th>
                                                             <th>Timestamp</th>
-                                                             <th>Status</th>
+                                                            <th>Status</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>HJK45678</td>
-                                                            <td>sampatton@domainname</td>
-                                                            <td>Blockchain developer</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-                                                            <td class="table_viewbtn"><a href="#">Remove</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>HJK45678</td>
-                                                            <td>sampatton@domainname</td>
-                                                            <td>Blockchain developer</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-                                                            <td class="table_viewbtn"><a href="#">Remove</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>HJK45678</td>
-                                                            <td>sampatton@domainname</td>
-                                                            <td>Blockchain developer</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-                                                            <td class="table_viewbtn"><a href="#">Remove</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>HJK45678</td>
-                                                            <td>sampatton@domainname</td>
-                                                            <td>Blockchain developer</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-                                                            <td class="table_viewbtn"><a href="#">Remove</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                             <td>HJK45678</td>
-                                                            <td>sampatton@domainname</td>
-                                                            <td>Blockchain developer</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-                                                            <td class="table_viewbtn"><a href="#">Remove</a></td>
-                                                        </tr>
+                                                    <tbody id='test_issuer'>
+                                                            <tr>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td class="table_viewbtn" style='display: none'><a href="#">Remove</a></td>
+                                                                </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -206,55 +179,28 @@
                                                 <table id="example1" class="display" style="width:100%;">
                                                     <thead>
                                                         <tr>
-                                                            <th>Employee ID</th>
+                                                            <th>EmployeeID</th>
                                                             <th>Email</th>
                                                             <th>Designation</th>
                                                             <th>Timestamp</th>
                                                              <th>Status</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>HJK45678</td>
-                                                            <td>sampatton@domainname</td>
-                                                            <td>Blockchain developer</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-                                                            <td class="table_viewbtn"><a href="#">Remove</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>HJK45678</td>
-                                                            <td>sampatton@domainname</td>
-                                                            <td>Blockchain developer</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-                                                            <td class="table_viewbtn"><a href="#">Remove</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>HJK45678</td>
-                                                            <td>sampatton@domainname</td>
-                                                            <td>Blockchain developer</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-                                                            <td class="table_viewbtn"><a href="#">Remove</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>HJK45678</td>
-                                                            <td>sampatton@domainname</td>
-                                                            <td>Blockchain developer</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-                                                            <td class="table_viewbtn"><a href="#">Remove</a></td>
-                                                        </tr>
-                                                        <tr>
-                                                             <td>HJK45678</td>
-                                                            <td>sampatton@domainname</td>
-                                                            <td>Blockchain developer</td>
-                                                            <td>Mon, 10 Dec 2018, 09:15:08 GMT</td>
-                                                            <td class="table_viewbtn"><a href="#">Remove</a></td>
-                                                        </tr>
+                                                    <tbody id ='test_auth'>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td class="table_viewbtn" style='display: none'><a href="#">Remove</a></td>
+                                                            </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
-                                        </div>
+                                
                                     </div>
-                                   
+                                    </div>
+                                </div>
                                    
                                 </div>
                             </div>
