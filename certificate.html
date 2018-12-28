@@ -17,6 +17,7 @@
         <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/datatables.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/custom.css">
+        <script src="certificate.js"></script>
     </head>
     
     <body>
@@ -117,9 +118,9 @@
                     <div class="col-xl-10 col-lg-9 col-md-9 col-12 nopadding rightside certificate_sec">
                         <div class="col-xl-12 col-xl-12 col-lg-12 col-12 nopadding certificate">
                             <div class="card">
-                                <ul class="nav nav-tabs" role="tablist">
+                                <ul class="nav nav-tabs" role="tablist" id='testing_list'>
                                     <li role="presentation" class="nav-item"><a href="#issuer" aria-controls="issuer" role="tab" class="active show nav-link" data-toggle="tab">ISSUER</a></li>
-                                    <li role="presentation" class="nav-item"><a href="#issue_new_certificate" aria-controls="issue_new_certificate" role="tab" data-toggle="tab" class="nav-link">ISSUE NEW CERTIFICATE</a></li>
+                                    <!-- <li role="presentation" class="nav-item"><a href="#issue_new_certificate" aria-controls="issue_new_certificate" role="tab" data-toggle="tab" class="nav-link">ISSUE NEW CERTIFICATE</a></li> -->
                                     <li role="presentation" class="nav-item"><a href="#certificates_issued" aria-controls="certificates_issued" role="tab" data-toggle="tab" class="nav-link">CERTIFICATES ISSUED</a></li>
                                 </ul>
                                 <div class="tab-content">
@@ -132,7 +133,7 @@
                                                         <label class="searchfaicon"><i class="fa fa-search" aria-hidden="true"></i></label>
                                                     </div>
                                                     <div class="form-group col-md-2 col-12">
-                                                         <input type="text" placeholder="08 / 2018" class="form-control col-md-12 col-12 datebtn">
+                                                         <input type="text" id="getDate" placeholder="mm-yyyy" class="form-control col-md-12 col-12 datebtn" onchange="getEmployees()">
                                                          <label class="calender_icon"><img src="lib/img/calendaricon.svg"></label>
                                                     </div>
                                                     <div class="form-group col-md-3 col-12">
@@ -149,10 +150,6 @@
                                                             <th style="border-top: 1px solid #d6d6d6;">Employee ID</th>
                                                             <th  style="border-top: 1px solid #d6d6d6;">Employee Name</th>
                                                             <th  style="border-top: 1px solid #d6d6d6;">Designation</th>
-                                                            <th  style="border-top: 1px solid #d6d6d6;">Bank</th>
-                                                            <th  style="border-top: 1px solid #d6d6d6;">Account Number</th>
-                                                            <th  style="border-top: 1px solid #d6d6d6;">Pan Number</th>
-                                                            <th  style="border-top: 1px solid #d6d6d6;">Salary</th>
                                                             <th  style="border-top: 1px solid #d6d6d6;">Status</th>
                                                         </tr>
                                                     </thead>
