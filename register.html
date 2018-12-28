@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="description" content="Smart Commerce">
+      <meta name="keywords" content="Smart Commerce">
+      <meta name="author" content="Smart Commerce">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>BelBooks - Login</title>
+      <link rel="shortcut icon" href="lib/img/logo.png">
+      <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.css">
+      <link rel="stylesheet" type="text/css" href="lib/css/bootstrap-grid.css">
+      <link rel="stylesheet" type="text/css" href="lib/css/bootstrap-grid.min.css">
+      <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.css">
+      <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="lib/css/custom.css">
+      <style type="text/css">
+         body{overflow-y: auto}
+         .login_page_left {
+         background: #ffffff;
+         margin: 30px 0px;
+         padding: 40px 30px;
+         border-radius: 10px;
+         box-shadow: 1px 1px 7px #ffffff;
+         }
+         .reg-btn{width:125px;color:#fff !important}
+         @media only screen and (max-width: 600px) {
+         .g-recaptcha {transform: scale(0.55); transform-origin: left;}}
+         @media only screen and (max-width: 1600px){
+         .g-recaptcha {
+         transform: scale(1.05);
+         transform-origin: left;
+         }}
+         @media only screen and (max-width: 1500px){
+         .g-recaptcha {
+         transform: scale(0.92);
+         transform-origin: left;
+         }}
+         @media only screen and (max-width: 1366px) {
+         .g-recaptcha {
+         transform: scale(0.76);
+         transform-origin: left;}}
+         @media only screen and (max-width: 1024px) {
+         .g-recaptcha {
+         transform: scale(0.57);
+         transform-origin: left;}}
+         .login_footer span {color: #B6B6B6;font-size:13px} .login_footer span a{color:#495774}
+         .input-group.input_border input { border-right: 0;}
+         .input_border span.input-group-text { background-color: transparent;}
+         select#country{font-size:12px} select#user-type{font-size:12px}
+         label.error{position: absolute;bottom: -25px;}
+         .input_border input span{color:#FFDB0303}
+         .asterisk_input:after {content: " *";color: #e32;position: absolute;
+         margin: 0px 0px 0px -20px;
+         font-size: 17px;
+         padding: 0 5px 0 0;
+         font-weight: 700;}
+         .register_down{padding:17px 30px}
+         .login_title, .login_footer {padding:15px 15px}
+         .login_title p{color:#B2B2B2}.login_title h3{font-size:22px;color:#495774}
+         @media (min-width: 1024px){
+         .login_page_left {padding: 30px 60px;}
+         }
+      </style>
+   </head>
+   <body>
+      <section class="login_page">
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-xl-12 col-lg-12 col-md-12 col-12 no-padding">
+                  <div class="offset-xl-3 col-xl-6 offset-lg-3 col-lg-6 offset-md-2 col-md-8 col-12 no-padding">
+                     <div class="row login_page_left register_down">
+                        <div class="login_logo col-xl-12 col-lg-12 col-md-12 col-12">
+                           <a href="#">
+                           <img src="lib/img/belbooks-logo.svg" style="width: 120px">
+                           </a>
+                        </div>
+                        <div class="login_title">
+                           <h3>Welcome to BelBooks</h3>
+                           <p>Please fill out this form, and we'll send you a welcome<br>email to verify your email address</p>
+                        </div>
+                        <div class="login_form col-xl-12 col-lg-12 col-md-12 col-12 p-0">
+                           <form  method="post" action="register-popup.html" id="register_form">
+                              <div class="form-group col-xl-6 col-lg-6 col-md-12 col-12">
+                                 <div class="input-group input_border">
+                                    <input type="text" class="form-control" name="companyname" id="companyname" placeholder="Company Name" required><span class="asterisk_input"></span>
+                                    <div class="input-group-append">
+                                       <span class="input-group-text"><img src="lib/img/building.svg"><span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="form-group col-xl-6 col-lg-6 col-md-12 col-12">
+                                 <div class="input-group">
+                                    <select id="country" name="select" class="select form-control">
+                                       <option>Country</option>
+                                       <option value="">option1</option>
+                                       <option value="">option2</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="form-group col-xl-6 col-lg-6 col-md-12 col-12">
+                                 <div class="input-group input_border ">
+                                    <input type="number" class="form-control" name="GSTN Number" id="GSTN Number" placeholder="GSTN Number">
+                                    <div class="input-group-append">
+                                       <span class="input-group-text"><img src="lib/img/gst.svg"></span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="form-group col-xl-6 col-lg-6 col-md-12 col-12">
+                                 <div class="input-group input_border ">
+                                    <input type="email" class="form-control" name="Admin Email" id="Admin Email" placeholder="Admin Email">
+                                    <div class="input-group-append">
+                                       <span class="input-group-text"><img src="lib/img/email.svg"></span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="form-group col-xl-6 col-lg-6 col-md-12 col-12">
+                                 <div class="input-group input_border ">
+                                    <input type="password" class="form-control" name="Password" id="Password" placeholder="Set Password">
+                                    <div class="input-group-append">
+                                       <span class="input-group-text"><img src="lib/img/password.svg"></span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="form-group col-xl-6 col-lg-6 col-md-12 col-12">
+                                 <div class="input-group input_border ">
+                                    <input type="password" class="form-control" name="confirm password" id="confirm password" placeholder="confirm password">
+                                    <div class="input-group-append">
+                                       <span class="input-group-text"><img src="lib/img/password.svg"></span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="form-group col-xl-6 col-lg-6 col-md-12 col-12">
+                                 <div class="input-group">
+                                    <select id="user-type" name="user-type" class="select form-control">
+                                       <option value="">User Type</option>
+                                       <option value="">option1</option>
+                                       <option value="">option2</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="form-group col-xl-12 col-lg-12 col-md-12 col-12">
+                                 <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S"
+                                    data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                                 <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha">
+                                 <div class="form-text with-errors"></div>
+                              </div>
+                              <div class="form-group col-xl-12 col-lg-12 col-md-12 col-12">
+                                 <button id="btnShowAlert" type="submit" class="btn btn-primary login-button reg-btn ">Register</button>
+                              </div>
+                           </form>
+                        </div>
+                        <div class="login_footer"> <span>Already registered? <a href="login.html"><b>Login Here</b></a></span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js"></script>
+      <script type="text/javascript" src="lib/js/bootstrap.min.js"></script>
+      <script src='https://www.google.com/recaptcha/api.js'></script>
+      <script type="text/javascript" src="lib/js/jquery.validate.js"></script>
+      <script>
+         $(document).ready(function() {
+             $('#register_form').validate();
+         });
+      </script>
+      <!--<script type="text/javascript">
+         $("#btnShowAlert").click(function() {    
+           swal({
+               position: 'top-end',
+               type: 'success',
+               title: 'You are Successfully Logged In!',
+               showConfirmButton: false,
+               timer: 1500
+              });
+           });
+         </script>-->
+   </body>
+</html>
