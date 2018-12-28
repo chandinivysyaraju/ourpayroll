@@ -69,8 +69,11 @@ section.bel_dashboard_sec1 .leftbar_menus ul>li.active>a>svg{
      width: 25px;
 }
 section.bel_dashboard_sec1 .leftbar_menus ul>li.active>a>svg g {
-   stroke: #ffffff;
-       fill: #ffffff;
+    stroke: #ffffff;
+}
+section.bel_dashboard_sec1 .leftbar_menus ul>li:nth-child(2).active>a>svg g {
+    stroke: #ffffff;
+    fill: #ffffff;
 }
 
 header.bel_dashboard_header .profile h6 {
@@ -97,6 +100,7 @@ section.bel_dashboard_sec1 .leftbar_menus ul>li.active a {
     background: #3534F1;
 }
 section.bel_dashboard_sec1 .leftbar_menus ul>li.active a {
+    width: 110px;
     background: #3534F1;
     display: inline-block;
     color: #fff;
@@ -243,18 +247,6 @@ td.table_viewbtn a{
     border-radius: 12px;
     padding: 7px 15px;
         display: inline-block;
-}
-.btn-danger {
-    color: #ffffff;
-    border: 1px solid red;
-    border-radius:12px;
-    padding: 7px 15px;
-}
-.btn-primary {
-    color: #ffffff;
-    border: 1px solid blue;
-    border-radius:12px;
-    padding: 7px 15px;
 }
 td.table_prppic a img {
     border-radius: 50px;
@@ -632,6 +624,8 @@ form#payslip label {
 form#payslip label span {
     float: right;
 }
+::placeholder{font-size:12px;opacity:0.6 !important}
+
 #issCertify .topsec {
     margin: auto;
 }
@@ -666,6 +660,7 @@ form#payslip label span {
     border-radius: 5px;
     border-width: 2px;
      font-weight: 700;
+	 width:125px
 }
 #issCertify button.btn.btn-default {
     border-color: #415BF6;
@@ -686,6 +681,392 @@ form#payslip label span {
     font-weight: 700;
     padding: 0px 25px;
 }
+#add-user .topsec {
+    margin: auto;
+}
+#add-user .topsec svg {
+    background: #415BF6;
+    border-radius: 50px;
+    padding: 10px;
+}
+#add-user .modal-header {
+    background: #3535F0;
+    padding-bottom: 100px;
+    border: 0;
+    border-radius: 10px;
+}
+#add-user .modal-body {
+    position: relative;
+    width: 95%;
+    margin: auto;
+    padding: 35px 10px 30px;
+    top: -75px;
+    background: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+}
+#add-user .modal-content {
+    background: transparent;
+    border: 0;
+}
+#add-user button.btn.btn-info.btn-lg {
+    background: #415BF6;
+    border-color: #415BF6;
+    border-radius: 5px;
+    border-width: 2px;
+     font-weight: 700;
+	 width:125px
+}
+#add-user button.btn.btn-default {
+    border-color: #415BF6;
+    background: #ffffff;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #3535f0;
+    font-weight: 700;
+}
+
+#add-user p.p1{
+    color: #415BF6;
+    font-weight: 700;
+    padding: 0px 25px;
+}
+#add-authorizer .topsec {
+    margin: auto;
+}
+#add-authorizer .topsec svg {
+    background: #415BF6;
+    border-radius: 50px;
+    padding: 10px;
+}
+#add-authorizer .modal-header {
+    background: #3535F0;
+    padding-bottom: 100px;
+    border: 0;
+    border-radius: 10px;
+}
+#add-authorizer .modal-body {
+    position: relative;
+    width: 95%;
+    margin: auto;
+    padding: 35px 10px 30px;
+    top: -75px;
+    background: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+}
+#add-authorizer .modal-content {
+    background: transparent;
+    border: 0;
+}
+#add-authorizer button.btn.btn-info.btn-lg {
+    background: #415BF6;
+    border-color: #415BF6;
+    border-radius: 5px;
+    border-width: 2px;
+     font-weight: 700;
+	 width:125px
+}
+#add-authorizer button.btn.btn-default {
+    border-color: #415BF6;
+    background: #ffffff;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #3535f0;
+    font-weight: 700;
+}
+
+#add-authorizer p.p1{
+    color: #415BF6;
+    font-weight: 700;
+    padding: 0px 25px;
+}
+#wallet_onload .topsec {
+    margin: auto;
+}
+#wallet_onload .topsec svg {
+    background: #415BF6;
+    border-radius: 50px;
+    padding: 10px;
+}
+#wallet_onload .modal-header {
+    background: #3535F0;
+    padding-bottom: 100px;
+    border: 0;
+    border-radius: 10px;
+}
+#wallet_onload .modal-body {
+    position: relative;
+    width: 95%;
+    margin: auto;
+    padding: 35px 10px 30px;
+    top: -75px;
+    background: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+}
+#wallet_onload .modal-content {
+    background: transparent;
+    border: 0;
+}
+#wallet_onload button.btn.btn-info.btn-lg {
+    background: #415BF6;
+    border-color: #415BF6;
+    border-radius: 5px;
+    border-width: 2px;
+     font-weight: 700;
+	 width:125px
+}
+#wallet_onload button.btn.btn-default {
+    border-color: #415BF6;
+    background: #ffffff;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #3535f0;
+    font-weight: 700;
+}
+
+#wallet_onload p.p1{
+    color: #8F8F8F;
+    font-weight: 700;
+    padding: 0px 25px;
+}
+#recieve .topsec {
+    margin: auto;
+}
+#recieve .topsec svg {
+    background: #415BF6;
+    border-radius: 50px;
+    padding: 10px;
+}
+#recieve .modal-header {
+    background: #3535F0;
+    padding-bottom: 100px;
+    border: 0;
+    border-radius: 10px;
+}
+#recieve .modal-body {
+    position: relative;
+    width: 95%;
+    margin: auto;
+    padding: 35px 10px 30px;
+    top: -75px;
+    background: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+}
+#recieve .modal-content {
+    background: transparent;
+    border: 0;
+}
+#recieve button.btn.btn-info.btn-lg {
+    background: #415BF6;
+    border-color: #415BF6;
+    border-radius: 5px;
+    border-width: 2px;
+     font-weight: 700;
+	 width:125px
+}
+#recieve button.btn.btn-default {
+    border-color: #415BF6;
+    background: #ffffff;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #3535f0;
+    font-weight: 700;
+}
+
+#recieve p.p1{
+    color: #415BF6;
+    font-weight: 700;
+    padding: 0px 25px;
+}
+#recieve p.p2{
+    color: #8F8F8F;
+    font-weight: 500;
+    padding: 0px 25px;
+}
+#dapp .topsec {
+    margin: auto;
+}
+#dapp .topsec svg {
+    background: #415BF6;
+    border-radius: 50px;
+    padding: 10px;
+}
+#dapp .modal-header {
+    background: #3535F0;
+    padding-bottom: 100px;
+    border: 0;
+    border-radius: 10px;
+}
+#dapp .modal-body {
+    position: relative;
+    width: 95%;
+    margin: auto;
+    padding: 35px 10px 30px;
+    top: -75px;
+    background: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+}
+#dapp .modal-content {
+    background: transparent;
+    border: 0;
+}
+#dapp button.btn.btn-info.btn-lg {
+    background: #415BF6;
+    border-color: #415BF6;
+    border-radius: 5px;
+    border-width: 2px;
+     font-weight: 700;
+	 width:125px
+}
+#dapp button.btn.btn-default {
+    border-color: #415BF6;
+    background: #ffffff;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #3535f0;
+    font-weight: 700;
+}
+
+#dapp p.p1{
+    color: #415BF6;
+    font-weight: 700;
+    padding: 0px 25px;
+}
+#dapp p.p2{
+    color: #8F8F8F;
+    font-weight: 500;
+    padding: 0px 25px;
+}
+#reg-dapp .topsec {
+    margin: auto;
+}
+#reg-dapp .topsec svg {
+    background: #415BF6;
+    border-radius: 50px;
+    padding: 10px;
+}
+#reg-dapp .modal-header {
+    background: #3535F0;
+    padding-bottom: 100px;
+    border: 0;
+    border-radius: 10px;
+}
+#reg-dapp .modal-body {
+    position: relative;
+    width: 95%;
+    margin: auto;
+    padding: 35px 10px 30px;
+    top: -75px;
+    background: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+}
+#reg-dapp .modal-content {
+    background: transparent;
+    border: 0;
+}
+#reg-dapp button.btn.btn-info.btn-lg {
+    background: #415BF6;
+    border-color: #415BF6;
+    border-radius: 5px;
+    border-width: 2px;
+     font-weight: 700;
+	  width:125px
+}
+#reg-dapp button.btn.btn-default {
+    border-color: #415BF6;
+    background: #ffffff;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #3535f0;
+    font-weight: 700;
+}
+
+#reg-dapp p.p1{
+    color: #415BF6;
+    font-weight: 700;
+    padding: 0px 25px;
+}
+#reg-dapp p.p2{
+    color: #8F8F8F;
+    font-weight: 500;
+    padding: 0px 25px;
+}
+
+#register_pop .topsec {
+    margin: auto;
+}
+#register_pop .topsec svg {
+    background: #415BF6;
+    border-radius: 50px;
+    padding: 10px;
+}
+#register_pop .modal-header {
+    background: #F8F8F9;
+    padding-bottom: 100px;
+    border: 0;
+    border-radius: 10px;
+}
+#register_pop .modal-body {
+    position: relative;
+    width: 95%;
+    margin: auto;
+    padding: 35px 10px 30px;
+    top: -75px;
+    background: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+	box-shadow: 0px 2px 15px 1px #00000017;
+}
+#register_pop .modal-content {
+    background: transparent;
+    border: 0;
+}
+#register_pop button.btn.btn-info.btn-lg {
+    background: #415BF6;
+    border-color: #415BF6;
+    border-radius: 5px;
+    border-width: 2px;
+     font-weight: 700;
+	 width:125px
+}
+#register_pop button.btn.btn-default {
+    border-color: #415BF6;
+    background: #ffffff;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #3535f0;
+    font-weight: 700;
+}
+#register_pop h3.p1 {
+    color: #6A82B4;
+    font-weight: 700;
+padding: 0px 25px;
+font-size:22px}
+
+#register_pop p.p2 {
+    color: #000;
+    font-weight: 700;
+    padding: 0px 25px;
+}
+#register_pop p.p3 {
+    color: #8F8F8F;
+    font-weight: 700;
+    padding: 0px 25px;
+	font-size:13px
+}
+
 .enter_details h4 {
     color: #6A82B4;
     font-size: 18px;
@@ -872,6 +1253,69 @@ label.searchfaicon {
     color: #ffffff;
     font-weight: 700;
 }
+#add-user a.btn.btn-info.btn-lg {
+    border-color: #415BF6;
+    background: #415BF6;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #ffffff;
+    font-weight: 700;
+}
+#add-authorizer a.btn.btn-info.btn-lg {
+    border-color: #415BF6;
+    background: #415BF6;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #ffffff;
+    font-weight: 700;
+}
+#recieve a.btn.btn-info.btn-lg {
+    border-color: #415BF6;
+    background: #415BF6;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #ffffff;
+    font-weight: 700;
+}
+#wallet_onload a.btn.btn-info.btn-lg {
+    border-color: #415BF6;
+    background: #415BF6;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #ffffff;
+    font-weight: 700;
+}
+#register_pop a.btn.btn-info.btn-lg {
+    border-color: #415BF6;
+    background: #415BF6;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #ffffff;
+    font-weight: 700;
+}
+#dapp a.btn.btn-info.btn-lg {
+    border-color: #415BF6;
+    background: #415BF6;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #ffffff;
+    font-weight: 700;
+}
+#reg-dapp a.btn.btn-info.btn-lg {
+    border-color: #415BF6;
+    background: #415BF6;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #ffffff;
+    font-weight: 700;
+}
 tr.dtable_search th input[type="text"] {
     border-radius: 5px;
     border-top: 1px solid #d6d6d6;
@@ -910,12 +1354,58 @@ label.auth_search {
     top: -32px;
     float: right;
 }
+div#authorizer {
+    background: #fff;
+}
+
 
 
 @media (min-width: 576px){
     #issCertify .modal-dialog {
         max-width: 350px;
         margin: 7.75rem auto;
+    }
+}
+@media (min-width: 576px){
+    #add-user .modal-dialog {
+        max-width: 350px;
+        margin: 3.75rem auto;
+    }
+}
+@media (min-width: 576px){
+    #add-authorizer .modal-dialog {
+        max-width: 350px;
+        margin: 3.75rem auto;
+    }
+}
+@media (min-width: 576px){
+    #recieve .modal-dialog {
+        max-width: 350px;
+        margin: 3.75rem auto;
+    }
+}
+@media (min-width: 576px){
+    #wallet_onload .modal-dialog {
+        max-width: 350px;
+        margin: 3.75rem auto;
+    }
+}
+@media (min-width: 576px){
+    #register_pop .modal-dialog {
+        max-width: 450px;
+        margin: 3.75rem auto;
+    }
+}
+@media (min-width: 576px){
+    #dapp .modal-dialog {
+        max-width: 350px;
+        margin: 3.75rem auto;
+    }
+}
+@media (min-width: 576px){
+    #reg-dapp .modal-dialog {
+        max-width: 350px;
+        margin: 3.75rem auto;
     }
 }
 @media(min-width: 1280px){

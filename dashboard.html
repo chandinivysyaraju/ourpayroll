@@ -24,7 +24,7 @@
         <script src="constant.js"></script>
     </head>
     
-    <body onload="issueDashboard();">
+    <body onload="model(); issueDashboard();">
         <header class="bel_dashboard_header">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg navbar-light land_page menubar navbar-expand-md">
@@ -35,7 +35,7 @@
                     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                        <ul class="nav navbar-nav menu">
+                        <ul class="nav navbar-nav menu" id='heading_list'>
                             <li class="active nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/issuenewcertificate.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Issue New Payslip</a>
                             </li>
                             <li class="nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/superadmin.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Super Admin</a>
