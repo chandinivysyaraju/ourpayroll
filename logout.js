@@ -1,4 +1,4 @@
 "use strict";  
-    $("#logout").click(function(){
+    function logout(){
         localStorage.clear;
-});
+}

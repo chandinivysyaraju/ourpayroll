@@ -45,7 +45,7 @@
                             </li>
                             <li class="nav-item"><a href="kyc.html" class="nav-link"><img class="menuicon n" src="lib/img/kyc.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Update KYC</a>
                             </li>
-                            <li class="nav-item logout"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/logout.svg"><img class="menuicon a" id="logout" src=""></a>
+                            <li class="nav-item logout"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/logout.svg"><img class="menuicon a" onclick="logout()" src=""></a>
                             </li>
                         </ul>
                     </div>
@@ -56,8 +56,8 @@
                     <div class="col-xl-2 col-lg-3 col-md-3 col-12 nopadding leftmenu">
                     	<div class="profile">
                         	<img src="lib/img/profile.jpg" width="60">
-                        	<h6>Srini Rajkumar</h6>
-                        	<p>Belfrics BT Private Limited</p>
+                        	<h6 id="username"></h6>
+                        	<p id="company"></p>
                         	<h4 id="balance"></h4>
                         	<p>Available Balance</p>
                         </div>
@@ -81,7 +81,7 @@
                                             </g>
                                         </g>
                                     </svg>Dashboard </a></li>                                		
-                        		<li><a href="#">
+                        		<li><a href="certificate.html">
                                     <svg width="35px" height="35px" viewBox="0 0 29 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <title>Payslip</title>
                                         <g id="new" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -90,7 +90,7 @@
                                             </g>
                                         </g>
                                     </svg>Payslip </a></li>
-                        		<li><a href="#">
+                        		<li><a href="wallet.html">
                                     <svg width="35px" height="35px" viewBox="0 0 25 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <title>Wallet</title>
                                         <g id="new" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
@@ -184,7 +184,7 @@
                                 </div>
                                 <div class="col-xl-8 col-lg-8 col-md-8 col-12">
                                     <div class="wallet_details">
-                                        <h5>Recent Payslip issued <span><a href="#"><img src="lib/img/issuenewcertificate.svg">&nbsp;&nbsp; Issue New Payslip</a></span></h5>
+                                        <h5  >Recent Payslip issued <span><a id="issue" href="#"><img src="lib/img/issuenewcertificate.svg">&nbsp;&nbsp; Issue New Payslip</a></span></h5>
                                     </div>                                  
                                     
                                     <div class="certify_issued">

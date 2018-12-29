@@ -2,27 +2,24 @@ const count_countries=253;
 var countryData;
 var countrycode,countryid;
 $(document).ready(function(){
-    var lastName,name,email,password,type;
+    var lastName,username,email,password,type;
  var email = localStorage.getItem("email");  
 document.getElementById("email").setAttribute("value",email);
     $("#register").click(async function(){
         //if(signupValidation()){
-         console.log("hai");
-         console.log(countryData);
-         console.log(countryid);
         email=escapeInput($("#email").val());
         lastName=escapeInput($("#companyname").val());
-        name=escapeInput($("#companyname").val());
+        username=escapeInput($("#username").val());
         password=escapeInput($("#Password").val());
         var e = document.getElementById("user-type");
-        var type = e.options[e.selectedIndex].text;
+        type = e.options[e.selectedIndex].text;
         console.log(type);
         data={
             countryCode:countrycode,
             countryId: countryid,
             email:email,
             lastName:lastName ,
-            name: name,
+            name: username,
             password: password,
             type:type
         }
@@ -30,8 +27,11 @@ document.getElementById("email").setAttribute("value",email);
         const signupResponse= await checkSignup(data);
         console.log(signupResponse);
         if(signupResponse["isSuccess"]==true){
+            localStorage.setItem("company",lastName);
+            localStorage.setItem("username",username);
+            localStorage.setItem("countryid",countryid);
+            localStorage.setItem("countrycode",countrycode);
             window.location.href="login.html";
-
         }
         else{
             $("#message").html("signup failed");
