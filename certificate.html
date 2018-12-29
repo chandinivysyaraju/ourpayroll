@@ -17,6 +17,7 @@
         <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/datatables.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/custom.css">
+        <script src="certificate.js"></script>
     </head>
     
     <body>
@@ -117,9 +118,9 @@
                     <div class="col-xl-10 col-lg-9 col-md-9 col-12 nopadding rightside certificate_sec">
                         <div class="col-xl-12 col-xl-12 col-lg-12 col-12 nopadding certificate">
                             <div class="card">
-                                <ul class="nav nav-tabs" role="tablist">
+                                <ul class="nav nav-tabs" role="tablist" id='testing_list'>
                                     <li role="presentation" class="nav-item"><a href="#issuer" aria-controls="issuer" role="tab" class="active show nav-link" data-toggle="tab">ISSUER</a></li>
-                                    <li role="presentation" class="nav-item"><a href="#issue_new_certificate" aria-controls="issue_new_certificate" role="tab" data-toggle="tab" class="nav-link">ISSUE NEW CERTIFICATE</a></li>
+                                    <!-- <li role="presentation" class="nav-item"><a href="#issue_new_certificate" aria-controls="issue_new_certificate" role="tab" data-toggle="tab" class="nav-link">ISSUE NEW CERTIFICATE</a></li> -->
                                     <li role="presentation" class="nav-item"><a href="#certificates_issued" aria-controls="certificates_issued" role="tab" data-toggle="tab" class="nav-link">CERTIFICATES ISSUED</a></li>
                                 </ul>
                                 <div class="tab-content">
@@ -132,7 +133,7 @@
                                                         <label class="searchfaicon"><i class="fa fa-search" aria-hidden="true"></i></label>
                                                     </div>
                                                     <div class="form-group col-md-2 col-12">
-                                                         <input type="text" placeholder="08 / 2018" class="form-control col-md-12 col-12 datebtn">
+                                                         <input type="text" id="getDate" placeholder="mm-yyyy" class="form-control col-md-12 col-12 datebtn" onchange="getEmployees()">
                                                          <label class="calender_icon"><img src="lib/img/calendaricon.svg"></label>
                                                     </div>
                                                     <div class="form-group col-md-3 col-12">
@@ -149,10 +150,6 @@
                                                             <th style="border-top: 1px solid #d6d6d6;">Employee ID</th>
                                                             <th  style="border-top: 1px solid #d6d6d6;">Employee Name</th>
                                                             <th  style="border-top: 1px solid #d6d6d6;">Designation</th>
-                                                            <th  style="border-top: 1px solid #d6d6d6;">Bank</th>
-                                                            <th  style="border-top: 1px solid #d6d6d6;">Account Number</th>
-                                                            <th  style="border-top: 1px solid #d6d6d6;">Pan Number</th>
-                                                            <th  style="border-top: 1px solid #d6d6d6;">Salary</th>
                                                             <th  style="border-top: 1px solid #d6d6d6;">Status</th>
                                                         </tr>
                                                     </thead>
@@ -189,136 +186,152 @@
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control" name="designation" id="designation" placeholder="Designation" required>
                                                                 </div>
+                                                            </div>    
+                                                            <div class="form-group">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" name="bank" id="bank" placeholder="Bank" required>
+                                                            </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" name="account number" id="accountnumber" placeholder="Account Number" required>
+                                                                    </div>
+                                                            </div>        
+                                                            <div class="form-group">
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" name="pan" id="pan" placeholder="Pan" required>
+                                                                    </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" name="actual_salary" id="actual_salary" placeholder="Actual Salary" required>
+                                                                    <input type="text" class="form-control" name="basic pay" id="salary" placeholder="Basic Pay" required>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <div class="input-group">
-                                                                    <input type="date" class="form-control" name="monthc" id="monthc" placeholder="Month" required>
+                                                                    <input type="text" class="form-control" name="month" id="date" placeholder="Month and Year" required>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <div class="input-group">
-                                                                    <input type="date" class="form-control" name="yearc" id="yearc" placeholder="Year" required>
+                                                                    <input type="text" class="form-control" name="hra" id="hra" placeholder="HRA" required>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" name="lop" id="lop" placeholder="Loss of pay" required>
+                                                                    <input type="text" class="form-control" name="lta" id="lta" placeholder="LTA" required>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" name="pending_amt" id="pending_amt" placeholder="Pending Amount" required>
+                                                                    <input type="text" class="form-control" name="ma" id="ma" placeholder="MA" required>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" name="ptdeduction" id="ptdeduction" placeholder="PT Deduction" required>
+                                                                    <input type="text" class="form-control" name="provident fund" id="pf" placeholder="Provident Fund" required>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group">
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control" name="tds_deduction" id="tds_deduction" placeholder="TDS Deduction" required>
+                                                                    <input type="text" class="form-control" name="professional tax" id="pt" placeholder="Professional Tax" required>
                                                                 </div>
                                                             </div>
-                                                            <div class="form-group">
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control" name="reimbursement" id="reimbursement" placeholder="Reimbursement" required>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group ">
-                                                                <input type="submit" class="btn btn-primary btn-lg"
-                                                                value="Generate Certificate">
-                                                            </div>                  
+                                                                              
                                                         </form>
+                                                        <div class="form-group ">
+                                                                <input type="submit" class="btn btn-primary btn-lg" onclick="generate();" value="Generate Certificate">
+                                                            </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-8 col-lg-8 col-md-8 col-12 nopadding right">
-                                                    <div class="iss_new_certify_payslip">
-                                                        <div class="title_sec_certify">
-                                                            <h4>PAY SLIP</h4>
-                                                            <h5>Belfrics BT Private Limited</h5>
+                                                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding">
+                                                            <div class="col-12 nopadding iss_new_certify">
+                                                                <div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding ">
+                                                                    <div class="iss_new_certify_payslip">
+                                                                        <div class="title_sec_certify">
+                                                                            <h4>PAY SLIP</h4>
+                                                                            <h5>Belfrics BT Private Limited</h5>
+                                                                        </div>
+                                                                        <form class="form-inline" role="form" method="post" action="#" id="payslip">
+                                                                            <div class="form-group col-md-6 col-12">
+                                                                                <label for="ps_empname" class="col-md-5 col-12">Employee name <span>:</span></label>
+                                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_empname" name="ps_empname">
+                                                                            </div>
+                                                                            <div class="form-group col-md-6 col-12">
+                                                                                <label for="ps_designation" class="col-md-5 col-12">Designation <span>:</span></label>
+                                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_designation" name="ps_designation"> 
+                                                                            </div>
+                                                                            <div class="form-group col-md-6 col-12">
+                                                                                <label for="ps_idnum" class="col-md-5 col-12">Employee ID <span>:</span></label>
+                                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_idnum" name="ps_idnum"> 
+                                                                            </div>
+                                                                            <div class="form-group col-md-6 col-12">
+                                                                                <label for="ps_pay" class="col-md-5 col-12">Pay <span>:</span></label>
+                                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_pay" name="ps_pay"> 
+                                                                            </div>
+                                                                            <div class="form-group col-md-6 col-12">
+                                                                                <label for="ps_paycycle" class="col-md-5 col-12">Paycycle <span>:</span></label>
+                                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_paycycle" name="ps_paycycle"> 
+                                                                            </div>
+                                                                            <div class="form-group col-md-6 col-12">
+                                                                                <label for="ps_bankdetails" class="col-md-5 col-12">Bank Details <span>:</span></label>
+                                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_bankdetails" name="ps_bankdetails"> 
+                                                                            </div>
+                                                                      </form>
+                                                                    </div>
+                                                                    <div class="iss_new_certify_earnings">
+                                                                        <div class="table-responsive">
+                                                                            <table class="display" style="width:100%;">
+                                                                              <tr>
+                                                                                <th>Earnings</th>
+                                                                                <th>Amount</th>
+                                                                              </tr>
+                                                                              <tr>
+                                                                                <td>Basic Salary</td>
+                                                                                <td>$<span  id="basic"></span></td>
+                                                                              </tr>
+                                                                              <tr>
+                                                                                <td>Allowances</td>
+                                                                                <td>$ <span id="allowances"></span></td>
+                                                                              </tr>
+                                                                              <tr>
+                                                                                <td>Total Earnings</td>
+                                                                                <td>$ <span id="earnings"></span></td>
+                                                                              </tr>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="iss_new_certify_deductions">
+                                                                        <div class="table-responsive">
+                                                                            <table class="display" style="width:100%;">
+                                                                              <tr>
+                                                                                <th>Deductions</th>
+                                                                                <th>Amount</th>
+                                                                              </tr>
+                                                                              <tr>
+                                                                                <td>professionalTax</td>
+                                                                                <td>$ <span id="pt"></span></td>
+                                                                              </tr>
+                                                                              <tr>
+                                                                                <td>providentFund</td>
+                                                                                <td>$ <span id="pf"></span></td>
+                                                                              </tr>
+                                                                              <tr>
+                                                                                <td>Total Deductions</td>
+                                                                                <td>$ <span id="total"></span></td>
+                                                                              </tr>
+                                                                            </table>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="iss_new_certify_netsal">
+                                                                        <h4>Net Salary: $<span id="netsalary"></span></h4>
+                                                                        <p id="words"></p>
+                                                                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#issCertify" onclick="signhere()">Sign</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <form class="form-inline" role="form" method="post" action="#" id="payslip">
-                                                            <div class="form-group col-md-6 col-12">
-                                                                <label for="ps_empname" class="col-md-5 col-12">Employee name <span>:</span></label>
-                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_empname" name="ps_empname">
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-12">
-                                                                <label for="ps_pay" class="col-md-5 col-12">Pay <span>:</span></label>
-                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_pay" name="ps_pay"> 
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-12">
-                                                                <label for="ps_idnum" class="col-md-5 col-12">ID Number <span>:</span></label>
-                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_idnum" name="ps_idnum"> 
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-12">
-                                                                <label for="ps_paycycle" class="col-md-5 col-12">Paycycle <span>:</span></label>
-                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_paycycle" name="ps_paycycle"> 
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-12">
-                                                                <label for="ps_bankdetails" class="col-md-5 col-12">Bank Details <span>:</span></label>
-                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_bankdetails" name="ps_bankdetails"> 
-                                                            </div>
-                                                      </form>
-                                                    </div>
-                                                    <div class="iss_new_certify_earnings">
-                                                        <div class="table-responsive">
-                                                            <table class="display" style="width:100%;">
-                                                              <tr>
-                                                                <th>Earnings</th>
-                                                                <th>Amount</th>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>Basic Salary</td>
-                                                                <td>$ 6600</td>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>Reimbursement</td>
-                                                                <td>$ 50</td>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>Total Earnings</td>
-                                                                <td>$ 6650</td>
-                                                              </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div class="iss_new_certify_deductions">
-                                                        <div class="table-responsive">
-                                                            <table class="display" style="width:100%;">
-                                                              <tr>
-                                                                <th>Deductions</th>
-                                                                <th>Amount</th>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>Tax Deducted at source (T.D.S.)</td>
-                                                                <td>$ 20</td>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>UIF</td>
-                                                                <td>$ 5</td>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>Other</td>
-                                                                <td>$ 35</td>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>Total Deductions</td>
-                                                                <td>$ 60</td>
-                                                              </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div class="iss_new_certify_netsal">
-                                                        <h4>Net Salary: $ 6590</h4>
-                                                        <p>(Six thousand five hundred and ninety only)</p>
-                                                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#issCertify">Issue Certificate</button>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
