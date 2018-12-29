@@ -16,6 +16,8 @@
       <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="lib/css/datatables.min.css">
       <link rel="stylesheet" type="text/css" href="lib/css/custom.css">
+      <script src="wallet.js"></script>
+      <script src="constant.js"></script>
       <style>   
          span.validthru {position: absolute;top: 6px;left: 67px;font-size: 24px;}
          div#example1_length , div#example1_filter {display: none;}
@@ -58,7 +60,7 @@
 
       </style>
    </head>
-   <body>
+   <body onload="model();">
       <header class="bel_dashboard_header">
          <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light land_page menubar navbar-expand-md">
@@ -69,7 +71,7 @@
                   aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
                </button>
                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                  <ul class="nav navbar-nav menu">
+                  <ul class="nav navbar-nav menu" id="heading_list">
                      <li class="active nav-item"><a href="certificate.html" class="nav-link"><img class="menuicon n" src="lib/img/issuenewcertificate.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Issue New Certificate</a>
                      </li>
                      <li class="nav-item"><a href="superadmin.html" class="nav-link"><img class="menuicon n" src="lib/img/superadmin.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Super Admin</a>
