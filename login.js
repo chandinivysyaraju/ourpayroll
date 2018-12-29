@@ -1,4 +1,6 @@
 var token,secret,email,password;
+var email=localStorage.getItem("email");
+document.getElementById("email").setAttribute("value",email);
 $(document).ready(function(){
     $("#login").click(async function(){
     // console.log(email,password);
@@ -100,35 +102,15 @@ $(document).ready(function(){
     {
         const data=await checkRole();
         var roleid=data.role;
+        var dappid=data.dappid;
         localStorage.setItem("roleId",roleid);
             if((roleid==="new user")||(roleid==="superuser")||(roleid==="issuer")||(roleid==="authorizer"))
             {
+                localStorage.setItem("dappid",dappid)
                 console.log(roleid);
                window.location.href="dashboard.html";
-              // superuser();
             }
-            // else if(roleid==="superuser")
-            // {
-            //     console.log(roleid);
-            //     localStorage.setItem("dappid",data.dappid);
-            //   //  window.location.href="../Admin/AdminDashboard.html";
-            //   superuser();
-
-            // }
-            // else if(roleid==="issuer")
-            // {
-            //     console.log(roleid);
-            //     localStorage.setItem("dappid",data.dappid);
-            //     //window.location.href="../Dashboard/Dashboard.html";
-            //     issuer();
-            // }
-            // else if(roleid==="authorizer")
-            // {
-            //     console.log(roleid);
-            //     localStorage.setItem("dappid",data.dappid);
-            //    // window.location.href="../Authorizer/Authorizer.html";
-            //    authorizer();
-            // }
+          
             else
             {
                 console.log("Invalid user role identified...");
