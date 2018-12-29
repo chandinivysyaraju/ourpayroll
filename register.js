@@ -1,40 +1,58 @@
-var lastName,name,email,password,type,countrycode,countryid;
-var countryData;
 const count_countries=253;
+var countryData;
+var countrycode,countryid;
 $(document).ready(function(){
-// var email = localStorage.getItem("Email");  
-// document.getElementById("email").setAttribute("value",email);
+    var lastName,name,email,password,type;
+ var email = localStorage.getItem("email");  
+document.getElementById("email").setAttribute("value",email);
     $("#register").click(async function(){
         //if(signupValidation()){
-            console.log("hai");
+         console.log("hai");
+         console.log(countryData);
+         console.log(countryid);
         email=escapeInput($("#email").val());
-        lastName=escapeInput($("#name").val());
-        name=escapeInput($("#name").val());
-        password=escapeInput($("#password").val());
-        type=escapeInput($("#user-type").val());
-        const signupResponse= await checkSignup();
+        lastName=escapeInput($("#companyname").val());
+        name=escapeInput($("#companyname").val());
+        password=escapeInput($("#Password").val());
+        var e = document.getElementById("user-type");
+        var type = e.options[e.selectedIndex].text;
+        console.log(type);
+        data={
+            countryCode:countrycode,
+            countryId: countryid,
+            email:email,
+            lastName:lastName ,
+            name: name,
+            password: password,
+            type:type
+        }
+        console.log(data);
+        const signupResponse= await checkSignup(data);
+        console.log(signupResponse);
         if(signupResponse["isSuccess"]==true){
-            console.log(signupResponse);
-            window.location.href="../Login/Login.html";
+            window.location.href="login.html";
 
         }
         else{
             $("#message").html("signup failed");
+            console.log("registration failed");
         }
    // }
 });
 });
-async function checkSignup()
+async function checkSignup(data)
 {
+    var params={
+        type: 'post',
+        url: HOST_URL+"/"+SDAPP_ID+"/"+"user/signup",
+        data: JSON.stringify(data),
+        contentType: 'application/json;charset=UTF-8',
+        dataType: 'json'
+    }
+    console.log(params.data);
     let result;
         try{
-               result=await $.ajax({
-                   type: 'post',
-                   url: HOST_URL+"/"+SDAPP_ID+"/"+"user/signup",
-                   data: '{"countryCode":"' + countrycode +'","countryId":"' + countryid +'","email":"' + email +'","lastName":"' + lastName +'","name":"' + name +'","password":"' + password +'","type":"' + type +'"}',
-                   contentType: 'application/json;charset=UTF-8',
-                   dataType: 'json'
-               });
+               result=await $.ajax(params);
                return result;
             }
             catch(error){
@@ -84,4 +102,5 @@ function countryValidator(){
     console.log(countryData['data'][i]['countryID']);
     countrycode=countryData['data'][i]['countryCode'];
     countryid=countryData['data'][i]['countryID']
+    
 }
