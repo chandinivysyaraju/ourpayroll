@@ -1,4 +1,7 @@
 var prevTextBoxText = '';
+var countryData;
+const count_countries=253;
+
 
 setInterval(function(){
   searchBoxText=document.getElementById('search').value;
@@ -68,4 +71,29 @@ catch (error){
     console.log(error);
     }
   }
+}
+
+function getCountries()
+{
+    $.get("http://54.254.174.74:8080/api/v1/countries",function(data){
+        // console.log(data);
+        countryData = data;
+        var x = document.getElementById("countrycode");
+        for(var i=0 ;i<count_countries;i++){
+            var option = document.createElement("option");
+            option.text = countryData['data'][i]['countryName'];
+            x.add(option);
+        }
+    });
+}
+
+function countryValidator(){
+    var e = document.getElementById("countrycode");
+    // console.log(e);
+    var strUser = e.options[e.selectedIndex].text;
+    // console.log(e.options[e.selectedIndex]);
+    var i=e.selectedIndex-1;
+    console.log(strUser);
+    console.log(countryData['data'][i]['countryCode']);
+    console.log(countryData['data'][i]['countryID']);
 }
