@@ -19,9 +19,17 @@
         <link rel="stylesheet" type="text/css" href="lib/css/custom.css">
         <script src="members.js"></script>
         <script src="constant.js"></script>
+        <style type="text/css">
+            .regemppro img {margin: auto;}
+            .regemppro img.pro2 {position: relative;top: -25px;}
+            div#reg-new-emp form#register-new-emplyoee {padding: 5px 35px;}
+            .reg_btn { width: 125px; margin-left: 10px; position: relative;}
+            .mem_btn1{ margin-right: 15px; margin-top: 12px;}
+            .mem_btn2{ margin-left: 15px; margin-top: 12px;}
+        </style>
     </head>
     
-    <body onload="model(); memberDashboard()">
+    <body onload="getCountries();model(); memberDashboard()">
         <header class="bel_dashboard_header">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg navbar-light land_page menubar navbar-expand-md">
@@ -130,7 +138,7 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <a id="reg" href="#"><img src="lib/img/employee1.svg">&nbsp;&nbsp; Register New Employee</a>
+                                            <a href="#" id="reg" data-toggle="modal" data-target="#reg-new-emp"><img src="lib/img/employee1.svg">&nbsp;&nbsp; Register New Employee</a>
                                         </li>
                                     </ul>
                                     
@@ -147,7 +155,112 @@
             </div>
         </section>
         
-        
+        <!--Register New Employee Modal -->
+      <div id="reg-new-emp" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+               <!-- Modal content-->
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <div class="topsec">
+                        <img src="lib/img/regnewemp.svg">
+                     </div>
+                  </div>
+                  <div class="modal-body">
+                     <p class="p1">Register New Employee</p>
+                     <form class="dapp-balance" action="" method="post" id="register-new-emplyoee">
+                       <div class="form-group row regemppro">
+                           <div class="col-12">
+                              <label for="emp_profile">
+                                   <img class="pro1" src="lib/img/regnewemp1.svg">
+                               </label>
+                           </div>
+                           <div class="col-12" style=" margin-bottom: -30px;">
+                               <label for="emp_profile">
+                                  <img class="pro2" src="lib/img/camera.svg">
+                              </label>
+                           </div>
+                        </div>
+                       <div class="form-group row" style="display: none;">
+                           <div class="col-12">
+                              <div class="input-group">
+                                 <input id="emp_profile" name="emp_profile" type="file" required="required" class="form-control here"> 
+                              </div>
+                           </div>
+                        </div>
+                       <div class="form-group row">
+                           <div class="col-6">
+                              <div class="input-group">
+                                 <select name="countrycode" id="countrycode" class="form-control" onclick="countryValidator()">
+                                     <option>Country Code</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="input-group">
+                                 <input id="email" name="email" placeholder="Email" type="email" class="form-control" required=""> 
+                              </div>
+                           </div>
+                       </div>
+                       <div class="form-group row">
+                           <div class="col-6">
+                              <div class="input-group">
+                                 <input id="fname" name="fname" placeholder="First Name" type="text" class="form-control"> 
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="input-group">
+                                 <input id="lname" name="lanme" placeholder="Last Name" type="text" class="form-control"> 
+                              </div>
+                           </div>
+                       </div>
+                       <div class="form-group row">
+                           <div class="col-6">
+                              <div class="input-group">
+                                 <input id="uuid" name="uuid" placeholder="UUID" type="text" class="form-control"> 
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="input-group">
+                                 <input id="designation" name="designation" placeholder="Designation" type="" class="form-control"> 
+                              </div>
+                           </div>
+                       </div>
+                       <div class="form-group row">
+                           <div class="col-6">
+                              <div class="input-group">
+                                 <input id="rbank" name="rbank" placeholder="Bank" type="text" class="form-control"> 
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="input-group">
+                                 <input id="accnum" name="accnum" placeholder="Account Number" type="text" class="form-control"> 
+                              </div>
+                           </div>
+                       </div>
+                       <div class="form-group row">
+                           <div class="col-6">
+                              <div class="input-group">
+                                 <input id="pannum" name="pannum" placeholder="Pancard Number" type="text" class="form-control"> 
+                              </div>
+                           </div>
+                           <div class="col-6">
+                              <div class="input-group">
+                                 <input id="salery" name="salery" placeholder="Salery" type="text" class="form-control"> 
+                              </div>
+                           </div>
+                       </div> 
+                       <div class="form-group row">
+                           <div class="col-12">
+                              <button type="button" class="btn btn-default mem_btn1" data-dismiss="modal">Close</button>
+                              <input type="submit" class="btn btn-info btn-lg reg_btn mem_btn2" value="Register"></button>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--register New Employee Modal end -->
        
         
         <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js"></script>
