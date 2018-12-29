@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Smart Commerce">
+        <meta name="keywords" content="Smart Commerce">
+        <meta name="author" content="Smart Commerce">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BelBooks</title>
+        <link rel="shortcut icon" href="lib/img/belbooks-logo.svg">
+        <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/bootstrap-grid.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/bootstrap-grid.min.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/datatables.min.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/custom.css">
+        <style type="text/css">
+			body h1 h3{font-weight:600;}
+			body{overflow-y:auto;background-color:#fff;}
+            div#navbarTogglerDemo02 {display: block !important;}
+            div#navbarTogglerDemo02 .menu {float: right;}
+            section.bel_dashboard_sec1 {top: 70px;position: relative;z-index: 99;}
+            .certificate {padding: 0px 50px;}
+            .iss_new_certify {overflow-y: auto;height: 90vh;padding-top: 4px;background: #F9FAFB;    border-radius: 10px;}
+            header.bel_dashboard_header {
+				background: transparent;
+				position: fixed;
+				width: 100%;
+				z-index: 9999999;
+			}
+			header.bel_dashboard_header ul.nav.navbar-nav.menu li a{background-color:transparent;color:#000;}
+			header.bel_dashboard_header ul.nav.navbar-nav.menu li a.active{color:#fff;}
+			.mtb{margin:5% 0;}
+			.banner-input{margin:8% 0;}
+			.landing-page .landing-banner-1{padding:10% 7%;}
+			.landing-banner-1 .landing-banner-text h1{margin-bottom:30px;font-size:50px;}
+			.landing-banner-1 .landing-banner-text p{font-size:18px;}
+			.landing-page .landing-banner-2{padding:5%;}
+			.landing-page .input-group-text{background-color:#415BF6;color:#fff;border-top-left-radius:0;border-bottom-left-radius:0;}
+			.landing-sec2{padding:5% 0;}
+			.box-main .box-section{background-color:#fff;padding:10%;border-radius:5px;margin-top:10%;box-shadow: 1px 1px 15px 0px #d2d0d070;}
+			.box-main .box-section:hover{background-color:#415BF6;color:#fff;}
+			.landing-sec3{background-color:#415BF6;color:#fff;padding:5% 0;height:677px;}
+			.landing-sec3 .how-it .tab-content{margin-top:5%;}
+			.landing-sec3 .how-it .nav-tabs {border-bottom: 0;}
+			.landing-sec3 .how-it .nav-tabs .nav-item{padding:0 40px;}
+			.landing-sec3 .how-it .nav-tabs .nav-link{border: 1px solid #fff;color:#fff;border-radius: 5px !important;}
+			.landing-sec3 .how-it .nav-tabs .nav-link.active{color:#053CCE !important;}
+			.landing-sec3 .how-it .nav-link{padding:12px 25px;}
+			.landing-sec3 .how-it div#issuer {background: transparent;}
+			.tabs_title .tab1-sec-1{padding:50px 50px;}
+			.tabs_title .tab1-sec-2{padding:10px 80px;}
+			.how-it .box-main{margin:20px 0;}
+			.box-main .box-section p{margin-top:20px;}
+			.carousel-box{padding:40px;background-color:#fff;border-radius:5px;box-shadow: 1px 1px 15px 0px #d2d0d070;}
+			.carousel-box p span{color:#0060C1;}
+			.carsel-text{margin:0 0 5% 0;}
+			.box-section:hover svg #landing-page {
+				fill: #fff;
+			}
+			.landing-sec3{background-image:url(lib/img/landing-slider-bg.svg);}
+			.landing-sec4{padding:0 0 40px 0;}
+			.landing-sec5 img{filter: grayscale(100%);}
+			.landing-sec6{background-image:url(lib/img/landing-slider-bg.svg);padding:5%;margin:20px 0 20px 0;}
+			.landing-sec6 a{padding:10px 25px;margin:20px 0 0 0;}
+			
+			 footer .social-sec ul li{display:inline-block;padding:0 10px;}
+			 .fa{font-size:30px!important;}
+			 
+        </style>
+    </head>
+    
+    <body>
+        <header class="bel_dashboard_header">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg navbar-light land_page menubar navbar-expand-md">
+                    <div class="login_logo">
+                    	<a href="dashboard.html"><img src="lib/img/belbooks-logo.svg" class="img-fluid"></a>
+                    </div>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="nav navbar-nav menu">
+                           
+                            <li class="nav-item"><a href="#" class="nav-link">&#xA0;&#xA0;LOGIN</a>
+                            </li>
+                            <li class="nav-item"><a href="#" class="nav-link active">&#xA0;&#xA0;SIGN UP</a>
+                            </li>
+                            <!--<li class="nav-item"><a href="#" class="nav-link active"><img class="menuicon n" src="lib/img/download.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Download</a>
+                            </li>-->
+                           
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            
+        </header>
+
+        <section class="bel_dashboard_sec1">
+            <div class="container-fluid">
+                <div class="row">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding ">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding landing-page">
+							<div class="col-xl-6 col-lg-6 col-md-12 col-12 nopadding landing-banner-1">
+								<div class="landing-banner-text">
+									<h1>Decentralized<br>Digital Certification</h1>
+									<p>Weather you are an expert or a beginner. Belbooks is going to become the first platform which will faster all your needs in a simple, easy and intuitive way</p>
+									<div class="input-group banner-input">
+									  <input type="text" class="form-control" placeholder="Enter your email to join our whiyelist now!" aria-label="Recipient's username" aria-describedby="basic-addon2">
+									  <div class="input-group-append">
+										<a href="#"><span class="input-group-text" id="basic-addon2">JOIN NOW</span></a>
+									  </div>
+									</div>
+								</div>
+							</div>
+							<div class="col-xl-6 col-lg-6 col-md-12 col-12 nopadding landing-banner-2">
+								<img src="lib/img/landing.svg">
+							</div>
+						</div>
+						
+					</div>
+                </div>
+            </div>
+        </section>
+		<section class="landing-sec2">
+            <div class="container">
+                <div class="row">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding ">
+						
+							<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding text-center">
+								<h3>The hub for your team and your work</h3>
+								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem<br>aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+							</div>
+							<div class="col-xl-12 col-lg-12 col-md-12 col-12 box-main">
+								<div class="col-xl-4 col-lg-4 col-md-12 col-12">
+									<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding box-section">
+										<svg width="60px" height="60px" viewBox="0 0 74 73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+													<!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+													<title>Issue once</title>
+													<desc>Created with Sketch.</desc>
+													<g id="new" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+														<g id="landing-page" transform="translate(-240.000000, -1170.000000)" fill="#415BF6" fill-rule="nonzero">
+															<path d="M261.465269,1212.07464 C262.461692,1211.26564 263.709511,1210.78139 265.005232,1210.73098 L256.729906,1198.77887 C256.265597,1198.11302 255.360527,1197.90677 254.634595,1198.28304 L252.588586,1199.40131 L261.465269,1212.07464 Z M265.493781,1201.23566 C265.002063,1200.55873 264.124402,1200.36355 263.39847,1200.73982 L262.342519,1201.30159 L268.864436,1210.72789 L272.097928,1210.69518 L265.493781,1201.23566 Z M243.270409,1195.31769 C245.800374,1193.94856 248.927281,1194.57424 250.747687,1196.77639 L253.123715,1195.47261 C255.263028,1194.36015 257.873861,1195.0005 259.277861,1196.97064 L260.419391,1198.64344 L261.832771,1197.90724 C263.972084,1196.79478 266.582917,1197.43513 267.986917,1199.40528 L275.863828,1210.68627 L289.71449,1210.57508 C294.089767,1210.55731 298.110965,1212.91531 300.255321,1216.68312 L313.002279,1238.80814 C313.319016,1239.28684 313.344219,1239.9347 313.040506,1240.44967 C312.736792,1240.96464 312.20328,1241.25923 311.632386,1241.25176 C311.034084,1241.23322 310.530188,1240.90209 310.274082,1240.35225 L297.51605,1218.25463 C295.911867,1215.43839 292.94802,1213.6989 289.687119,1213.72053 L265.214026,1213.84431 C263.65473,1213.91576 262.404152,1215.19599 262.409708,1216.76055 C262.415265,1218.32511 263.64594,1219.61943 265.215758,1219.67977 L281.650946,1219.87946 C282.232914,1219.85952 282.786368,1220.1469 283.092032,1220.653 C283.397695,1221.15911 283.368079,1221.78482 283.07544,1222.27238 C282.782801,1222.75994 282.210804,1223.07087 281.623575,1223.02491 L265.193648,1222.89111 C264.436149,1222.87202 263.695536,1222.73221 262.982885,1222.44428 C259.967824,1221.22612 258.453339,1217.87221 259.507045,1214.7907 L259.375809,1214.64203 L248.472724,1199.01375 C247.549368,1197.74794 245.815644,1197.46197 244.517163,1198.30835 C243.246092,1199.16582 242.855736,1200.92114 243.66364,1202.23595 L257.991058,1224.54048 C259.825592,1227.4179 262.865855,1229.28392 266.251627,1229.66346 L285.090292,1231.72698 C288.569367,1232.11233 291.636488,1234.14862 293.3002,1237.2121 L295.028687,1240.35225 C295.339612,1240.92424 295.238289,1241.64852 294.813863,1242.1466 C294.362027,1242.63361 293.686205,1242.80694 293.055783,1242.55223 C292.726867,1242.41934 292.442248,1242.17681 292.256745,1241.84679 L290.451291,1238.73931 C289.284007,1236.57785 287.126113,1235.1321 284.678634,1234.87658 L265.867379,1232.82414 C261.53224,1232.34799 257.664978,1229.92465 255.317128,1226.26592 L240.962302,1203.95033 C240.039497,1202.52532 239.781993,1200.7952 240.182872,1199.17167 C240.699202,1197.49913 241.796397,1196.12504 243.270409,1195.31769 Z M286.748575,1176.67507 L278.783585,1185.46492 L285.511295,1185.46492 C286.207265,1185.46492 286.748575,1184.79472 286.748575,1183.94409 L286.748575,1176.67507 Z M306.338843,1175.90177 C306.338843,1174.84493 305.488213,1173.9943 304.457146,1173.9943 L290.099542,1173.9943 L290.099542,1183.94409 C290.099542,1186.62487 288.063185,1188.79011 285.537072,1188.79011 L276.695675,1188.79011 L276.695675,1201.78155 C276.695675,1202.83839 277.546305,1203.68902 278.603148,1203.68902 L304.431369,1203.68902 C305.488213,1203.68902 306.338843,1202.83839 306.338843,1201.78155 L306.338843,1175.90177 Z M273.396262,1187.01152 C273.396262,1186.88263 273.422038,1186.72797 273.473592,1186.59909 C273.499368,1186.52176 273.499368,1186.47021 273.525145,1186.41865 C273.602475,1186.26399 273.679805,1186.10933 273.808688,1185.98045 L273.860242,1185.9289 L287.186779,1171.23619 C287.496099,1170.9011 287.934302,1170.66911 288.424059,1170.66911 L304.457146,1170.66911 C307.344133,1170.66911 309.689809,1173.01479 309.689809,1175.90177 L309.689809,1201.78155 C309.689809,1204.66853 307.344133,1207.01421 304.457146,1207.01421 L278.603148,1207.01421 C275.716162,1207.01421 273.370485,1204.66853 273.370485,1201.78155 L273.370485,1187.11462 C273.370485,1187.08885 273.396262,1187.06307 273.396262,1187.01152 Z M299.508026,1195.28583 C300.410209,1195.28583 301.157733,1196.03335 301.157733,1196.93553 C301.157733,1197.83772 300.435986,1198.58524 299.508026,1198.58524 L282.985182,1198.58524 C282.082999,1198.58524 281.335475,1197.86349 281.335475,1196.93553 C281.335475,1196.03335 282.057222,1195.28583 282.985182,1195.28583 L299.508026,1195.28583 Z M293.734052,1191.47088 C292.806092,1191.47088 292.058569,1190.72336 292.084346,1189.82117 C292.084346,1188.91899 292.806092,1188.17147 293.734052,1188.17147 L299.508026,1188.17147 C300.410209,1188.17147 301.157733,1188.89321 301.157733,1189.82117 C301.157733,1190.72336 300.435986,1191.47088 299.508026,1191.47088 L293.734052,1191.47088 Z" id="Issue-once"></path>
+														</g>
+													</g>
+												</svg>
+										<p>Issue once</p>
+										<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui</p>
+							        </div>
+							    </div>
+								<div class="col-xl-4 col-lg-4 col-md-12 col-12">
+									<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding box-section">
+										<?xml version="1.0" encoding="UTF-8"?>
+											<svg width="60px" height="60px" viewBox="0 0 61 73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+												<!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+												<title>Digitally verify</title>
+												<desc>Created with Sketch.</desc>
+												<g id="new" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<g id="landing-page" transform="translate(-604.000000, -1170.000000)" fill="#415BF6" fill-rule="nonzero">
+														<path d="M634.240001,1235.85311 C634.048001,1235.85311 633.856001,1235.85311 633.664001,1235.75711 C632.704001,1235.27711 609.472,1224.71711 609.472,1211.08511 L609.472,1178.15711 C609.472,1177.38911 610.144,1176.71711 610.912,1176.71711 L657.664002,1176.71711 C658.432002,1176.71711 659.104002,1177.38911 659.104002,1178.15711 L659.104002,1211.08511 C659.104002,1224.71711 635.872001,1235.27711 634.912001,1235.75711 C634.624001,1235.85311 634.432001,1235.85311 634.240001,1235.85311 Z M612.352,1179.59711 L612.352,1211.08511 C612.352,1221.74111 630.688001,1231.14911 634.240001,1232.78111 C637.792001,1231.05311 656.128002,1221.74111 656.128002,1210.98911 L656.128002,1179.59711 L612.352,1179.59711 Z M663.040002,1206.38111 C662.272002,1206.38111 661.600002,1205.70911 661.600002,1204.94111 L661.600002,1173.74111 L606.88,1173.74111 L606.88,1194.09311 C606.88,1194.86111 606.208,1195.53311 605.44,1195.53311 C604.672,1195.53311 604,1194.86111 604,1194.09311 L604,1172.30111 C604,1171.53311 604.672,1170.86111 605.44,1170.86111 L663.040002,1170.86111 C663.808002,1170.86111 664.480002,1171.53311 664.480002,1172.30111 L664.480002,1204.94111 C664.480002,1205.70911 663.904002,1206.38111 663.040002,1206.38111 Z M634.240001,1242.47711 C634.048001,1242.47711 633.856001,1242.47711 633.664001,1242.38111 C632.416001,1241.80511 604,1228.94111 604,1212.23711 L604,1200.90911 C604,1200.14111 604.672,1199.46911 605.44,1199.46911 C606.208,1199.46911 606.88,1200.14111 606.88,1200.90911 L606.88,1212.14111 C606.88,1225.77311 630.208001,1237.48511 634.240001,1239.40511 C638.272001,1237.48511 661.600002,1225.77311 661.600002,1212.14111 C661.600002,1211.37311 662.272002,1210.70111 663.040002,1210.70111 C663.808002,1210.70111 664.480002,1211.37311 664.480002,1212.14111 C664.480002,1228.84511 635.968001,1241.70911 634.816001,1242.28511 C634.624001,1242.38111 634.432001,1242.47711 634.240001,1242.47711 Z M629.440001,1213.38911 C629.152001,1213.38911 628.768001,1213.29311 628.480001,1213.00511 L620.608001,1206.28511 C620.032001,1205.80511 619.936001,1204.84511 620.416001,1204.26911 C620.896001,1203.69311 621.856001,1203.59711 622.432001,1204.07711 L629.248001,1209.93311 L645.856002,1193.32511 C646.432002,1192.74911 647.296002,1192.74911 647.872002,1193.32511 C648.448002,1193.90111 648.448002,1194.76511 647.872002,1195.34111 L630.400001,1213.00511 C630.112001,1213.29311 629.728001,1213.38911 629.440001,1213.38911 Z" id="Digitally-verify"></path>
+													</g>
+												</g>
+											</svg>
+										<p>Digitally verify</p>
+										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem </p>
+							        </div>
+							    </div>
+								<div class="col-xl-4 col-lg-4 col-md-12 col-12">
+									<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding box-section">
+										<?xml version="1.0" encoding="UTF-8"?>
+											<svg width="60px" height="60px" viewBox="0 0 72 65" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+												<!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+												<title>Avoid multiple verification,</title>
+												<desc>Created with Sketch.</desc>
+												<g id="new" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+													<g id="landing-page" transform="translate(-968.000000, -1174.000000)" fill="#415BF6">
+														<path d="M1010.15303,1187.38368 C1011.19579,1180.12383 1017.4563,1174.52673 1025.00023,1174.52673 C1033.27153,1174.52673 1040,1181.2552 1040,1189.52651 C1040,1197.79781 1033.27153,1204.52628 1025.00023,1204.52628 C1017.4563,1204.52628 1011.19579,1198.92919 1010.15303,1191.66933 L991.57215,1191.66933 C979.863752,1191.66933 972.286722,1199.24208 972.286722,1210.95476 C972.286722,1212.13331 971.322451,1213.09759 970.143897,1213.09759 C968.965343,1213.09759 968.001071,1212.13331 968.001071,1210.95476 C968.001071,1196.85497 977.472359,1187.38368 991.57215,1187.38368 L1010.15303,1187.38368 Z M975.316677,1230.24019 L980.228033,1235.15154 C981.059449,1235.98296 981.059449,1237.3458 980.228033,1238.1815 C979.812325,1238.60149 979.263761,1238.81149 978.715198,1238.81149 C978.166635,1238.81149 977.618072,1238.60149 977.198078,1238.18578 L968.626776,1229.61448 C967.791075,1228.78307 967.791075,1227.42023 968.626776,1226.58453 L977.198078,1218.01323 C978.029494,1217.18181 979.392331,1217.18181 980.228033,1218.01323 C981.059449,1218.84893 981.059449,1220.21177 980.228033,1221.04318 L975.316677,1225.95454 L1016.42892,1225.95454 C1028.13732,1225.95454 1035.71435,1218.37751 1035.71435,1206.66911 C1035.71435,1205.48627 1036.67862,1204.52628 1037.85718,1204.52628 C1039.03573,1204.52628 1040,1205.48627 1040,1206.66911 C1040,1220.7689 1030.52871,1230.24019 1016.42892,1230.24019 L975.316677,1230.24019 Z M1025.00023,1178.81238 C1019.09031,1178.81238 1014.2861,1183.62088 1014.2861,1189.52651 C1014.2861,1195.43213 1019.09031,1200.24063 1025.00023,1200.24063 C1030.91014,1200.24063 1035.71435,1195.43213 1035.71435,1189.52651 C1035.71435,1183.62088 1030.91014,1178.81238 1025.00023,1178.81238 Z" id="Avoid-multiple-verification,"></path>
+													</g>
+												</g>
+											</svg>
+										<p>Avoid multiple verification</p>
+										<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque </p>
+							        </div>
+							    </div>
+							</div>
+						
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="landing-sec3">
+            <div class="container">
+                <div class="row">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding how-it">
+						
+							<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding text-center">
+								<h3>How it works</h3>
+								<p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est<br>eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere</p>
+							</div>
+							<div class="col-xl-12 col-lg-12 col-md-12 col-12 box-main">
+								
+                                <ul class="nav nav-tabs justify-content-center" role="tablist">
+                                    <li role="presentation" class="nav-item text-center "><a href="#issuer" aria-controls="issuer" role="tab" class="nav-link active show" data-toggle="tab" aria-selected="true">Creating issuers</a></li>
+									
+                                    <li role="presentation" class="nav-item text-center"><a href="#issue_new_certificate" aria-controls="issue_new_certificate" role="tab" data-toggle="tab" class="nav-link" aria-selected="false">Authorize the certificate</a></li>
+									
+                                    <li role="presentation" class="nav-item text-center"><a href="#certificates_issued" aria-controls="certificates_issued" role="tab" data-toggle="tab" class="nav-link">Share the certificate</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active show container" id="issuer">
+                                        <div class="tabs_title">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding reg_bar">
+                                                <div class="col-xl-6 col-lg-6 col-md-12 col-12 nopadding tab1-sec-1">
+													<h3>University employee creating<br>issuers / authorizers </h3>
+													<p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere</p>
+												</div>
+												<div class="col-xl-6 col-lg-6 col-md-12 col-12 nopadding tab1-sec-2 ">
+													<img src="lib/img/Creating issuers.svg" width="100%">
+												</div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane container" id="issue_new_certificate">
+                                        <div class="tabs_title">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding reg_bar">
+                                               <div class="col-xl-6 col-lg-6 col-md-12 col-12 nopadding tab1-sec-1">
+													<h3>Authorizers Signed<br>Certificate</h3>
+													<p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere</p>
+												</div>
+												<div class="col-xl-6 col-lg-6 col-md-12 col-12 nopadding tab1-sec-2 ">
+													<img src="lib/img/Authorize the certificate.svg" width="100%">
+												</div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane container" id="certificates_issued">
+                                        <div class="tabs_title">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding reg_bar">
+                                               <div class="col-xl-6 col-lg-6 col-md-12 col-12 nopadding tab1-sec-1">
+													<h3>User Sharing the <br>Certificate to 3rd Party</h3>
+													<p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere</p>
+												</div>
+												<div class="col-xl-6 col-lg-6 col-md-12 col-12 nopadding tab1-sec-2 ">
+													<img src="lib/img/Share the certificate.svg" width="100%">
+												</div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                          
+							</div>
+						
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="landing-sec4 mtb">
+            <div class="container">
+                <div class="row">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding ">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding">
+							<div class="col-12 carsel-text">
+								<h3>Some words from our<br>happy clients</h3>
+							</div>
+							<div id="demo" class="carousel slide" data-ride="carousel">
+								  <!-- main slider -->
+								  <div class="carousel-inner ">
+									<div class="carousel-item active">
+									  <div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding mtb">
+										<div class="col-xl-4 col-lg-4 col-md-12 col-12 ">
+											<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding carousel-box">
+										       <div class="col-xl-4 col-lg-4 col-md-12 col-12 nopadding text-center">
+													<img src="lib/img/people-round.png" width="50">
+											   </div>
+											   <div class="col-xl-8 col-lg-8 col-md-12 col-12 nopadding">
+													<p><span>Fernando Soler</span><br>Telecommunication<br>Engineer</p>
+											   </div>
+											   <div class="col-xl-12 col-lg-12 col-md-12 col-12 carsel-quotes">
+													<p>"Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae</p>
+											   </div>
+											</div>
+										</div>
+										<div class="col-xl-4 col-lg-4 col-md-12 col-12 ">
+											<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding carousel-box">
+										       <div class="col-xl-4 col-lg-4 col-md-12 col-12 nopadding text-center">
+													<img src="lib/img/people-round.png" width="50">
+											   </div>
+											   <div class="col-xl-8 col-lg-8 col-md-12 col-12 nopadding">
+													<p><span>Ilone Pickford</span><br>Head of Agrogofund<br>Groups</p>
+											   </div>
+											   <div class="col-xl-12 col-lg-12 col-md-12 col-12 carsel-quotes">
+													<p>"Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae</p>
+											   </div>
+											</div>
+										</div>
+										<div class="col-xl-4 col-lg-4 col-md-12 col-12 ">
+											<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding carousel-box">
+										       <div class="col-xl-4 col-lg-4 col-md-12 col-12 nopadding text-center">
+													<img src="lib/img/people-round.png" width="50">
+											   </div>
+											   <div class="col-xl-8 col-lg-8 col-md-12 col-12 nopadding">
+													<p><span>Fernando Soler</span><br>Telecommunication<br>Engineer</p>
+											   </div>
+											   <div class="col-xl-12 col-lg-12 col-md-12 col-12 carsel-quotes">
+													<p>"Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae</p>
+											   </div>
+											</div>
+										</div>
+									  </div>
+									</div>
+									<div class="carousel-item">
+									   <div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding mtb">
+										   <div class="col-xl-4 col-lg-4 col-md-12 col-12 ">
+												<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding carousel-box">
+												   <div class="col-xl-4 col-lg-4 col-md-12 col-12 nopadding text-center">
+														<img src="lib/img/people-round.png" width="50">
+												   </div>
+												   <div class="col-xl-8 col-lg-8 col-md-12 col-12 nopadding">
+														<p><span>Ilone Pickford</span><br>Head of Agrogofund<br>Groups</p>
+												   </div>
+												   <div class="col-xl-12 col-lg-12 col-md-12 col-12 carsel-quotes">
+														<p>"Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae</p>
+												   </div>
+												</div>
+											</div>
+											<div class="col-xl-4 col-lg-4 col-md-12 col-12 ">
+												<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding carousel-box">
+												   <div class="col-xl-4 col-lg-4 col-md-12 col-12 nopadding text-center">
+														<img src="lib/img/people-round.png" width="50">
+												   </div>
+												   <div class="col-xl-8 col-lg-8 col-md-12 col-12 nopadding">
+														<p><span>Fernando Soler</span><br>Telecommunication<br>Engineer</p>
+												   </div>
+												   <div class="col-xl-12 col-lg-12 col-md-12 col-12 carsel-quotes">
+														<p>"Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae</p>
+												   </div>
+												</div>
+											</div>
+											
+											<div class="col-xl-4 col-lg-4 col-md-12 col-12 ">
+												<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding carousel-box">
+												   <div class="col-xl-4 col-lg-4 col-md-12 col-12 nopadding text-center">
+														<img src="lib/img/people-round.png" width="50">
+												   </div>
+												   <div class="col-xl-8 col-lg-8 col-md-12 col-12 nopadding">
+														<p><span>Ilone Pickford</span><br>Head of Agrogofund<br>Groups</p>
+												   </div>
+												   <div class="col-xl-12 col-lg-12 col-md-12 col-12 carsel-quotes">
+														<p>"Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae</p>
+												   </div>
+												</div>
+											</div>
+										  </div>
+									</div> 
+									<div class="carousel-item">
+									  <div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding mtb">
+										<div class="col-xl-4 col-lg-4 col-md-12 col-12 ">
+											<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding carousel-box">
+										       <div class="col-xl-4 col-lg-4 col-md-12 col-12 nopadding text-center">
+													<img src="lib/img/people-round.png" width="50">
+											   </div>
+											   <div class="col-xl-8 col-lg-8 col-md-12 col-12 nopadding">
+													<p><span>Fernando Soler</span><br>Telecommunication<br>Engineer</p>
+											   </div>
+											   <div class="col-xl-12 col-lg-12 col-md-12 col-12 carsel-quotes">
+													<p>"Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae</p>
+											   </div>
+											</div>
+										</div>
+										<div class="col-xl-4 col-lg-4 col-md-12 col-12 ">
+											<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding carousel-box">
+										       <div class="col-xl-4 col-lg-4 col-md-12 col-12 nopadding text-center">
+													<img src="lib/img/people-round.png" width="50">
+											   </div>
+											   <div class="col-xl-8 col-lg-8 col-md-12 col-12 nopadding">
+													<p><span>Ilone Pickford</span><br>Head of Agrogofund<br>Groups</p>
+											   </div>
+											   <div class="col-xl-12 col-lg-12 col-md-12 col-12 carsel-quotes">
+													<p>"Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae</p>
+											   </div>
+											</div>
+										</div>
+										<div class="col-xl-4 col-lg-4 col-md-12 col-12 ">
+											<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding carousel-box">
+										       <div class="col-xl-4 col-lg-4 col-md-12 col-12 nopadding text-center">
+													<img src="lib/img/people-round.png" width="50">
+											   </div>
+											   <div class="col-xl-8 col-lg-8 col-md-12 col-12 nopadding">
+													<p><span>Fernando Soler</span><br>Telecommunication<br>Engineer</p>
+											   </div>
+											   <div class="col-xl-12 col-lg-12 col-md-12 col-12 carsel-quotes">
+													<p>"Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae</p>
+											   </div>
+											</div>
+										</div>
+									  </div>
+									</div>
+								  </div>
+								  
+								  <!-- Left and right controls -->
+								  <div class="arrows">
+									  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+										<span class="carousel-control-prev-icon"></span>
+									  </a>
+									  <a class="carousel-control-next" href="#demo" data-slide="next">
+										<span class="carousel-control-next-icon"></span>
+									  </a>
+								  </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<section class="landing-sec5 mtb">
+            <div class="container">
+                <div class="row">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding ">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding text-center">
+							<div class="col-xl-2 col-lg-2 col-md-12 col-12 nopadding">
+								<img src="lib/img/humm-bird-logo.png">
+						    </div>
+							<div class="col-xl-2 col-lg-2 col-md-12 col-12 nopadding">
+								<img src="lib/img/humm-bird-logo.png">
+						    </div>
+							<div class="col-xl-2 col-lg-2 col-md-12 col-12 nopadding">
+								<img src="lib/img/humm-bird-logo.png">
+						    </div>
+							<div class="col-xl-2 col-lg-2 col-md-12 col-12 nopadding">
+								<img src="lib/img/humm-bird-logo.png">
+						    </div>
+							<div class="col-xl-2 col-lg-2 col-md-12 col-12 nopadding">
+								<img src="lib/img/humm-bird-logo.png">
+						    </div>
+							<div class="col-xl-2 col-lg-2 col-md-12 col-12 nopadding">
+								<img src="lib/img/humm-bird-logo.png">
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<section class="landing-sec6">
+            <div class="container">
+                <div class="row">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding ">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding text-center text-white">
+							<h3>The future of Digital Certification is Bellbook</h3>
+							<a href="#" class="btn btn-light text-primary">Get Started</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div class="container-fluid copyright">
+                <div class="row">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-12 ">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-12">
+							<div class="col-xl-6 col-lg-6 col-md-12 col-12 nopadding">
+								<p>© All rights reserved</p>
+						    </div>
+							<div class="col-xl-6 col-lg-6 col-md-12 col-12 nopadding social-sec text-right">
+								<ul>
+									<li><a href="#"><img src="lib/img/fb-logo.svg" width="60%"></a></li>
+									<!-- <li><a href="#"><i class="fa fa-twitter"></i></li> -->
+									<!-- <li><a href="#"><i class="fa-telegram-plane"></i></li> -->
+								</ul>
+						    </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+        <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="lib/js/bootstrap.min.js"></script>
+       <script type="text/javascript" src="lib/js/datatables.min.js"></script>
+		
+    </body>
+
+</html>
