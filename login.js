@@ -119,11 +119,16 @@ a.value=email;
                 if(roleid==="authorizer"){
                     const res=await getauthid();
                     console.log(res);
+                    localStorage.setItem("authid",res.result.aid);
+                    alert(JSON.stringify(res));
+
 
                 }
-                if(roleid==="authorizer"){
+                if(roleid==="issuer"){
                     const res=await getissuerid();
                     console.log(res);
+                    localStorage.setItem("res.result.iid",issuerid);
+                   
 
                 }
                window.location.href="dashboard.html";

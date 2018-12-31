@@ -24,7 +24,7 @@ function model(){
            list.childNodes[3].remove();
            list.childNodes[1].remove();
        }
-       document.getElementById("name").innerText=email;
+       document.getElementById("username").innerText=email;
        document.getElementById("company").innerText=company;
        document.getElementById("balance").innerText=(bel+" "+"BEL");
     }
