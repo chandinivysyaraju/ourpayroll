@@ -19,6 +19,7 @@
         <link rel="stylesheet" type="text/css" href="lib/css/custom.css">
         <script src="members.js"></script>
         <script src="constant.js"></script>
+        <script src="logout"></script>
         <style type="text/css">
             .regemppro img {margin: auto;}
             .regemppro img.pro2 {position: relative;top: -25px;}
@@ -41,15 +42,15 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                         <ul class="nav navbar-nav menu" id="heading_list">
-                            <li class="active nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/issuenewcertificate.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Issue New Payslip</a>
+                            <li class="active nav-item"><a href="certificate.html" class="nav-link"><img class="menuicon n" src="lib/img/issuenewcertificate.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Issue New Payslip</a>
                             </li>
-                            <li class="nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/superadmin.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Super Admin</a>
+                            <li class="nav-item"><a href="superadmin-issuers.html" class="nav-link"><img class="menuicon n" src="lib/img/superadmin.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Super Admin</a>
                             </li>
-                            <li class="nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/authorizer.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Authorizer</a>
+                            <li class="nav-item"><a href="authorizer.html" class="nav-link"><img class="menuicon n" src="lib/img/authorizer.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Authorizer</a>
                             </li>
-                            <li class="nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/kyc.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Update KYC</a>
+                            <li class="nav-item"><a href="kyc.html" class="nav-link"><img class="menuicon n" src="lib/img/kyc.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Update KYC</a>
                             </li>
-                            <li class="nav-item logout"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/logout.svg"><img class="menuicon a" src=""></a>
+                            <li class="nav-item logout"><a onclick="logout()" href="#" class="nav-link"><img class="menuicon n" src="lib/img/logout.svg"><img class="menuicon a" src=""></a>
                             </li>
                         </ul>
                     </div>
@@ -247,7 +248,7 @@
                        </div> 
                        <div class="form-group row">
                            <div class="col-12">
-                              <button type="button" class="btn btn-default mem_btn1" data-dismiss="modal">Close</button>
+                              <button type="button" id="close" class="btn btn-default mem_btn1" data-dismiss="modal">Close</button>
                               <input type="submit" class="btn btn-info btn-lg reg_btn mem_btn2" value="Register" onclick="register()">
                            </div>
                         </div>

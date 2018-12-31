@@ -1,7 +1,12 @@
 var secret="cactus peasant return inside filter morning wasp floor museum nature iron can";
 var pid1;
+var dappid=localStorage.getItem("dappid");
+var aid=localStorage.getItem("authid");
 async function authorizer(){
-    const res1 = await pendingSigns();
+  var params={
+    aid:aid
+  }
+    const res1 = await pendingSigns(params);
     console.log(res1.isSuccess);
     if(res1.isSuccess===true){
       var n=res1.result;
@@ -24,13 +29,13 @@ function add_issuedemployee(pid,emp,iid,time){
  }
 
 
-async function pendingSigns(){
+async function pendingSigns(param){
     let result;
       try{
             result = await $.ajax({
             url: HOST_URL+"/"+dappid+"/"+"authorizers/pendingSigns",
             type: 'post',
-            data:'{"aid":"'+1+'"}',
+            data:JSON.stringify(param),
             contentType: 'application/json;charset=UTF-8',
             dataType: 'json'
             });
@@ -56,7 +61,7 @@ async function sign(pid){
               result = await $.ajax({
               url: HOST_URL+"/"+dappid+"/"+"authorizer/authorize",
               type: 'post',
-              data:'{"aid":"'+1+'","pid":"'+pid+'","secret":"'+secret+'"}',
+              data:'{"aid":"'+aid+'","pid":"'+pid+'","secret":"'+secret+'"}',
               contentType: 'application/json;charset=UTF-8',
               dataType: 'json'
               });
@@ -133,7 +138,7 @@ async function authorizedPayslips(){
                    result = await $.ajax({
                    url: HOST_URL+"/"+dappid+"/"+"authorizer/authorizedAssets",
                    type: 'post',
-                   data:'{"aid":"'+1+'"}',
+                   data:'{"aid":"'+aid+'"}',
                    contentType: 'application/json;charset=UTF-8',
                    dataType: 'json'
                    });

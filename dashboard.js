@@ -1,7 +1,8 @@
 var role=localStorage.getItem("roleId");
-var company=localStorage.getItem("company");
-var user=localStorage.getItem("username");
+var company=localStorage.getItem("companyname");
+var email=localStorage.getItem("email");
 var belriumtoken=localStorage.getItem("belToken");
+var dappid=localStorage.getItem("dappid");
 function model(){
     console.log(role);
     if((role==="superuser")||(role==="new user")){
@@ -22,7 +23,8 @@ function model(){
     }
  }
 async function issueDashboard(){
-    document.getElementById("username").innerText=user;
+    document.getElementById("username").innerText=email;
+    if(role!="new user"){
     document.getElementById("company").innerText=company;
     const res1 = await totalCertsIssued();
     //console.log(res1);
@@ -36,6 +38,14 @@ async function issueDashboard(){
     //console.log(res3);
     $("#totalEmployee").text(res3.totalEmployee);
 
+    const res6 = await recentIssued();
+    //console.log(JSON.stringify(res6));
+    var n=res6.length;
+    var i;
+    for(i=0;i<n;i++){
+        add_issuedemployee(res6[i].name,res6[i].empid);
+    }
+    }
     const res4 = await getAddress();
     console.log(res4);
     var address=res4.data.countries[0].wallets[0].address;
@@ -45,18 +55,10 @@ async function issueDashboard(){
     const res5 = await getBalance(address);
     console.log(res5);
     var balance=JSON.parse(res5.data).balance;
-    var bel=balance/1000000000;
+    var bel=balance/10000000000;
     localStorage.setItem("bel",bel);
      $("#balance").text(bel+" "+"BEL");
      $("#balance1").text(bel+" "+"BEL");
-
-    const res6 = await recentIssued();
-    //console.log(JSON.stringify(res6));
-    var n=res6.length;
-    var i;
-    for(i=0;i<n;i++){
-        add_issuedemployee(res6[i].name,res6[i].empid);
-    }
 }
 
 async function totalCertsIssued(){

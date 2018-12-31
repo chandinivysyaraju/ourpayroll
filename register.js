@@ -27,10 +27,10 @@ document.getElementById("email").setAttribute("value",email);
         const signupResponse= await checkSignup(data);
         console.log(signupResponse);
         if(signupResponse["isSuccess"]==true){
-            localStorage.setItem("company",lastName);
-            localStorage.setItem("username",username);
-            localStorage.setItem("countryid",countryid);
-            localStorage.setItem("countrycode",countrycode);
+            // localStorage.setItem("company",lastName);
+            // localStorage.setItem("username",username);
+            // localStorage.setItem("countryid",countryid);
+            // localStorage.setItem("countrycode",countrycode);
             window.location.href="login.html";
         }
         else{
