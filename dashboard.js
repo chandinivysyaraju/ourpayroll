@@ -39,6 +39,7 @@ async function issueDashboard(){
     const res4 = await getAddress();
     console.log(res4);
     var address=res4.data.countries[0].wallets[0].address;
+    localStorage.setItem("address",address);
      $("#address").text(address);
 
     const res5 = await getBalance(address);
