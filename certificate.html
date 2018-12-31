@@ -17,9 +17,12 @@
         <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/datatables.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/custom.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/StyleCalender.css">
         <script src="certificate.js"></script>
         <script src="constant.js"></script>
         <script src="logout.js"></script>
+        <script src="lib/js/CalendarControl.js"></script>
+        <script src="lib/js/Dashboard.js"></script>
     </head>
     
     <body onload="model()">
@@ -123,7 +126,7 @@
                                 <ul class="nav nav-tabs" role="tablist" id='testing_list'>
                                     <li role="presentation" class="nav-item"><a href="#issuer" aria-controls="issuer" role="tab" class="active show nav-link" data-toggle="tab">ISSUER</a></li>
                                     <!-- <li role="presentation" class="nav-item"><a href="#issue_new_certificate" aria-controls="issue_new_certificate" role="tab" data-toggle="tab" class="nav-link">ISSUE NEW CERTIFICATE</a></li> -->
-                                    <li role="presentation" class="nav-item"><a href="#certificates_issued" aria-controls="certificates_issued" role="tab" data-toggle="tab" class="nav-link">CERTIFICATES ISSUED</a></li>
+                                    <li role="presentation" class="nav-item"><a href="#certificates_issued" aria-controls="certificates_issued" onclick="getissuedCertificates()" role="tab" data-toggle="tab" class="nav-link">CERTIFICATES ISSUED</a></li>
                                 </ul>
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane active" id="issuer">
@@ -135,8 +138,8 @@
                                                         <label class="searchfaicon"><i class="fa fa-search" aria-hidden="true"></i></label>
                                                     </div>
                                                     <div class="form-group col-md-2 col-12">
-                                                         <input type="text" id="getDate" placeholder="mm-yyyy" class="form-control col-md-12 col-12 datebtn" onchange="getEmployees()">
-                                                         <label class="calender_icon"><img src="lib/img/calendaricon.svg"></label>
+                                                         <input type="text" id="MonthYear" placeholder="mm-yyyy" class="form-control col-md-12 col-12 datebtn" onclick="getEmployees()">
+                                                         <label class="calender_icon"><img src="lib/img/calendaricon.svg" onclick="showCalendarControl('MonthYear')"></label>
                                                     </div>
                                                     <div class="form-group col-md-3 col-12">
                                                         <a id="reg" href="#"><img src="lib/img/register.svg">&nbsp;&nbsp; Register New Employee</a>
@@ -169,11 +172,7 @@
                                                     <div class="enter_details">
                                                         <h4>Enter Details</h4>
                                                         <form  method="post" action="#" id="enter_details_form">
-                                                            <div class="form-group">
-                                                                <div class="input-group">
-                                                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
-                                                                </div>
-                                                            </div>
+                                                            
                                                             <div class="form-group">
                                                                 <div class="input-group">
                                                                     <input type="text" class="form-control" name="employeeid" id="employeeid" placeholder="Employee ID" required>
@@ -258,7 +257,7 @@
                                                                         <form class="form-inline" role="form" method="post" action="#" id="payslip">
                                                                             <div class="form-group col-md-6 col-12">
                                                                                 <label for="ps_empname" class="col-md-5 col-12">Employee name <span>:</span></label>
-                                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_empname" name="ps_empname">
+                                                                                <input type="text" class="form-control col-md-7 col-12" id="ps1_empname" name="ps_empname">
                                                                             </div>
                                                                             <div class="form-group col-md-6 col-12">
                                                                                 <label for="ps_designation" class="col-md-5 col-12">Designation <span>:</span></label>
@@ -313,11 +312,11 @@
                                                                               </tr>
                                                                               <tr>
                                                                                 <td>professionalTax</td>
-                                                                                <td>$ <span id="pt"></span></td>
+                                                                                <td>$ <span id="ps_pt"></span></td>
                                                                               </tr>
                                                                               <tr>
                                                                                 <td>providentFund</td>
-                                                                                <td>$ <span id="pf"></span></td>
+                                                                                <td>$ <span id="ps_pf"></span></td>
                                                                               </tr>
                                                                               <tr>
                                                                                 <td>Total Deductions</td>
@@ -329,7 +328,7 @@
                                                                     <div class="iss_new_certify_netsal">
                                                                         <h4>Net Salary: $<span id="netsalary"></span></h4>
                                                                         <p id="words"></p>
-                                                                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#issCertify" onclick="signhere()">Sign</button>
+                                                                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#issCertify" onclick="">Issue</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -343,14 +342,14 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding reg_bar">
                                                 <form class="form-inline" role="form" method="post" action="#">
                                                     <div class="form-group col-md-7 col-12 ">
-                                                        <input type="text" class="form-control col-md-12 col-12 searchempbtn" id="ps_empname" n placeholder="Search Employee..." >
-                                                        <label class="searchfaicon"><i class="fa fa-search" aria-hidden="true"></i></label>
+                                                        <!-- <input type="text" class="form-control col-md-12 col-12 searchempbtn" id="ps_empname" n placeholder="Search Employee..." >
+                                                        <label class="searchfaicon"><i class="fa fa-search" aria-hidden="true"></i></label> -->
                                                     </div>
                                                     <div class="form-group col-md-2 col-12">
-                                                         <input type="text" placeholder="08 / 2018" class="form-control col-md-12 col-12 datebtn">
-                                                         <label class="calender_icon"><img src="lib/img/calendaricon.svg"></label>
+                                                         <!-- <input type="text" placeholder="08 / 2018" class="form-control col-md-12 col-12 datebtn">
+                                                         <label class="calender_icon"><img src="lib/img/calendaricon.svg"></label> -->
                                                     </div>
-                                                    <div class="form-group col-md-3 col-12">
+                                                    <div class="form-group col-md-3 col-12" >
                                                         <a href="#"><img src="lib/img/register.svg">&nbsp;&nbsp; Register New Employee</a>
                                                     </div>
                                                 </form>
@@ -359,142 +358,97 @@
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding">
                                             <div class="col-12 nopadding iss_new_certify">
                                                 <div class="col-xl-4 col-lg-4 col-md-4 col-12 left">
-                                                    <div class="view_details">
-                                                        <div class="col-12 member_views_details">
-                                                            <div class="col-xl-3 col-lg-3 col-md-3 col-12 nopadding">
-                                                                <a href=""><img class="propic" src="lib/img/profile.jpg" width="55"></a>
-                                                            </div>
-                                                             <div class="col-xl-9 col-lg-9 col-md-9 col-12 nopadding">
-                                                                 <h6>Lewis Underwood</h6>
-                                                                <p class="p1">Blockchain developer</p>
-                                                              
-                                                                <p class="p2">EMP 123456789</p>
-                                                                <h6>Pay Slip Certificate</h6>
-                                                                <p class="p4">ISSUED <span>on 28 Jun 2019, 07:07 pm</span></p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 member_views_details">
-                                                            <div class="col-xl-3 col-lg-3 col-md-3 col-12 nopadding">
-                                                                <a href=""><img class="propic" src="lib/img/profile.jpg" width="55"></a>
-                                                            </div>
-                                                             <div class="col-xl-9 col-lg-9 col-md-9 col-12 nopadding">
-                                                                 <h6>Lewis Underwood</h6>
-                                                                <p class="p1">Blockchain developer</p>
-                                                              
-                                                                <p class="p2">EMP 123456789</p>
-                                                                <h6>Pay Slip Certificate</h6>
-                                                                <p class="p5">ISSUE NOW</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 member_views_details active">
-                                                            <div class="col-xl-3 col-lg-3 col-md-3 col-12 nopadding">
-                                                                <a href=""><img class="propic" src="lib/img/profile.jpg" width="55"></a>
-                                                            </div>
-                                                             <div class="col-xl-9 col-lg-9 col-md-9 col-12 nopadding">
-                                                                <h6>Lewis Underwood</h6>
-                                                                <p class="p1">Blockchain developer</p>
-                                                              
-                                                                <p class="p2">EMP 123456789</p>
-                                                               <h6>Pay Slip Certificate</h6>
-                                                                <p class="p4">ISSUED <span>on 28 Jun 2019, 07:07 pm</span></p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 member_views_details">
-                                                            <div class="col-xl-3 col-lg-3 col-md-3 col-12 nopadding">
-                                                                <a href=""><img class="propic" src="lib/img/profile.jpg" width="55"></a>
-                                                            </div>
-                                                             <div class="col-xl-9 col-lg-9 col-md-9 col-12 nopadding">
-                                                                 <h6>Lewis Underwood</h6>
-                                                                <p class="p1">Blockchain developer</p>
-                                                              
-                                                                <p class="p2">EMP 123456789</p>
-                                                                <h6>Pay Slip Certificate</h6>
-                                                                <p class="p4">ISSUED <span>on 28 Jun 2019, 07:07 pm</span></p>
-                                                            </div>
-                                                        </div>
+                                                    <div class="view_details" id = 'issuedBlock'>
+                                                        
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-8 col-lg-8 col-md-8 col-12 nopadding right">
-                                                    <div class="iss_new_certify_payslip">
-                                                        <div class="title_sec_certify">
-                                                            <h4>PAY SLIP</h4>
-                                                            <h5>Belfrics BT Private Limited</h5>
+                                                    <div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding">
+                                                        <div class="col-12 nopadding iss_new_certify">
+                                                            <div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding ">
+                                                                <div class="iss_new_certify_payslip">
+                                                                    <div class="title_sec_certify">
+                                                                        <h4>PAY SLIP</h4>
+                                                                        <h5>Belfrics BT Private Limited</h5>
+                                                                    </div>
+                                                                    <form class="form-inline" role="form" method="post" action="#" id="payslip">
+                                                                        <div class="form-group col-md-6 col-12">
+                                                                            <label for="ps_empname" class="col-md-5 col-12">Employee name <span>:</span></label>
+                                                                            <input type="text" class="form-control col-md-7 col-12" id="issued_empname" name="ps_empname">
+                                                                        </div>
+                                                                        <div class="form-group col-md-6 col-12">
+                                                                            <label for="ps_designation" class="col-md-5 col-12">Designation <span>:</span></label>
+                                                                            <input type="text" class="form-control col-md-7 col-12" id="issued_designation" name="ps_designation"> 
+                                                                        </div>
+                                                                        <div class="form-group col-md-6 col-12">
+                                                                            <label for="ps_idnum" class="col-md-5 col-12">Employee ID <span>:</span></label>
+                                                                            <input type="text" class="form-control col-md-7 col-12" id="issued_idnum" name="ps_idnum"> 
+                                                                        </div>
+                                                                        <div class="form-group col-md-6 col-12">
+                                                                            <label for="ps_pay" class="col-md-5 col-12">Pay <span>:</span></label>
+                                                                            <input type="text" class="form-control col-md-7 col-12" id="issued_pay" name="ps_pay"> 
+                                                                        </div>
+                                                                        <div class="form-group col-md-6 col-12">
+                                                                            <label for="ps_paycycle" class="col-md-5 col-12">Paycycle <span>:</span></label>
+                                                                            <input type="text" class="form-control col-md-7 col-12" id="issued_paycycle" name="ps_paycycle"> 
+                                                                        </div>
+                                                                        <div class="form-group col-md-6 col-12">
+                                                                            <label for="ps_bankdetails" class="col-md-5 col-12">Bank Details <span>:</span></label>
+                                                                            <input type="text" class="form-control col-md-7 col-12" id="issued_bankdetails" name="ps_bankdetails"> 
+                                                                        </div>
+                                                                  </form>
+                                                                </div>
+                                                                <div class="iss_new_certify_earnings">
+                                                                    <div class="table-responsive">
+                                                                        <table class="display" style="width:100%;">
+                                                                          <tr>
+                                                                            <th>Earnings</th>
+                                                                            <th>Amount</th>
+                                                                          </tr>
+                                                                          <tr>
+                                                                            <td>Basic Salary</td>
+                                                                            <td>$<span  id="issuedBasic"></span></td>
+                                                                          </tr>
+                                                                          <tr>
+                                                                            <td>Allowances</td>
+                                                                            <td>$ <span id="issuedAllowances"></span></td>
+                                                                          </tr>
+                                                                          <tr>
+                                                                            <td>Total Earnings</td>
+                                                                            <td>$ <span id="issuedEarnings"></span></td>
+                                                                          </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="iss_new_certify_deductions">
+                                                                    <div class="table-responsive">
+                                                                        <table class="display" style="width:100%;">
+                                                                          <tr>
+                                                                            <th>Deductions</th>
+                                                                            <th>Amount</th>
+                                                                          </tr>
+                                                                          <tr>
+                                                                            <td>professionalTax</td>
+                                                                            <td>$ <span id="issuedPT"></span></td>
+                                                                          </tr>
+                                                                          <tr>
+                                                                            <td>providentFund</td>
+                                                                            <td>$ <span id="issuedPF"></span></td>
+                                                                          </tr>
+                                                                          <tr>
+                                                                            <td>Total Deductions</td>
+                                                                            <td>$ <span id="issuedTotal"></span></td>
+                                                                          </tr>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="iss_new_certify_netsal">
+                                                                    <h4>Net Salary: $<span id="issuedNetSalary"></span></h4>
+                                                                    <p id="issuedSalaryWords"></p>
+                                                                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#issCertify" onclick="signhere()">Issue</button>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <form class="form-inline" role="form" method="post" action="#" id="payslip">
-                                                            <div class="form-group col-md-6 col-12">
-                                                                <label for="ps_empname" class="col-md-5 col-12">Employee name <span>:</span></label>
-                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_empname" name="ps_empname" value="Lewis Underwood" disabled="">
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-12">
-                                                                <label for="ps_pay" class="col-md-5 col-12">Pay <span>:</span></label>
-                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_pay" name="ps_pay" value="$ 6690" disabled=""> 
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-12">
-                                                                <label for="ps_idnum" class="col-md-5 col-12">ID Number <span>:</span></label>
-                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_idnum" name="ps_idnum" value="EMP 123456789" disabled=""> 
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-12">
-                                                                <label for="ps_paycycle" class="col-md-5 col-12">Paycycle <span>:</span></label>
-                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_paycycle" name="ps_paycycle" value="Dec, 2018" disabled=""> 
-                                                            </div>
-                                                            <div class="form-group col-md-6 col-12">
-                                                                <label for="ps_bankdetails" class="col-md-5 col-12">Bank Details <span>:</span></label>
-                                                                <input type="text" class="form-control col-md-7 col-12" id="ps_bankdetails" name="ps_bankdetails" value="HDFC Bank" disabled=""> 
-                                                            </div>
-                                                      </form>
-                                                    </div>
-                                                    <div class="iss_new_certify_earnings">
-                                                        <div class="table-responsive">
-                                                            <table class="display" style="width:100%;">
-                                                              <tr>
-                                                                <th>Earnings</th>
-                                                                <th>Amount</th>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>Basic Salary</td>
-                                                                <td>$ 6600</td>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>Reimbursement</td>
-                                                                <td>$ 50</td>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>Total Earnings</td>
-                                                                <td>$ 6650</td>
-                                                              </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div class="iss_new_certify_deductions">
-                                                        <div class="table-responsive">
-                                                            <table class="display" style="width:100%;">
-                                                              <tr>
-                                                                <th>Deductions</th>
-                                                                <th>Amount</th>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>Tax Deducted at source (T.D.S.)</td>
-                                                                <td>$ 20</td>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>UIF</td>
-                                                                <td>$ 5</td>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>Other</td>
-                                                                <td>$ 35</td>
-                                                              </tr>
-                                                              <tr>
-                                                                <td>Total Deductions</td>
-                                                                <td>$ 60</td>
-                                                              </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <div class="iss_new_certify_netsal">
-                                                        <h4>Net Salary: $ 6590</h4>
-                                                        <p>(Six thousand five hundred and ninety only)</p>
-                                                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#issCertify">Reissue Certificate</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -519,10 +473,17 @@
                 </div>
               </div>
               <div class="modal-body">
-                <p class="p1">Are you sure you want to issue the certificate</p>
-                <p class="p2">Note: Issue payslip transaction charges 0.001 BEL</p>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <a href="viewpayslip.html" class="btn btn-info btn-lg">Issue Certificate</a>
+                    <p class="p1">Are you sure you want to issue the certificate</p>
+                
+                    <!-- Mohan [12:09 PM] -->
+                    <div class="input-group-append">
+                    <input id="passphrase" name="passphrase" placeholder="Enter your Passphrase" type="password" required="required" class="form-control here">
+                    <span class="input-group-text"><i onClick="hideshow()" class="fa fa-eye" aria-hidden="true"></i></span>
+                    </div>
+                    <br>
+                    <p class="p2">Note: Issue payslip transaction charges 0.001 BEL</p>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id ='tagclose'>Cancel</button>
+                <button class="btn btn-info btn-lg" onclick="initialIssue()">Issue Certificate</button>
               </div>
              
             </div>
