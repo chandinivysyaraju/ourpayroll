@@ -91,9 +91,9 @@
                <div class="col-xl-2 col-lg-3 col-md-3 col-12 nopadding leftmenu">
                   <div class="profile">
                      <img src="lib/img/profile.jpg" width="60">
-                     <h6>Srini Rajkumar</h6>
-                     <p>Belfrics BT Private Limited</p>
-                     <h4>$ 1,23,456</h4>
+                     <h6 id="name"></h6>
+                     <p id="company"></p>
+                     <h4 id="balance"></h4>
                      <p>Available Balance</p>
                   </div>
                </div>
@@ -200,18 +200,18 @@
                                <img src="lib/img/logo.svg">
                             </div>
                             <div class="col-6 walletcard2">
-                                <span><img src="lib/img/validthru.svg"><span class="validthru">06/19</span></span>
+                                <span><img src="lib/img/validthru.svg"><span id="valid" class="validthru">06/19</span></span>
                             </div>
                             <div class="col-12 walletcard3">
-                              <input type="text" name="creditcard" value="2671 9860 9300 0202"  disabled="" />
+                              <input type="text" name="creditcard" id="address" disabled="" />
                               <p>Wallet Address</p>
                             </div>
                             <div class="col-6 walletcard4">
-                                <h5>$ 1,23,456</h5>
-                                <p>Wallet Address</p>
+                                <h5 id="wallet"></h5>
+                                <p>Wallet Balance</p>
                             </div>
                             <div class="col-6 walletcard5">
-                                <h5>271.03 Bel</h5>
+                                <h5 id="dapp"> </h5>
                                 <p>DAPP Balance</p>
                             </div>
                         </div>
@@ -384,7 +384,7 @@
                      <div class="form-group row">
                         <div class="col-12">
                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           <button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Submit</button>
+                           <button type="button" class="btn btn-info btn-lg" onclick="registerdapp();" data-dismiss="modal">Submit</button>
                         </div>
                      </div>
                   </form>

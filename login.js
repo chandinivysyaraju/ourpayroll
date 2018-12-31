@@ -1,10 +1,10 @@
-var token,secret,email,password;
+var token,secret,email,password,dappid;
 $(document).ready(function(){
     var email=localStorage.getItem("email");
 console.log(email);
 a=document.getElementById("emailid");
 a.value=email;
-a.disabled="true";
+//a.disabled="true";
     $("#login").click(async function(){
     // console.log(email,password);
     const loginResponse = await checkLogin();
@@ -75,7 +75,7 @@ a.disabled="true";
                      }
                          else
                      {
-                         console.log(hllogin[message]);
+                         console.log(hllogin.message);
                      }
         });
 } //end of hyperLedgerLogin function
@@ -105,12 +105,22 @@ a.disabled="true";
     {
         const data=await checkRole();
         var roleid=data.role;
-        var dappid=data.dappid;
+         dappid=data.dappid;
         localStorage.setItem("roleId",roleid);
             if((roleid==="new user")||(roleid==="superuser")||(roleid==="issuer")||(roleid==="authorizer"))
             {
                 localStorage.setItem("dappid",dappid)
                 console.log(roleid);
+                if(roleid==="authorizer"){
+                    const res=await getauthid();
+                    console.log(res);
+
+                }
+                if(roleid==="authorizer"){
+                    const res=await getissuerid();
+                    console.log(res);
+
+                }
                window.location.href="dashboard.html";
             }
           
@@ -160,6 +170,42 @@ a.disabled="true";
         {
             console.log(error);
         }
+    }
+
+
+   async function getauthid(){
+        let result;
+        try{
+        result = await $.ajax({
+                type: 'post',
+                url: HOST_URL+"/"+dappid+"/"+"authorizers/getId",
+                data: '{"email":"' + email +'"}',
+                contentType: 'application/json;charset=UTF-8',
+                dataType: 'json'});
+                return result;
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+        
+    }
+   async function getissuerid(){
+        let result;
+        try{
+        result = await $.ajax({
+                type: 'post',
+                url: HOST_URL+"/"+dappid+"/"+"issuers/getId",
+                data: '{"email":"' + email +'"}',
+                contentType: 'application/json;charset=UTF-8',
+                dataType: 'json'});
+                return result;
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+        
     }
 
 function escapeInput(input) {
