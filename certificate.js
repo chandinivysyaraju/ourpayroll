@@ -1,13 +1,20 @@
 var dappid ="48a7d6bd571d8a636bfc7d64781e03e4dc80df75c99ca98788c63697f9a2d56a";
 var HOST_URL="http://18.188.23.5:9305/api/dapps";
 var str;
+var employeeCertificate;
+var prev='';
+let page_issuedCertificates = 1;
 
 //Interface call for adding all employees in the table registered by issuer for particular a month and year
 var month,year,offset=0,limit=10,count=0;
 
 function getEmployees()
 {
-str=escapeInput($("#getDate").val());
+    console.log("called");
+str=escapeInput($("#MonthYear").val());
+if(str == ''){
+    return ;
+}
 var str1=str.split('-');
 month=str1[0];
 year=str1[1];
@@ -20,13 +27,13 @@ function(data)
 {   
 var data = data.result;
 var employee_data='';
-
+console.log(data);
 $.each(data,function(key,value){
     employee_data += '<tr>';
     employee_data += '<td>'+key+'</td>';
     employee_data += '<td>'+value.name+'</td>';
     employee_data += '<td>'+value.designation+'</td>';
-    employee_data += '<td> <button  onclick="getStatus('+'\''+value.status+'\''+',\''+key+'\''+')">'+value.status+'</button> </td>';
+    employee_data += '<td> <button  onclick="getStatus('+'\''+value.status+'\''+',\''+key+'\''+')" id='+key+'status>'+value.status+'</button> </td>';
     employee_data += '</tr>';
     });
 
@@ -43,7 +50,7 @@ async function getStatus(status, empid){
         li = document.createElement('li');
         li.setAttribute('role','presentation');
         li.setAttribute('class','nav_item');
-        li.innerHTML +='<a href="#issue_new_certificate" aria-controls="issue_new_certificate" role="tab" data-toggle="tab" class="nav-link">ISSUE NEW CERTIFICATE</a>';
+        li.innerHTML +='<a href="#issue_new_certificate" aria-controls="issue_new_certificate" role="tab" data-toggle="tab" id ="tabclick"class="nav-link">ISSUE NEW CERTIFICATE</a>';
         list = document.getElementById('testing_list');
         list.insertBefore(li,list.childNodes[2]);
     }
@@ -55,7 +62,9 @@ async function getStatus(status, empid){
         contentType: 'application/json;charset=UTF-8',
         dataType: 'json'
     });
+    employeeCertificate = employee;
     console.log(employee);
+    document.getElementById('tabclick').click();
     fillDetails(employee);
 
 }
@@ -71,7 +80,7 @@ function escapeInput(input) {
 
 
  async function fillDetails(emp){
-    document.getElementById("email").value=emp.email;
+    
     document.getElementById("employeeid").value=emp.empID;
     document.getElementById("name").value=emp.name;
     document.getElementById("designation").value=emp.designation;
@@ -84,7 +93,7 @@ function escapeInput(input) {
 
  function generate(){
     var email,empid,name,designation,bank,accountnumber,pan,salary,lta,ma,hra,pf,pt;
-    email=document.getElementById("email").value;
+    
     empid=document.getElementById("employeeid").value;
     name=document.getElementById("name").value;
     designation=document.getElementById("designation").value;
@@ -97,39 +106,211 @@ function escapeInput(input) {
     hra=document.getElementById("hra").value;
     pf=document.getElementById("pf").value;
     pt=document.getElementById("pt").value;
-              //paycycle=res1.month+","+res1.year;
-              allowances=Number(hra)+Number(lta)+Number(ma);
-              totaldeductions=Number(pt)+Number(pf);
-              earnings=allowances+Number(salary);
-              net=earnings-totaldeductions;
-              document.getElementById("ps_empname").value=name;
-              document.getElementById("ps_pay").value=salary;
-              document.getElementById("ps_designation").value=designation;
-              document.getElementById("ps_idnum").value=empid;
-              document.getElementById("ps_paycycle").value=str;
-              document.getElementById("ps_bankdetails").value=bank;
-              document.getElementById("basic").textContent=salary;
-              document.getElementById("allowances").textContent=allowances;
-              document.getElementById("earnings").textContent=earnings;
-              document.getElementById("pt").textContent=pt;
-              document.getElementById("pf").textContent=pf;
-              document.getElementById("total").textContent=totaldeductions;
-              document.getElementById("netsalary").textContent=net;
-              const value=inWords(net).toUpperCase();
-              console.log(value);
-              document.getElementById("words").textContent=value;
+    //paycycle=res1.month+","+res1.year;
+    allowances=Number(hra)+Number(lta)+Number(ma);
+    totaldeductions=Number(pt)+Number(pf);
+    try{
+        earnings=allowances+Number(salary);
+        net=earnings-totaldeductions;
     }
+    catch{
+        console.log('error');
+    }
+    document.getElementById("ps1_empname").value=name;
+    document.getElementById("ps_pay").value=salary;
+    document.getElementById("ps_designation").value=designation;
+    document.getElementById("ps_idnum").value=empid;
+    document.getElementById("ps_paycycle").value=str;
+    document.getElementById("ps_bankdetails").value=bank;
+    document.getElementById("basic").textContent=salary;
+    document.getElementById("allowances").textContent=allowances;
+    try{
+    document.getElementById("earnings").textContent=earnings;}
+    catch{
+        console.log('error');
+    }
+    document.getElementById("ps_pt").textContent=pt;
+    document.getElementById("ps_pf").textContent=pf;
+    document.getElementById("total").textContent=totaldeductions;
+    document.getElementById("netsalary").textContent=net;
+    const value=inWords(net).toUpperCase() ;
+    console.log(value);
+    document.getElementById("words").textContent=value;
+}
 
-    function inWords (num) {
-        var a = ['','one ','two ','three ','four ', 'five ','six ','seven ','eight ','nine ','ten ','eleven ','twelve ','thirteen ','fourteen ','fifteen ','sixteen ','seventeen ','eighteen ','nineteen '];
-        var b = ['', '', 'twenty','thirty','forty','fifty', 'sixty','seventy','eighty','ninety'];
-         if ((num = num.toString()).length > 9) return 'overflow';
-         n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
-         if (!n) return; var str = '';
-         str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'crore ' : '';
-         str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'lakh ' : '';
-         str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'thousand ' : '';
-         str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'hundred ' : '';
-         str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + 'only ' : '';
-         return str;
-      }
+function inWords (num) {
+    var a = ['','one ','two ','three ','four ', 'five ','six ','seven ','eight ','nine ','ten ','eleven ','twelve ','thirteen ','fourteen ','fifteen ','sixteen ','seventeen ','eighteen ','nineteen '];
+    var b = ['', '', 'twenty','thirty','forty','fifty', 'sixty','seventy','eighty','ninety'];
+        if ((num = num.toString()).length > 9) return 'overflow';
+        n = ('000000000' + num).substr(-9).match(/^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/);
+        if (!n) return; var str = '';
+        str += (n[1] != 0) ? (a[Number(n[1])] || b[n[1][0]] + ' ' + a[n[1][1]]) + 'crore ' : '';
+        str += (n[2] != 0) ? (a[Number(n[2])] || b[n[2][0]] + ' ' + a[n[2][1]]) + 'lakh ' : '';
+        str += (n[3] != 0) ? (a[Number(n[3])] || b[n[3][0]] + ' ' + a[n[3][1]]) + 'thousand ' : '';
+        str += (n[4] != 0) ? (a[Number(n[4])] || b[n[4][0]] + ' ' + a[n[4][1]]) + 'hundred ' : '';
+        str += (n[5] != 0) ? ((str != '') ? 'and ' : '') + (a[Number(n[5])] || b[n[5][0]] + ' ' + a[n[5][1]]) + 'only ' : '';
+        return str;
+}
+
+function hideshow(){
+            
+    var phrase = document.getElementById('passphrase');
+
+     if(phrase.type === "password"){
+      phrase.type = "text";}
+    else{phrase.type = "password"}
+    
+    
+}
+// async function issueCertificate(){
+
+// employeeCertificate['basicPay']= employeeCertificate['salary'];
+// delete employeeCertificate['salary'];
+// employeeCertificate['hra']=document.getElementById("hra").value;
+// employeeCertificate['lta']=document.getElementById("lta").value;
+// employeeCertificate['ma']=document.getElementById("ma").value;
+// employeeCertificate['providentFund']=document.getElementById("pf").value;
+// employeeCertificate['providentTax']=document.getElementById("pt").value;
+
+// employeeCertificate['grossSalary']=document.getElementById("earnings").innerText;
+// employeeCertificate['totalDeductions']=document.getElementById("total").innerText;
+// employeeCertificate['netSalary']=document.getElementById("netsalary").innerText;
+// employeeCertificate['issuerid']='1';
+// employeeCertificate['secret']=document.getElementById("passphrase").value;
+// var date = document.getElementById("MonthYear").value;
+// date = date.split('-');
+// employeeCertificate['month']= date[0];
+// employeeCertificate['year'] = date[1];
+// delete employeeCertificate['success'];
+// delete employeeCertificate['walletAddress'];
+// console.log(employeeCertificate);
+// var result = await $.ajax({
+//     url: HOST_URL+"/"+dappid+"/payslip/initialIssue",
+//     type: 'post',
+//     data: JSON.stringify(employeeCertificate),
+//     contentType: 'application/json;charset=UTF-8',
+//     dataType: 'json'
+// });
+// if(result.isSuccess=== true){
+//     console.log('Suceess baby!!');
+//     employeeCertificate='';
+// }
+// else{
+//     alert("konda");
+// }
+// }
+setInterval(function(){
+var date = document.getElementById('MonthYear').value;
+if(prev!= date){
+    getEmployees();
+    prev=date;
+}
+},2000);
+
+
+async function getissuedCertificates(){
+    const next_page = ((page_issuedCertificates-1)*5).toString();
+    const issuedCerts = await $.ajax({
+        url: HOST_URL+"/"+dappid+"/issuer/issuedPayslips",
+        type: 'post',
+        data: '{"iid":"1" ,"limit":5, "offset":'+next_page+'}',
+        contentType: 'application/json;charset=UTF-8',
+        dataType: 'json'
+    });
+    if(issuedCerts.isSuccess === undefined){
+        alert('Connection error');
+        return;
+    }
+    if(issuedCerts.isSuccess === false){
+        alert('Invalid Issuer');
+        return;
+    }
+    console.log('Success');
+    document.getElementById('issuedBlock').innerHTML='';
+    for(var i = 0 ; i <= issuedCerts.result.length;i++){
+    let division = '<div class="col-12 member_views_details " onclick="getIssuedDetails(\''+issuedCerts.result[i].pid+'\')"><div class="col-xl-3 col-lg-3 col-md-3 col-12 nopadding"><a href=""><img class="propic" src="lib/img/profile.jpg" width="55"></a></div><div class="col-xl-9 col-lg-9 col-md-9 col-12 nopadding"><h6>'+issuedCerts.result[i].name+'</h6><p class="p1">'+issuedCerts.result[i].designation+'</p><p class="p2">'+issuedCerts.result[i].empid+'</p><h6>Pay Slip Certificate</h6><p class="p4">ISSUED <span>on  '+Date(issuedCerts.result[i].timestampp)+'</span></p></div></div>';
+        document.getElementById('issuedBlock').innerHTML+=division;
+    }
+}
+
+async function getIssuedDetails(pid){
+    console.log(pid);
+    const payslipDetails = await $.ajax({
+        url: HOST_URL+"/"+dappid+"/payslip/getPayslip",
+        type: 'post',
+        data: '{"pid":'+pid+'}',
+        contentType: 'application/json;charset=UTF-8',
+        dataType: 'json'
+    });
+    if(payslipDetails.isSuccess===undefined){
+        alert("Connection Error");
+        return;
+    }
+    if(payslipDetails.isSuccess===false){
+        alert('Invalid Payslip');
+        return;
+    }
+    console.log('Success');
+    console.log(payslipDetails);
+    document.getElementById('issued_empname').value=payslipDetails.result['name'];
+    document.getElementById('issued_pay').value=payslipDetails.result['basicPay'];
+    document.getElementById('issued_designation').value=payslipDetails.result['designation'];
+    document.getElementById('issued_idnum').value=payslipDetails.result['empid'];
+    document.getElementById('issued_paycycle').value=payslipDetails.result['month']+' '+payslipDetails.result['year'];
+    document.getElementById('issued_bankdetails').value=payslipDetails.result['bank'];
+    document.getElementById('issuedBasic').innerText=payslipDetails.result['basicPay'];
+    let allowances = Number(payslipDetails.result['hra'])+ Number(payslipDetails.result['lta']) + Number(payslipDetails.result['ma']);
+    document.getElementById('issuedAllowances').innerText=(allowances).toString();
+    document.getElementById('issuedEarnings').innerText = (Number(payslipDetails.result['basicPay'])+allowances).toString();
+    document.getElementById('issuedPT').innerText=payslipDetails.result['professionalTax'];
+    document.getElementById('issuedPF').innerText=payslipDetails.result['providentFund'];
+    document.getElementById('issuedNetSalary').innerText=payslipDetails.result['netSalary'];
+    document.getElementById('issuedSalaryWords').innerText=inWords(Number(payslipDetails.result['netSalary']));
+    document.getElementById('issuedTotal').innerText=( Number(payslipDetails.result['providentFund']) + Number(payslipDetails.result['professionalTax']) ).toString();
+
+}
+
+
+async function initialIssue(){
+    var issuedetails = {};
+    issuedetails["empid"] = document.getElementById('employeeid').value;
+    issuedetails["name"] = document.getElementById('name').value
+    issuedetails["employer"] = '1';
+    monthyear = (document.getElementById('MonthYear').value).split('-');
+    issuedetails["month"] = monthyear[0]
+    issuedetails["year"] = monthyear[1]
+    issuedetails["designation"] = document.getElementById('designation').value
+    issuedetails["bank"] = document.getElementById('bank').value
+    issuedetails["accountNumber"] = document.getElementById('accountnumber').value
+    issuedetails["pan"] = document.getElementById('pan').value
+    issuedetails["basicPay"] = document.getElementById('salary').value
+    issuedetails["hra"] = document.getElementById('hra').value
+    issuedetails["lta"] = document.getElementById('lta').value
+    issuedetails["ma"] = document.getElementById('ma').value
+    issuedetails["providentFund"] = document.getElementById('pf').value
+    issuedetails["professionalTax"] = document.getElementById('pt').value
+    issuedetails["grossSalary"] = document.getElementById('earnings').innerText
+    issuedetails["totalDeductions"] = document.getElementById('total').innerText
+    issuedetails["netSalary"] = document.getElementById('netsalary').innerText
+    issuedetails["issuerid"] = '1'
+    issuedetails["secret"] = document.getElementById('passphrase').value
+    const result =await $.ajax({
+        url: HOST_URL+"/"+dappid+"/payslip/initialIssue",
+        type: 'post',
+        data: JSON.stringify(issuedetails),
+        contentType: 'application/json;charset=UTF-8',
+        dataType: 'json'
+    });
+    console.log(result);
+    if(result.isSuccess === undefined){
+        alert("Connection Error");
+        document.getElementById('tagclose').click();
+        return;
+    }
+    if(!result.isSuccess){
+        alert("EmployeeId : "+issuedetails['empid']+' is not issued');
+        return;
+    }
+    console.log("IT was a success");
+    document.getElementById(issuedetails["empid"]+'status').innerText = "Initiated";
+}
