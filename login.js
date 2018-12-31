@@ -104,6 +104,7 @@ a.value=email;
     async function getRole()
     {
         const data=await checkRole();
+        console.log(JSON.stringify(data));
         var roleid=data.role;
          dappid=data.dappid;
         localStorage.setItem("roleId",roleid);
