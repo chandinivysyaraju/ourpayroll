@@ -2,7 +2,7 @@ var role=localStorage.getItem("roleId");
 var company=localStorage.getItem("companyname");
 var email=localStorage.getItem("email");
 var belriumtoken=localStorage.getItem("belToken");
-var dappid=localStorage.getItem("dappid")
+var dappid=localStorage.getItem("dappid");
 function model(){
     console.log(role);
     if((role==="superuser")||(role==="new user")){

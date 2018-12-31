@@ -1,7 +1,12 @@
 var secret="cactus peasant return inside filter morning wasp floor museum nature iron can";
-var dappid ="48a7d6bd571d8a636bfc7d64781e03e4dc80df75c99ca98788c63697f9a2d56a";
-var HOST_URL="http://18.188.23.5:9305/api/dapps";
+//var dappid ="48a7d6bd571d8a636bfc7d64781e03e4dc80df75c99ca98788c63697f9a2d56a";
+//var HOST_URL="http://18.188.23.5:9305/api/dapps";
+var dappid=localStorage.getItem("dappid");
 var role=localStorage.getItem("roleId");
+var company=localStorage.getItem("companyname");
+var email=localStorage.getItem("email");
+var belriumtoken=localStorage.getItem("belToken");
+var bel=localStorage.getItem("bel");
 const count_countries=253;
 var countryData,countryData1,countryid,countryid1,countrycode,countrycode1;
 var vals, vals1, arg, arg1;
@@ -12,7 +17,7 @@ function model(){
    var list = document.getElementById('heading_list');
   list.childNodes[5].remove();
   list.childNodes[1].remove();
-  document.getElementById("issue").remove();
+ // document.getElementById("issue").remove();
   }
   if(role==="issuer"){
       var list = document.getElementById('heading_list');
@@ -23,6 +28,11 @@ function model(){
       var list = document.getElementById('heading_list');
       list.childNodes[3].remove();
       list.childNodes[1].remove();
+  }
+  if(role!="new user"){
+    document.getElementById("name").innerText=email;
+    document.getElementById("company").innerText=company;
+    document.getElementById("balance").innerText=(bel+" "+"BEL");
   }
 }
 var count=0;
@@ -262,11 +272,13 @@ async function issuerRegister(){
     var designation=$("#designation").val().replace(/<|>/g, "");
     var countryId=countryid;
     var countryCode=countrycode;
-    var name=$("#name").val().replace(/<|>/g, "");
+    console.log(countryId+countryCode);
+    var name=$("#issuername").val().replace(/<|>/g, "");
+    console.log(name);
     var type=$("#type").val().replace(/<|>/g, "");
     var role=$("#role").val().replace(/<|>/g, "");
     vals={email:email,designation:designation,countryId:countryId,countryCode:countryCode,name:name,type:type,role:role,dappid:dappid};
-    //console.log(JSON.stringify(vals));
+    console.log(JSON.stringify(vals));
     arg=preprocessing(vals);
 
     var params={
@@ -275,8 +287,10 @@ async function issuerRegister(){
         fee:"0",
         secret:secret
       };
+      console.log(JSON.stringify(params));
 
     const issueResponse = await addIssuer(params);
+    console.log(issueResponse);
 
     if(issueResponse.success===true){
         getIssuers();

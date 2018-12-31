@@ -24,6 +24,7 @@ document.getElementById("address").value=address;
       var list = document.getElementById('heading_list');
       list.childNodes[5].remove();
       list.childNodes[3].remove();
+      document.getElementById("regdapp").remove();
   }  
   if(role==="authorizer"){
       var list = document.getElementById('heading_list');
@@ -80,10 +81,16 @@ async function dappreg(data){
         dataType: 'json'});
         return result;
     }
-    catch(error)
-    {
+    catch(error){
+    if(error){
         console.log(error);
+      if((error["status"] === 401) && (error["responseJSON"]["status"]==="UNAUTHORIZED")){
+          alert("error" + error["responseJSON"]["message"]);
+      }else{
+          alert("error" + error["responseJSON"]["message"]);
+      }
     }
+}
 }
 
 async function CheckKYCStatus(token)

@@ -18,6 +18,8 @@
         <link rel="stylesheet" type="text/css" href="lib/css/datatables.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/custom.css">
         <script src="certificate.js"></script>
+        <script src="constant.js"></script>
+        <script src="logout.js"></script>
     </head>
     
     <body onload="model()">
@@ -32,15 +34,15 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                         <ul class="nav navbar-nav menu" id="heading_list">
-                            <li class="active nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/issuenewcertificate.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Issue New Certificate</a>
+                            <li class="active nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/issuenewcertificate.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Issue New Payslip</a>
                             </li>
                             <li class="nav-item"><a href="superadmin-issuers.html" class="nav-link"><img class="menuicon n" src="lib/img/superadmin.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Super Admin</a>
                             </li>
                             <li class="nav-item"><a href="authorizer.html" class="nav-link"><img class="menuicon n" src="lib/img/authorizer.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Authorizer</a>
                             </li>
-                            <li class="nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/kyc.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Update KYC</a>
+                            <li class="nav-item"><a href="kyc.html" class="nav-link"><img class="menuicon n" src="lib/img/kyc.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Update KYC</a>
                             </li>
-                            <li class="nav-item logout"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/logout.svg"><img class="menuicon a" src=""></a>
+                            <li class="nav-item logout"><a href="#" onclick="logout()" class="nav-link"><img class="menuicon n" src="lib/img/logout.svg"><img class="menuicon a" src=""></a>
                             </li>
                         </ul>
                     </div>
@@ -51,9 +53,9 @@
                     <div class="col-xl-2 col-lg-3 col-md-3 col-12 nopadding leftmenu">
                     	<div class="profile">
                         	<img src="lib/img/profile.jpg" width="60">
-                        	<h6>Srini Rajkumar</h6>
-                        	<p>Belfrics BT Private Limited</p>
-                        	<h4>$ 1,23,456</h4>
+                        	<h6 id="name"></h6>
+                        	<p id="company"></p>
+                        	<h4 id=balance></h4>
                         	<p>Available Balance</p>
                         </div>
                     </div>
@@ -137,7 +139,7 @@
                                                          <label class="calender_icon"><img src="lib/img/calendaricon.svg"></label>
                                                     </div>
                                                     <div class="form-group col-md-3 col-12">
-                                                        <a href="#"><img src="lib/img/register.svg">&nbsp;&nbsp; Register New Employee</a>
+                                                        <a id="reg" href="#"><img src="lib/img/register.svg">&nbsp;&nbsp; Register New Employee</a>
                                                     </div>
                                                 </form>
                                             </div>
