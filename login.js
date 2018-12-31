@@ -71,7 +71,7 @@ a.value=email;
             if(hllogin["isSuccess"]===true)
                     {
                         localStorage.setItem("bkvsdm_token",k.token);
-                        CheckKYCStatus(token);
+                        getRole(email);
                      }
                          else
                      {
@@ -105,11 +105,15 @@ a.value=email;
     {
         const data=await checkRole();
         console.log(JSON.stringify(data));
+        alert(JSON.stringify(data));
         var roleid=data.role;
          dappid=data.dappid;
-        localStorage.setItem("roleId",roleid);
             if((roleid==="new user")||(roleid==="superuser")||(roleid==="issuer")||(roleid==="authorizer"))
             {
+                localStorage.setItem("country",data.country);
+                localStorage.setItem("companyname",data.company);
+                localStorage.setItem("name",data.name);
+               localStorage.setItem("roleId",roleid);
                 localStorage.setItem("dappid",dappid)
                 console.log(roleid);
                 if(roleid==="authorizer"){
@@ -148,31 +152,6 @@ a.value=email;
             console.log(error);
         }
     }
-
-   async function CheckKYCStatus(token)
-   {
-       let result;
-       try
-       {
-        result = await $.ajax({
-            type: 'get',
-            url: 'http://54.254.174.74:8080/api/v1/user/countries/kyc',
-            headers: {"belrium-token" : token}});
-            // console.log(result);
-            var obj=result.data[0].kycstatus;
-            if(true){
-                getRole(email);
-            }
-            else{
-                window.location.href="../KycUpload/KycUpload.html";
-            }
-        }
-        catch(error)
-        {
-            console.log(error);
-        }
-    }
-
 
    async function getauthid(){
         let result;

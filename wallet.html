@@ -17,6 +17,7 @@
       <link rel="stylesheet" type="text/css" href="lib/css/datatables.min.css">
       <link rel="stylesheet" type="text/css" href="lib/css/custom.css">
       <script src="wallet.js"></script>
+      <script src="logout.js"></script>
       <script src="constant.js"></script>
       <style>   
          span.validthru {position: absolute;top: 6px;left: 67px;font-size: 24px;}
@@ -80,7 +81,7 @@
                      </li>
                      <li class="nav-item"><a href="kyc.html" class="nav-link"><img class="menuicon n" src="lib/img/kyc.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Update KYC</a>
                      </li>
-                     <li class="nav-item logout"><a href="login.html" class="nav-link"><img class="menuicon n" src="lib/img/logout.svg"><img class="menuicon a" src=""></a>
+                     <li class="nav-item logout"><a href="landing_page.html" onclick="logout()" class="nav-link"><img class="menuicon n" src="lib/img/logout.svg"><img class="menuicon a" src=""></a>
                      </li>
                   </ul>
                </div>
@@ -216,7 +217,7 @@
                             </div>
                         </div>
                      </div>
-                     <div class="col-xl-5 col-lg-5 col-md-6 col-12">
+                     <!-- <div class="col-xl-5 col-lg-5 col-md-6 col-12">
                         <div class="col-12 walletcard" style="background: linear-gradient(to top, #45494C, #787F87 );">
                             <div class="col-6 walletcard4">
                                 <h5>$ 1,23,456</h5>
@@ -237,17 +238,16 @@
                                 <span><img src="lib/img/validthru.svg"><span class="validthru">06/19</span></span>
                             </div>                            
                         </div>
-                     </div>
+                     </div> -->
                   </div>
                </div>
             </div>
          </div>
       </section>
       <!--onload wallet Modal -->
-      <div id="wallet_onload" class="modal fade" role="dialog">
+      <!-- <div id="wallet_onload" class="modal fade" role="dialog">
          <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
+          <div class="modal-content">
                <div class="modal-header">
                   <div class="topsec">
                      <img src="lib/img/wallet_popicon.svg">
@@ -275,7 +275,7 @@
                </div>
             </div>
          </div>
-      </div>
+      </div> --> -->
       <!--onload wallet Modal end -->
       <!--recieve Modal -->
       <div id="recieve" class="modal fade" role="dialog">
@@ -383,8 +383,13 @@
                      </div>
                      <div class="form-group row">
                         <div class="col-12">
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           <button type="button" class="btn btn-info btn-lg" onclick="registerdapp();" data-dismiss="modal">Submit</button>
+                           <input  id="company1" name="company" placeholder="company" type="text" required="required" class="form-control here">
+                        </div>
+                     </div>
+                     <div class="form-group row">
+                        <div class="col-12">
+                           <button type="button" class="btn btn-default" id="close" data-dismiss="modal">Close</button>
+                           <button type="button" class="btn btn-info btn-lg" onclick="registerdapp();">Submit</button>
                         </div>
                      </div>
                   </form>
