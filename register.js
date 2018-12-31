@@ -1,39 +1,58 @@
-var lastName,name,email,password,type,countryCode,countryId;
+const count_countries=253;
+var countryData;
+var countrycode,countryid;
 $(document).ready(function(){
-var email = localStorage.getItem("Email");  
+    var lastName,username,email,password,type;
+ var email = localStorage.getItem("email");  
 document.getElementById("email").setAttribute("value",email);
     $("#register").click(async function(){
-        if(signupValidation()){
-        countryCode=escapeInput($("#countryCode").val());
-        countryId=escapeInput($("#countryId").val());
+        //if(signupValidation()){
         email=escapeInput($("#email").val());
-        lastName=escapeInput($("#name").val());
-        name=escapeInput($("#name").val());
-        password=escapeInput($("#password").val());
-        type="merchant";
-        const signupResponse= await checkSignup();
+        lastName=escapeInput($("#companyname").val());
+        username=escapeInput($("#username").val());
+        password=escapeInput($("#Password").val());
+        var e = document.getElementById("user-type");
+        type = e.options[e.selectedIndex].text;
+        console.log(type);
+        data={
+            countryCode:countrycode,
+            countryId: countryid,
+            email:email,
+            lastName:lastName ,
+            name: username,
+            password: password,
+            type:type
+        }
+        console.log(data);
+        const signupResponse= await checkSignup(data);
+        console.log(signupResponse);
         if(signupResponse["isSuccess"]==true){
-            console.log(signupResponse);
-            window.location.href="../Login/Login.html";
-
+            // localStorage.setItem("company",lastName);
+            // localStorage.setItem("username",username);
+            // localStorage.setItem("countryid",countryid);
+            // localStorage.setItem("countrycode",countrycode);
+            window.location.href="login.html";
         }
         else{
             $("#message").html("signup failed");
+            console.log("registration failed");
         }
-    }
+   // }
 });
 });
-async function checkSignup()
+async function checkSignup(data)
 {
+    var params={
+        type: 'post',
+        url: HOST_URL+"/"+SDAPP_ID+"/"+"user/signup",
+        data: JSON.stringify(data),
+        contentType: 'application/json;charset=UTF-8',
+        dataType: 'json'
+    }
+    console.log(params.data);
     let result;
         try{
-               result=await $.ajax({
-                   type: 'post',
-                   url: 'http://54.254.174.74:8080/api/v1/signup',
-                   data: '{"countryCode":"' + countryCode +'","countryId":"' + countryId +'","email":"' + email +'","lastName":"' + lastName +'","name":"' + name +'","password":"' + password +'","type":"' + type +'"}',
-                   contentType: 'application/json;charset=UTF-8',
-                   dataType: 'json'
-               });
+               result=await $.ajax(params);
                return result;
             }
             catch(error){
@@ -57,3 +76,31 @@ function escapeInput(input) {
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;');
     }
+
+function getCountries()
+{
+    $.get("http://54.254.174.74:8080/api/v1/countries",function(data){
+        // console.log(data);
+        countryData = data;
+        var x = document.getElementById("country_list");
+        for(var i=0 ;i<count_countries;i++){
+            var option = document.createElement("option");
+            option.text = countryData['data'][i]['countryName'];
+            x.add(option);
+        }
+    });
+}
+
+function countryValidator(){
+    var e = document.getElementById("country_list");
+    // console.log(e);
+    var strUser = e.options[e.selectedIndex].text;
+    // console.log(e.options[e.selectedIndex]);
+    var i=e.selectedIndex-1;
+    console.log(strUser);
+    console.log(countryData['data'][i]['countryCode']);
+    console.log(countryData['data'][i]['countryID']);
+    countrycode=countryData['data'][i]['countryCode'];
+    countryid=countryData['data'][i]['countryID']
+    
+}

@@ -1,11 +1,15 @@
 var role=localStorage.getItem("roleId");
-
+var company=localStorage.getItem("companyname");
+var email=localStorage.getItem("email");
+var belriumtoken=localStorage.getItem("belToken");
+var dappid=localStorage.getItem("dappid")
 function model(){
     console.log(role);
     if((role==="superuser")||(role==="new user")){
      var list = document.getElementById('heading_list');
     list.childNodes[5].remove();
     list.childNodes[1].remove();
+    document.getElementById("issue").remove();
     }
     if(role==="issuer"){
         var list = document.getElementById('heading_list');
@@ -18,9 +22,10 @@ function model(){
         list.childNodes[1].remove();
     }
  }
-var belriumtoken="f00eef6b-f8c6-4c47-ae1a-647363b8ad831545379936918";
 async function issueDashboard(){
-
+    document.getElementById("username").innerText=email;
+    if(role!="new user"){
+    document.getElementById("company").innerText=company;
     const res1 = await totalCertsIssued();
     //console.log(res1);
     $("#totalCerts").text(res1.totalCertificates);
@@ -33,19 +38,6 @@ async function issueDashboard(){
     //console.log(res3);
     $("#totalEmployee").text(res3.totalEmployee);
 
-    // const res4 = await getAddress();
-    // //console.log(res4);
-    // var address=res4.data.countries[0].wallets[0].address;
-    // $("#address").text(address);
-
-    // const res5 = await getBalance(address);
-    // //console.log(res5);
-    // var balance=JSON.parse(res5.data).balance;
-    // var bel=balance/1000000000;
-    // localStorage.setItem("bel",bel);
-    // $("#balance").text(bel+" "+"BEL");
-    // $("#balance1").text(bel+" "+"BEL");
-
     const res6 = await recentIssued();
     //console.log(JSON.stringify(res6));
     var n=res6.length;
@@ -53,6 +45,20 @@ async function issueDashboard(){
     for(i=0;i<n;i++){
         add_issuedemployee(res6[i].name,res6[i].empid);
     }
+    }
+    const res4 = await getAddress();
+    console.log(res4);
+    var address=res4.data.countries[0].wallets[0].address;
+    localStorage.setItem("address",address);
+     $("#address").text(address);
+
+    const res5 = await getBalance(address);
+    console.log(res5);
+    var balance=JSON.parse(res5.data).balance;
+    var bel=balance/10000000000;
+    localStorage.setItem("bel",bel);
+     $("#balance").text(bel+" "+"BEL");
+     $("#balance1").text(bel+" "+"BEL");
 }
 
 async function totalCertsIssued(){
@@ -113,12 +119,9 @@ async function getAddress(){
     let result;
         try{
             result = await $.ajax({
-            url:'http://54.254.174.74:8080/api/v1/wallets',
-            type: 'get',
-            headers:
-            {
-                'belrium-token':belriumtoken
-            },
+            url:HOST_URL+"/"+SDAPP_ID+"/"+"user/wallet",
+            type: 'post',
+            data:'{"token":"' + belriumtoken +'"}',
             contentType: 'application/json;charset=UTF-8',
             dataType: 'json'
             });
@@ -135,12 +138,9 @@ async function getBalance(address){
     let result;
         try{
             result = await $.ajax({
-            url: "http://54.254.174.74:8080/api/v1/balance?address="+address,
-            type: 'get',
-            headers:
-            {
-            'belrium-token':belriumtoken
-            },
+            url: HOST_URL+"/"+SDAPP_ID+"/"+"user/balance",
+            type: 'post',
+            data: '{"address":"' + address +'","belriumtoken":"' + belriumtoken +'"}',
             contentType: 'application/json;charset=UTF-8',
             dataType: 'json'
             });

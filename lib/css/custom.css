@@ -1,11 +1,11 @@
 @font-face {
     font-family: Nexa; 
-    src: url('../fonts/NexaLight.otf');
-    src: url('../fonts/NexaBold.otf');
+    src: url('Nexa Light.otf');
+    src: url('Nexa Bold.otf');
 
 } 
 *,body,p,h1,h2,h3,h4,h5,h6,span,label,a{
-	font-family: NexaLight, sans-serif; 
+	font-family: Nexa Light, sans-serif; 
 }
 body{
     overflow: hidden;
@@ -251,8 +251,11 @@ td.table_viewbtn a{
 td.table_prppic a img {
     border-radius: 50px;
 }
-table.dataTable tbody tr:nth-child(even) {
+table tbody tr:nth-child(even) {
 	background: #FAFAFF;
+}
+table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
+    background-color: #ffffff;
 }
 table.dataTable tbody tr td{
 	border:0 !important;
@@ -1003,6 +1006,63 @@ form#payslip label span {
     padding: 0px 25px;
 }
 
+#reg-new-emp .topsec {
+    margin: auto;
+}
+#reg-new-emp .topsec svg {
+    background: #415BF6;
+    border-radius: 50px;
+    padding: 10px;
+}
+#reg-new-emp .modal-header {
+    background: #3535F0;
+    padding-bottom: 180px;
+    border: 0;
+    border-radius: 10px;
+}
+#reg-new-emp .modal-body {
+    position: relative;
+    width: 95%;
+    margin: auto;
+    padding: 35px 10px 30px;
+    top: -165px;
+    background: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+}
+#reg-new-emp .modal-content {
+    background: transparent;
+    border: 0;
+}
+#reg-new-emp button.btn.btn-info.btn-lg {
+    background: #415BF6;
+    border-color: #415BF6;
+    border-radius: 5px;
+    border-width: 2px;
+     font-weight: 700;
+      width:125px
+}
+#reg-new-emp button.btn.btn-default {
+    border-color: #415BF6;
+    background: #ffffff;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #3535f0;
+    font-weight: 700;
+}
+
+#reg-new-emp p.p1{
+    color: #415BF6;
+    font-weight: 700;
+    padding: 0px 25px;
+}
+#reg-new-emp p.p2{
+    color: #8F8F8F;
+    font-weight: 500;
+    padding: 0px 25px;
+}
+
 #register_pop .topsec {
     margin: auto;
 }
@@ -1203,7 +1263,7 @@ form#enter_details_form input {
 }
 table.dataTable.display tbody tr.odd>.sorting_1, table.dataTable.order-column.stripe
  tbody tr.odd>.sorting_1 {
-    background-color: #f9f9f9;
+    background-color: #ffffff;
 }
 
 table.dataTable thead th:second-child, table.dataTable thead td:second-child {

@@ -7,8 +7,8 @@
         <meta name="keywords" content="Smart Commerce">
         <meta name="author" content="Smart Commerce">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>BelBooks - Members</title>
-        <link rel="shortcut icon" href="lib/img/logo.png">
+        <title>BelBooks - KYC</title>
+        <link rel="shortcut icon" href="lib/img/belbooks-logo.svg">
         <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="lib/css/bootstrap-grid.css">
@@ -16,20 +16,51 @@
         <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.css">
         <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/datatables.min.css">
-        <link rel="stylesheet" type="text/css" href="lib/css/custom.css">
-        <script src="members.js"></script>
-        <script src="constant.js"></script>
-        <style type="text/css">
-            .regemppro img {margin: auto;}
-            .regemppro img.pro2 {position: relative;top: -25px;}
-            div#reg-new-emp form#register-new-emplyoee {padding: 5px 35px;}
-            .reg_btn { width: 125px; margin-left: 10px; position: relative;}
-            .mem_btn1{ margin-right: 15px; margin-top: 12px;}
-            .mem_btn2{ margin-left: 15px; margin-top: 12px;}
+        <link rel="stylesheet" type="text/css" href="lib/css/filepond.min.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/filepond.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/custom.css">		
+    	<style>
+    		div#example1_length,div#example1_filter {display: none;}
+            table#example, table#example1 {	padding: 15px;}
+            .kyc_title p {padding: 5px 30px 15px;color: #13289F;font-weight: bold;font-size: 18px;margin-bottom: 0;}
+            .kyc-border {border: 1px solid #f1f4f8;margin: 50px 0 0;}
+            .kyc-address {background-color: #f4f4f4;border-radius: 5px;padding: 15px;margin-bottom: 30px;}
+            .kyc-address p span {color: red;}
+            .kyc-content .kyc-sec-2 {padding: 28px;}
+            .kyc-check {background-color: #415bf6 ;color: #fff;display: inline-block;vertical-align: middle;border-radius: 5px;border-top-right-radius: 0;border-bottom-right-radius: 0;
+            	padding: 5px 23px;font-size: 12PX;}
+            .kyc-no-bg{background-color: #B2C3D7!important;}
+            .kyc-check-citizn {color: #fff;display: inline-block;vertical-align: middle;border-radius: 5px;border-top-right-radius: 0;border-bottom-right-radius: 0;padding: 5px 23px;
+                font-size: 12px;}
+            .kyc-check-last {border-radius: 5px;border-top-left-radius: 0;border-bottom-left-radius: 0;font-size: 12px;display: inline-block;vertical-align: middle;padding: 5px 23px;
+            	color: #B2C3D7;}
+            .kyc-check-middle {border-radius: 0;margin: 0 1px;}
+            .kyc-check-main {display: table;width: 100%;}
+            .kyc-check-main .form-group .form-control {padding: 1.375rem 0.75rem !important;}
+            .kyc-box1-text p:nth-child(1) {color: #13279F;font-weight: 600;}
+            .custom-checkbox .custom-control-label::before {border-radius: 2.25rem;}
+            .form-control {width: 98%!important;font-size: 12px;margin-top: 22px;}
+            .kyc-box3-text {margin-top: 22px;}
+            .custom-checkbox .custom-control-input:disabled:checked~.custom-control-label::before {
+            	background-color: rgb(74, 213, 52);
+            }
+            .custom-control-input:disabled~.custom-control-label {color: #fff;}
+            .custom-control-label::before {top: 5px;left: 3px;background-color: #dee2e6;}
+            .custom-control-label::after {top: 5px;left: 3px;}
+            .upload {width: 100%;height: 30px;}
+            .previewBox {text-align: center;position: relative;width: 150px;height: 150px;margin-right: 10px;margin-bottom: 20px;float: left;}
+            .previewBox img {height: 150px;width: 150px;padding: 5px;border: 1px solid rgb(232, 222, 189);}
+            .filepond--root.filepond.filepond--hopper {  height: 120px !important; border: 2px solid #989898; border-style: dashed; margin: 20px 0px;border-radius: 10px;}
+            span.filepond--label-action {display: block;color: #415bf6; font-size: 16px;}
+
+            @media (max-width: 767px){
+            .rightside { top: 245px!important;}
+           }
         </style>
+	
     </head>
     
-    <body onload="getCountries();model(); memberDashboard()">
+    <body>
         <header class="bel_dashboard_header">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg navbar-light land_page menubar navbar-expand-md">
@@ -40,12 +71,12 @@
                     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                        <ul class="nav navbar-nav menu" id="heading_list">
-                            <li class="active nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/issuenewcertificate.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Issue New Payslip</a>
+                        <ul class="nav navbar-nav menu">
+                            <li class="active nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/issuenewcertificate.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Issue New Certificate</a>
                             </li>
-                            <li class="nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/superadmin.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Super Admin</a>
+                            <li class="nav-item "><a href="#" class="nav-link active"><img class="menuicon n" src="lib/img/superadmin.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Super Admin</a>
                             </li>
-                            <li class="nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/authorizer.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Authorizer</a>
+                            <li class="nav-item"><a href="authorizer.html" class="nav-link"><img class="menuicon n" src="lib/img/authorizer.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Authorizer</a>
                             </li>
                             <li class="nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/kyc.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Update KYC</a>
                             </li>
@@ -60,9 +91,9 @@
                     <div class="col-xl-2 col-lg-3 col-md-3 col-12 nopadding leftmenu">
                     	<div class="profile">
                         	<img src="lib/img/profile.jpg" width="60">
-                        	<h6 id="name"></h6>
-                        	<p id="company"></p>
-                        	<h4 id=balance></h4>
+                        	<h6>Srini Rajkumar</h6>
+                        	<p>Belfrics BT Private Limited</p>
+                        	<h4>$ 1,23,456</h4>
                         	<p>Available Balance</p>
                         </div>
                     </div>
@@ -87,13 +118,13 @@
                                     </svg>Dashboard </a></li>                                		
                         		<li><a href="certificate.html">
                                     <svg width="35px" height="35px" viewBox="0 0 29 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                        <title>Payslip</title>
+                                        <title>Certificate</title>
                                         <g id="new" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                             <g id="Dashboard" transform="translate(-99.000000, -522.000000)" fill="#4A5B75" stroke="#4A5B75" stroke-width="0.2">
                                                 <path d="M124.591257,522.186099 C126.191257,522.186099 127.480146,523.474988 127.480146,525.074988 L127.480146,533.963877 C127.480146,534.341655 127.191257,534.630543 126.81348,534.630543 C126.435702,534.630543 126.146813,534.341655 126.146813,533.963877 L126.146813,525.074988 C126.146813,524.208321 125.457924,523.519432 124.591257,523.519432 L102.369035,523.519432 C101.502368,523.519432 100.81348,524.208321 100.81348,525.074988 L100.81348,542.852766 C100.81348,543.719432 101.502368,544.408321 102.369035,544.408321 L114.81348,544.408321 C115.191257,544.408321 115.480146,544.69721 115.480146,545.074988 C115.480146,545.452766 115.191257,545.741655 114.81348,545.741655 L102.369035,545.741655 C100.769035,545.741655 99.4801462,544.452766 99.4801462,542.852766 L99.4801462,525.074988 C99.4801462,523.474988 100.769035,522.186099 102.369035,522.186099 L124.591257,522.186099 Z M126.81348,544.408321 C127.191257,544.408321 127.480146,544.69721 127.480146,545.074988 L127.480146,549.519432 C127.480146,549.763877 127.346813,549.986099 127.146813,550.09721 C127.035702,550.163877 126.924591,550.186099 126.81348,550.186099 C126.702368,550.186099 126.591257,550.163877 126.480146,550.09721 L123.035702,548.074988 L119.591257,550.09721 C119.391257,550.208321 119.124591,550.208321 118.924591,550.09721 C118.724591,549.986099 118.591257,549.763877 118.591257,549.519432 L118.591257,545.074988 C118.591257,544.69721 118.880146,544.408321 119.257924,544.408321 C119.635702,544.408321 119.924591,544.69721 119.924591,545.074988 L119.924591,548.363877 L122.702368,546.741655 C122.902368,546.608321 123.169035,546.608321 123.369035,546.741655 L126.146813,548.363877 L126.146813,545.074988 C126.146813,544.69721 126.435702,544.408321 126.81348,544.408321 Z M123.035702,536.408321 C121.324591,536.408321 119.924591,537.808321 119.924591,539.519432 C119.924591,541.230543 121.324591,542.630543 123.035702,542.630543 C124.746813,542.630543 126.146813,541.230543 126.146813,539.519432 C126.146813,537.808321 124.746813,536.408321 123.035702,536.408321 Z M123.035702,535.074988 C125.480146,535.074988 127.480146,537.074988 127.480146,539.519432 C127.480146,541.963877 125.480146,543.963877 123.035702,543.963877 C120.591257,543.963877 118.591257,541.963877 118.591257,539.519432 C118.591257,537.074988 120.591257,535.074988 123.035702,535.074988 Z M103.480146,530.186099 C103.102368,530.186099 102.81348,529.89721 102.81348,529.519432 C102.81348,529.141655 103.102368,528.852766 103.480146,528.852766 L123.480146,528.852766 C123.857924,528.852766 124.146813,529.141655 124.146813,529.519432 C124.146813,529.89721 123.857924,530.186099 123.480146,530.186099 L103.480146,530.186099 Z M115.257924,533.29721 C115.635702,533.29721 115.924591,533.586099 115.924591,533.963877 C115.924591,534.341655 115.635702,534.630543 115.257924,534.630543 L103.480146,534.630543 C103.102368,534.630543 102.81348,534.341655 102.81348,533.963877 C102.81348,533.586099 103.102368,533.29721 103.480146,533.29721 L115.257924,533.29721 Z M103.480146,537.741655 L110.81348,537.741655 C111.191257,537.741655 111.480146,538.030543 111.480146,538.408321 C111.480146,538.786099 111.191257,539.074988 110.81348,539.074988 L103.480146,539.074988 C103.102368,539.074988 102.81348,538.786099 102.81348,538.408321 C102.81348,538.030543 103.102368,537.741655 103.480146,537.741655 Z M115.257924,539.074988 C114.889734,539.074988 114.591257,538.776511 114.591257,538.408321 C114.591257,538.040131 114.889734,537.741655 115.257924,537.741655 C115.626114,537.741655 115.924591,538.040131 115.924591,538.408321 C115.924591,538.776511 115.626114,539.074988 115.257924,539.074988 Z" id="Combined-Shape"></path>
                                             </g>
                                         </g>
-                                    </svg>Payslip </a></li>
+                                    </svg>Certificate </a></li>
                         		<li><a href="wallet.html">
                                     <svg width="35px" height="35px" viewBox="0 0 25 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <title>Wallet</title>
@@ -109,7 +140,7 @@
                                             </g>
                                         </g>
                                     </svg>Wallet </a></li>
-                                 <li class="active"><a href="members.html">
+                                 <li><a href="members.html">
                                      <svg width="35px" height="35px" viewBox="0 0 29 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <title>Members</title>
                                         <g id="new" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -125,178 +156,163 @@
                         </div>
                     </div>
                     <div class="col-xl-10 col-lg-9 col-md-9 col-12 nopadding rightside">
-                        <div class="dashboard_content">
-                        	<div class="member_title">
-                        		<p class="col-xl-3 col-lg-3 col-md-6 col-12 nopadding">Members</p>
-                                <div class="col-xl-9 col-lg-9 col-md-12 col-12">
-                                    <ul class="members_title_head text-right">
-                                        <li>
-                                             <div class="form-group search_for">
-                                                <div class="form-input">
-                                                    <input id="search" type="text" placeholder="Search for..." class="form-control">
+						<div class="kyc-content">
+							<div class="col-xl-12 col-lg-12 col-md-12 col-12 dashboard_content nopadding">
+								<div class="col-xl-12 col-lg-12 col-md-12 col-12 nopadding">
+									<div class="col-xl-9 col-lg-9 col-md-9 col-9 nopadding kyc_title">
+										<p>KYC Documents</p>
+									</div>
+									<div class="col-xl-3 col-lg-3 col-md-3 col-3 nopadding dash_details_view">
+										<p><img class="mr-2" src="lib/img/india-flag-icon-32.png">India</p>
+									</div>
+									<div class="kyc-border"></div>
+								</div>
+								<div class="col-xl-12 col-lg-12 col-md-12 col-12 dash_details_view kyc-sec-2 ">
+									<p>Lets Identify the organizario by providing any of the following Certificates</p>
+								</div>
+								<div class="col-xl-12 col-lg-12 col-md-12 col-12">
+									<div class="col-xl-4 col-lg-12 col-md-12 col-12">
+										<div class="col-xl-12 col-lg-12 col-md-12 col-12 kyc-address">
+											<p><b>Identity Proof</b> <span>*</span></p>
+											<form>
+											<div class="kyc-check-main">
+												
+												<div class="kyc-check kyc-upload custom-control custom-checkbox">
+												  <input class="custom-control-input active" type="checkbox" name="Check1" id="Check1" checked="" disabled> 
+												  <label class="custom-control-label" for="Check1">Upload</label>
+												</div>
+												<div class="kyc-check kyc-payment kyc-check-middle custom-control custom-checkbox">
+												  <input class="custom-control-input" type="checkbox" name="Check2" id="Check2" checked="" disabled> 
+												  <label class="custom-control-label" for="Check2">Payment</label>
+												</div>
+												<div class="kyc-check kyc-check-last kyc-verified custom-control custom-checkbox">
+												  <input class="custom-control-input" type="checkbox" name="Check3" id="Check3" checked="" disabled> 
+												  <label class="custom-control-label" for="Check3">Get Verified</label>
+												</div>
+												
+											</div>
+											<div class="kyc-box1-text">
+												<p class="mt-2">Pan Card</p>
+												<p>Uploaded On: 05/12/2018, 11:44:46</p>
+												<button type="button" class="btn btn-success">Approved</button>
+											</div>
+											</form>
+										</div>
+										
+									</div>
+									<div class="col-xl-4 col-lg-12 col-md-12 col-12">
+										<div class="col-xl-12 col-lg-12 col-md-12 col-12 kyc-address">
+											<p><b>Address Proof</b> <span>*</span></p>
+											<form>
+											<div class="kyc-check-main">
+												
+												<div class="kyc-check kyc-upload custom-control custom-checkbox">
+												  <input class="custom-control-input" type="checkbox" name="Check4" id="Check4" checked="" disabled> 
+												  <label class="custom-control-label" for="Check4">Upload</label>
+												</div>
+												<div class="kyc-check kyc-payment kyc-check-middle custom-control custom-checkbox">
+												  <input class="custom-control-input" type="checkbox" name="Check5" id="Check5"  checked="" disabled> 
+												  <label class="custom-control-label" for="Check5">Payment</label>
+												</div>
+												<div class="kyc-check-last kyc-verified custom-control custom-checkbox kyc-no-bg">
+												  <input class="custom-control-input" type="checkbox" name="Check6" id="Check6"  disabled> 
+												  <label class="custom-control-label" for="Check6">Get Verified</label>
+												</div>
+												
+											</div>
+											<div class="kyc-box1-text">
+												<p class="mt-2">Passport</p>
+												<p>Uploaded On: 05/12/2018, 11:44:46</p>
+												<button type="button" class="btn btn-danger">Pending</button>
+											</div>
+											</form>
+											
+										</div>
+									</div>
+									<div class="col-xl-4 col-lg-12 col-md-12 col-12">
+										<div class="col-xl-12 col-lg-12 col-md-12 col-12 kyc-address">
+											<p><b>Citizenship</b></p>
+											<form>
+											<div class="kyc-check-main">
+												
+												<div class=" kyc-no-bg kyc-check-citizn  kyc-upload custom-control custom-checkbox ">
+												  <input class="custom-control-input" type="checkbox" name="Check7" id="Check7" disabled> 
+												  <label class="custom-control-label" for="Check7">Upload</label>
+												</div>
+												<div class="kyc-no-bg kyc-check-citizn  kyc-payment kyc-check-middle custom-control custom-checkbox ">
+												  <input class="custom-control-input" type="checkbox" name="Check8" id="Check8"  disabled> 
+												  <label class="custom-control-label" for="Check8">Payment</label>
+												</div>
+												<div class="kyc-no-bg kyc-check-last kyc-verified custom-control custom-checkbox ">
+												  <input class="custom-control-input" type="checkbox" name="Check9" id="Check9"  disabled> 
+												  <label class="custom-control-label" for="Check9">Get Verified</label>
+												</div>
+												
+											</div>
+											<select class="form-control">
+											  <option>Visitor ID</option>
+											  <option>Visitor ID</option>
+											  <option>Visitor ID</option>
+											</select>
+											<div id="demo" class="collapse" style="overflow-y: auto;">
+												<div class="form-group files color">              
+                                                    <input type="file"   class="filepond"   name="filepond" multiple  data-max-file-size="3MB" data-max-files="3">
+												</div>
+                                               
+											</div>
+                                            <div class="kyc-box3-text">
+                                                    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Upload</button>
                                                 </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="#" id="reg" data-toggle="modal" data-target="#reg-new-emp"><img src="lib/img/employee1.svg">&nbsp;&nbsp; Register New Employee</a>
-                                        </li>
-                                    </ul>
-                                    
-                                     
-                                </div>
-                               
-                        	</div>
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-12 member_views" id='members_div'>
-                                
-                            </div>
-                        </div>
+											
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
                     </div>
                 </div>
             </div>
         </section>
         
-        <!--Register New Employee Modal -->
-      <div id="reg-new-emp" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-               <!-- Modal content-->
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <div class="topsec">
-                        <img src="lib/img/regnewemp.svg">
-                     </div>
-                  </div>
-                  <div class="modal-body">
-                     <p class="p1">Register New Employee</p>
-                     <form class="dapp-balance" action="" method="post" id="register-new-emplyoee">
-                       <div class="form-group row regemppro">
-                           <div class="col-12">
-                              <label for="emp_profile">
-                                   <img class="pro1" src="lib/img/regnewemp1.svg">
-                               </label>
-                           </div>
-                           <div class="col-12" style=" margin-bottom: -30px;">
-                               <label for="emp_profile">
-                                  <img class="pro2" src="lib/img/camera.svg">
-                              </label>
-                           </div>
-                        </div>
-                       <div class="form-group row" style="display: none;">
-                           <div class="col-12">
-                              <div class="input-group">
-                                 <input id="emp_profile" name="emp_profile" type="file" required="required" class="form-control here"> 
-                              </div>
-                           </div>
-                        </div>
-                       <div class="form-group row">
-                           <div class="col-6">
-                              <div class="input-group">
-                                 <select name="countrycode" id="countrycode" class="form-control" onclick="countryValidator()">
-                                     <option>Country Code</option>
-                                 </select>
-                              </div>
-                           </div>
-                           <div class="col-6">
-                              <div class="input-group">
-                                 <input id="email" name="email" placeholder="Email" type="email" class="form-control" required=""> 
-                              </div>
-                           </div>
-                       </div>
-                       <div class="form-group row">
-                           <div class="col-6">
-                              <div class="input-group">
-                                 <input id="fname" name="fname" placeholder="First Name" type="text" class="form-control"> 
-                              </div>
-                           </div>
-                           <div class="col-6">
-                              <div class="input-group">
-                                 <input id="lname" name="lname" placeholder="Last Name" type="text" class="form-control"> 
-                              </div>
-                           </div>
-                       </div>
-                       <div class="form-group row">
-                           <div class="col-6">
-                              <div class="input-group">
-                                 <input id="designation" name="designation" placeholder="Designation" type="" class="form-control"> 
-                              </div>
-                           </div>
-                           <div class="col-6">
-                                <div class="input-group">
-                                   <input id="pannum" name="pannum" placeholder="Pancard Number" type="text" class="form-control"> 
-                                </div>
-                             </div>
-                       </div>
-                       <div class="form-group row">
-                           <div class="col-6">
-                              <div class="input-group">
-                                 <input id="rbank" name="rbank" placeholder="Bank" type="text" class="form-control"> 
-                              </div>
-                           </div>
-                           <div class="col-6">
-                              <div class="input-group">
-                                 <input id="accnum" name="accnum" placeholder="Account Number" type="text" class="form-control"> 
-                              </div>
-                           </div>
-                       </div>
-                       <div class="form-group row">
-                           
-                           <div class="col-6">
-                              <div class="input-group">
-                                 <input id="salary" name="salary" placeholder="Salary" type="text" class="form-control"> 
-                              </div>
-                           </div>
-                       </div> 
-                       <div class="form-group row">
-                           <div class="col-12">
-                              <button type="button" class="btn btn-default mem_btn1" data-dismiss="modal">Close</button>
-                              <input type="submit" class="btn btn-info btn-lg reg_btn mem_btn2" value="Register" onclick="register()">
-                           </div>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!--register New Employee Modal end -->
+        
        
         
         <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" src="lib/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="lib/js/datatables.min.js"></script>
+       <script type="text/javascript" src="lib/js/datatables.min.js"></script>
+        <script type="text/javascript" src="lib/js/dropzone.js"></script>
+		<script type="text/javascript" src="lib/js/utils.js"></script>
+       <script src="lib/js/filepond.min.js"></script>
+       <script src="lib/js/filepond.js"></script>
 
-        <script type="text/javascript">
-            // $('#table-1').DataTable({
-            //     "order": [[ 0, "asc" ]]
-            // });
-            $(document).ready(function() {
-            
-         
-            // DataTable
-            var table = $('#example').DataTable({
-
-                
-
-                "lengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]]
-            } );
-         
-            // Apply the search
-            table.columns().every( function () {
-                var that = this;
-         
-                $( 'input', this.header() ).on( 'keyup change', function () {
-                    if ( that.search() !== this.value ) {
-                        that
-                            .search( this.value )
-                            .draw();
-                    }
-                } );
-            } );
-            // Setup - add a text input to each footer cell
-            $('#example thead tr:nth-child(2) th').each( function () {
-                var title = $(this).text();
-                $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
-            } );
-        } );
+  <!-- Turn all file input elements into ponds -->
+  <script>
+  FilePond.parse(document.body);
+  </script>
+		<script>
+        function preview_images() 
+        {
+         var total_file=document.getElementById("images").files.length;
+         for(var i=0;i<total_file;i++)
+         {
+          $('#image_preview').append("<div class='col-md-3'><img class='img-responsive' src='"+URL.createObjectURL(event.target.files[i])+"'></div>");
+         }
+        }
         </script>
+        <!-- <script> -->
+					<!-- $( document ).ready(function() { -->
+					<!-- $("input[type='checkbox']").change(function(){ -->
+			<!-- if($(this).is(":checked")){ -->
+				<!-- $(this).parent().addClass("bg-blue");  -->
+			<!-- }else{ -->
+				<!-- $(this).parent().removeClass("bg-blue");   -->
+    <!-- } -->
+<!-- }); -->
+<!-- });</script> -->
+			
+		</script>
         
     </body>
 

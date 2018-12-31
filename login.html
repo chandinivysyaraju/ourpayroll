@@ -16,11 +16,13 @@
       <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.css">
       <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.min.css">
       <link rel="stylesheet" type="text/css" href="lib/css/custom.css">
+      <script src='https://www.google.com/recaptcha/api.js'></script>
+
       <script src="login.js"></script>
       <script src="constant.js"></script>
       <style type="text/css">
           body{overflow-y: auto}
-         .login_page_left {background: #ffffff;margin: 10px 0px;padding: 15px 30px;                border-radius: 10px;box-shadow: 1px 1px 7px #ffffff;}            
+         .login_page_left {background: #ffffff;margin: 10px 0px;padding: 15px 30px;    border-radius: 10px;box-shadow: 1px 1px 7px #ffffff;}            
          .login_title h3 {color: #4C5A76;font-size: 22px;padding-top: 15px;}
          .login_title p {color: #c3c3c3;font-size: 14px;padding-bottom: 15px;}
          .login-forget span a {color: #4C5A76;}
@@ -61,7 +63,7 @@
                            <form  method="post" action="" id="login_form">
                               <div class="form-group">
                                  <div class="input-group input_border">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                    <input type="email" class="form-control" name="email" id="emailid" placeholder="email">
                                     <div class="input-group-append">
                                        <span class="input-group-text"><img src="lib/img/email.svg"></span>
                                     </div>
@@ -76,8 +78,7 @@
                                  </div>
                               </div>
                               <div class="form-group">
-                                 <div class="g-recaptcha" data-sitekey="6LfKURIUAAAAAO50vlwWZkyK_G2ywqE52NU7YO0S"
-                                    data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+                                    <div class="g-recaptcha" data-sitekey="6LfJh4UUAAAAAC1qJ6bcwJslD7Z9n17xmr-mb_eP"></div>
                                  <input class="form-control d-none" data-recaptcha="true" required data-error="Please complete the Captcha">
                                  <div class="form-text with-errors"></div>
                               </div>
@@ -87,6 +88,7 @@
                               <div class="form-group">
                                  <input type="submit" id="login" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg login-button swal" value="Login">
                               </div>
+                              <span id="message"></span>
                            </form>
                         </div>
                         <div class="login-register">
@@ -108,7 +110,7 @@
            </div>
            <div class="modal-body">
                    <div class="form-group">
-                           <label for="usr"><b>Enter Passphrase</b></label>
+                           <label for="usr"><b>Enter SecretKey</b></label>
                            <input type="text" class="form-control" id="secretkey" placeholder="enter your passphrase">
                    </div><br>
              <button type="button" class="btn btn-danger" data-dismiss="modal"><b>Cancel</b></button>
