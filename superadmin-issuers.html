@@ -21,6 +21,12 @@
     		div#example1_length , div#example1_filter {display: none;}
             table#example, table#example1 {padding: 15px;}
         </style>
+        <style>
+    		div#example1_length , div#example1_filter {display: none;}
+            table#example, table#example1 {padding: 15px;}
+			form.add-user {padding: 10px 20px;}
+			
+        </style>
         <script src="superadmin-issuers.js"></script>
 	
     </head>
@@ -134,7 +140,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-12">
                                                 <ul class="members_title_head text-right">
                                                     <li>
-                                                        <a href="#"><img src="lib/img/register.svg">&nbsp;&nbsp; Add New Issuers</a>
+                                                        <a href="#" data-toggle="modal" data-target="#add-user"><img src="lib/img/register.svg">&nbsp;&nbsp; Add New Issuers</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -169,7 +175,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-12">
                                                 <ul class="members_title_head text-right">
                                                     <li>
-                                                        <a href="#"><img src="lib/img/register.svg">&nbsp;&nbsp; Add Authorizer</a>
+                                                        <a href="#" data-toggle="modal" data-target="#add-authorizer"><img src="lib/img/register.svg">&nbsp;&nbsp; Add Authorizer</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -248,6 +254,144 @@
   </div>
         <!-- End of Model-->
  
+        <!--add-user Modal -->
+        <div id="add-user" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="topsec">
+                     <img src="lib/img/regnewemp.svg">
+                  </div>
+                </div>
+                <div class="modal-body add-user">
+                  <p class="p1">Add New Issuers</p>
+                      <form class="add-user">
+                            <div class="form-group row">
+                              
+                              <div class="col-12">
+                                <select id="countrycode" name="countrycode" required="required" class="custom-select">
+                                  <option value="">Country Code</option>
+                                  <option value="">option1</option>
+                                  <option value="">option2</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              
+                              <div class="col-12">
+                                <input id="name" name="name" placeholder="Name" type="text" required="required" class="form-control here">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                               
+                              <div class="col-12">
+                                <input id="designation" name="designation" placeholder="Designation" type="text" required="required" class="form-control here">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              
+                              <div class="col-12">
+                                <input id="email" name="email" placeholder="Email Id" type="text" required="required" class="form-control here">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              
+                              <div class="col-12">
+                                <div class="input-group">
+                                  <input id="password" name="password" placeholder="Password" type="password" required="required" class="form-control here"> 
+                                   <div class="input-group-append">
+                                      <span class="input-group-text"><i onClick="hideshow()" class="fa fa-eye" aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+                              </div>
+                            </div> 
+                           
+                            <div class="form-group row">
+                              <div class="col-12">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Register</button>
+                              </div>
+                            </div>
+                      </form>
+                 
+         
+                </div>
+               
+              </div>
+  
+            </div>
+          </div>
+          <!-- Modal -->
+          
+          
+            <!--add-authorizer Modal -->
+          <div id="add-authorizer" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="topsec">
+                     <img src="lib/img/regnewemp.svg">
+                  </div>
+                </div>
+                <div class="modal-body add-user">
+                  <p class="p1">Add New Authorizer</p>
+                      <form class="add-user">
+                            <div class="form-group row">
+                              
+                              <div class="col-12">
+                                <select id="countrycode" name="countrycode" required="required" class="custom-select">
+                                  <option value="">Country Code</option>
+                                  <option value="">option1</option>
+                                  <option value="">option2</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              
+                              <div class="col-12">
+                                <input id="name1" name="name" placeholder="Name" type="text" required="required" class="form-control here">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                               
+                              <div class="col-12">
+                                <input id="designation1" name="designation" placeholder="Designation" type="text" required="required" class="form-control here">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              
+                              <div class="col-12">
+                                <input id="email1" name="email" placeholder="Email Id" type="text" required="required" class="form-control here">
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              
+                              <div class="col-12">
+                                <div class="input-group">
+                                  <input id="password1" name="password" placeholder="Password" type="password" required="required" class="form-control here"> 
+                                   <div class="input-group-append">
+                                      <span class="input-group-text"><i onClick="hideshow()" class="fa fa-eye" aria-hidden="true"></i></span>
+                                    </div>
+                                </div>
+                              </div>
+                            </div> 
+                           
+                            <div class="form-group row">
+                              <div class="col-12">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Register</button>
+                              </div>
+                            </div>
+                      </form>
+                  </div>
+               
+              </div>
+  
+            </div>
+          </div>
+          <!-- Modal -->
         
         
        
