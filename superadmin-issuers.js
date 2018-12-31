@@ -1,7 +1,26 @@
 var dappid ="48a7d6bd571d8a636bfc7d64781e03e4dc80df75c99ca98788c63697f9a2d56a";
 var HOST_URL="http://18.188.23.5:9305/api/dapps";
-
+var role=localStorage.getItem("roleId");
 // Interface call for adding all issuers in the table
+function model(){
+  console.log(role);
+  if((role==="superuser")||(role==="new user")){
+   var list = document.getElementById('heading_list');
+  list.childNodes[5].remove();
+  list.childNodes[1].remove();
+  document.getElementById("issue").remove();
+  }
+  if(role==="issuer"){
+      var list = document.getElementById('heading_list');
+      list.childNodes[5].remove();
+      list.childNodes[3].remove();
+  }  
+  if(role==="authorizer"){
+      var list = document.getElementById('heading_list');
+      list.childNodes[3].remove();
+      list.childNodes[1].remove();
+  }
+}
 var count=0;
 function getIssuers(){
     if(count===0)

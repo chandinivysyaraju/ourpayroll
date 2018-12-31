@@ -1,7 +1,10 @@
 var token,secret,email,password;
-var email=localStorage.getItem("email");
-document.getElementById("email").setAttribute("value",email);
 $(document).ready(function(){
+    var email=localStorage.getItem("email");
+console.log(email);
+a=document.getElementById("emailid");
+a.value=email;
+a.disabled="true";
     $("#login").click(async function(){
     // console.log(email,password);
     const loginResponse = await checkLogin();
@@ -24,7 +27,7 @@ $(document).ready(function(){
 //check login function
     async function checkLogin()
     {
-        email=escapeInput($("#email").val());
+        email=escapeInput($("#emailid").val());
         password=escapeInput($("#Password").val());
         console.log(email+password);
         var totp="";

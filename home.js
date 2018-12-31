@@ -3,8 +3,12 @@ async function findEmp(){
         email=escapeInput($("#email").val());
         console.log(email);
         localStorage.setItem("email",email);
-        const data = await home();
+        param={
+            email:email
+        }
+        const data = await home(param);
         console.log(data);
+        alert(data);
         if(data==="0" || data==="00")
         {
             window.location.href="login.html";
@@ -18,13 +22,13 @@ async function findEmp(){
             console.log("Invalid exist code");
         }
 }
-async function home(){
+async function home(params){
         let result;
         try{
             result = await $.ajax({
                 url: HOST_URL+"/"+SDAPP_ID+"/"+"user/exists",
                 type: 'post',
-                data:'{"email":"' + email +'"}',
+                data:JSON.stringify(params),
                 contentType: 'application/json;charset=UTF-8',
                 dataType: 'json'
             });

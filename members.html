@@ -29,7 +29,7 @@
         </style>
     </head>
     
-    <body onload="issueDashboard();getCountries()">
+    <body onload="getCountries();model(); memberDashboard()">
         <header class="bel_dashboard_header">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg navbar-light land_page menubar navbar-expand-md">
@@ -40,7 +40,7 @@
                     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                        <ul class="nav navbar-nav menu">
+                        <ul class="nav navbar-nav menu" id="heading_list">
                             <li class="active nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/issuenewcertificate.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Issue New Payslip</a>
                             </li>
                             <li class="nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/superadmin.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Super Admin</a>
@@ -85,7 +85,7 @@
                                             </g>
                                         </g>
                                     </svg>Dashboard </a></li>                                		
-                        		<li><a href="#">
+                        		<li><a href="certificate.html">
                                     <svg width="35px" height="35px" viewBox="0 0 29 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <title>Payslip</title>
                                         <g id="new" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -94,7 +94,7 @@
                                             </g>
                                         </g>
                                     </svg>Payslip </a></li>
-                        		<li><a href="#">
+                        		<li><a href="wallet.html">
                                     <svg width="35px" height="35px" viewBox="0 0 25 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <title>Wallet</title>
                                         <g id="new" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
@@ -138,7 +138,7 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <a href="#" data-toggle="modal" data-target="#reg-new-emp"><img src="lib/img/employee1.svg">&nbsp;&nbsp; Register New Employee</a>
+                                            <a href="#" id="reg" data-toggle="modal" data-target="#reg-new-emp"><img src="lib/img/employee1.svg">&nbsp;&nbsp; Register New Employee</a>
                                         </li>
                                     </ul>
                                     
