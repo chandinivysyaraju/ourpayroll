@@ -113,7 +113,7 @@ a.value=email;
                 localStorage.setItem("country",data.country);
                 localStorage.setItem("companyname",data.company);
                 localStorage.setItem("name",data.name);
-               localStorage.setItem("roleId",roleid);
+                localStorage.setItem("roleId",roleid);
                 localStorage.setItem("dappid",dappid)
                 console.log(roleid);
                 if(roleid==="authorizer"){
@@ -121,15 +121,11 @@ a.value=email;
                     console.log(res);
                     localStorage.setItem("authid",res.result.aid);
                     alert(JSON.stringify(res));
-
-
                 }
                 if(roleid==="issuer"){
                     const res=await getissuerid();
-                    console.log(res);
-                    localStorage.setItem("res.result.iid",issuerid);
-                   
-
+                    console.log(res.result.iid);
+                    localStorage.setItem("issuerid",res.result.iid);
                 }
                window.location.href="dashboard.html";
             }
