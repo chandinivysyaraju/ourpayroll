@@ -1,8 +1,14 @@
+var dappid ="48a7d6bd571d8a636bfc7d64781e03e4dc80df75c99ca98788c63697f9a2d56a";
 var prevTextBoxText = '';
 var countryData,countryCode;
 const count_countries=253;
 var registerData;
-
+var role=localStorage.getItem("roleId");
+var company=localStorage.getItem("companyname");
+var email=localStorage.getItem("email");
+var token=localStorage.getItem("belToken");
+var dappid=localStorage.getItem("dappid");
+var bel=localStorage.getItem("bel");
 setInterval(function(){
   searchBoxText=document.getElementById('search').value;
   if(searchBoxText!= prevTextBoxText){
@@ -11,7 +17,6 @@ setInterval(function(){
   }
 },1000);
 function model(){
-  var role=localStorage.getItem("roleId");
   if((role==="superuser")||(role==="new user")){
     var list = document.getElementById('heading_list');
    list.childNodes[5].remove();
@@ -30,13 +35,18 @@ function model(){
    }
 }
 async function memberDashboard(){
+  document.getElementById("name").innerText=email;
+  document.getElementById("balance").innerText=(bel+" "+"BEL");
+  if(role!="new user"){
+  document.getElementById("company").innerText=company;
   const res1 = await getEmployee();
-  // console.log(res1);
+   console.log(res1);
   var n=res1.employees.length;
   var i;
   for(i=0;i<n;i++)
   add_employee(res1.employees[i].name,res1.employees[i].designation,res1.employees[i].empID);
   }
+}
 
 async function getEmployee(){
       let result;
@@ -115,7 +125,7 @@ function countryValidator(){
     var strUser = e.options[e.selectedIndex].text;
     // console.log(e.options[e.selectedIndex]);
     var i=e.selectedIndex-1;
-    console.log(strUser);
+    //console.log(strUser);
     console.log(countryData['data'][i]['countryCode']);
     countryCode = countryData['data'][i]['countryCode'];
     console.log(countryData['data'][i]['countryID']);
@@ -134,11 +144,14 @@ async function register(){
     salary:document.getElementById("salary").value,
     dappid:dappid,
     token:token,
-    groupName:groupName,
+    groupName:"Dapps",
   };
 console.log(registerData);
 const res3 = await registerEmployee();
 console.log(res3);
+if(res3.isSuccess==="true"){
+  document.getElementById("close").click();
+}
 }
 
 // function for registering new employee

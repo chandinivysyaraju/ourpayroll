@@ -1,4 +1,6 @@
 "use strict";  
     function logout(){
-        localStorage.clear;
+        console.log("haiii");
+        localStorage.clear();
+        window.location.href="landing_page.html";
 }

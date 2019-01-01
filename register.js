@@ -27,10 +27,10 @@ document.getElementById("email").setAttribute("value",email);
         const signupResponse= await checkSignup(data);
         console.log(signupResponse);
         if(signupResponse["isSuccess"]==true){
-            localStorage.setItem("company",lastName);
-            localStorage.setItem("username",username);
-            localStorage.setItem("countryid",countryid);
-            localStorage.setItem("countrycode",countrycode);
+            // localStorage.setItem("company",lastName);
+            // localStorage.setItem("username",username);
+            // localStorage.setItem("countryid",countryid);
+            // localStorage.setItem("countrycode",countrycode);
             window.location.href="login.html";
         }
         else{
@@ -96,7 +96,7 @@ function countryValidator(){
     // console.log(e);
     var strUser = e.options[e.selectedIndex].text;
     // console.log(e.options[e.selectedIndex]);
-    var i=e.selectedIndex;
+    var i=e.selectedIndex-1;
     console.log(strUser);
     console.log(countryData['data'][i]['countryCode']);
     console.log(countryData['data'][i]['countryID']);

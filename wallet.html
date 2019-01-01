@@ -17,6 +17,7 @@
       <link rel="stylesheet" type="text/css" href="lib/css/datatables.min.css">
       <link rel="stylesheet" type="text/css" href="lib/css/custom.css">
       <script src="wallet.js"></script>
+      <script src="logout.js"></script>
       <script src="constant.js"></script>
       <style>   
          span.validthru {position: absolute;top: 6px;left: 67px;font-size: 24px;}
@@ -80,7 +81,7 @@
                      </li>
                      <li class="nav-item"><a href="kyc.html" class="nav-link"><img class="menuicon n" src="lib/img/kyc.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Update KYC</a>
                      </li>
-                     <li class="nav-item logout"><a href="login.html" class="nav-link"><img class="menuicon n" src="lib/img/logout.svg"><img class="menuicon a" src=""></a>
+                     <li class="nav-item logout"><a href="landing_page.html" onclick="logout()" class="nav-link"><img class="menuicon n" src="lib/img/logout.svg"><img class="menuicon a" src=""></a>
                      </li>
                   </ul>
                </div>
@@ -91,9 +92,9 @@
                <div class="col-xl-2 col-lg-3 col-md-3 col-12 nopadding leftmenu">
                   <div class="profile">
                      <img src="lib/img/profile.jpg" width="60">
-                     <h6>Srini Rajkumar</h6>
-                     <p>Belfrics BT Private Limited</p>
-                     <h4>$ 1,23,456</h4>
+                     <h6 id="name"></h6>
+                     <p id="company"></p>
+                     <h4 id="balance"></h4>
                      <p>Available Balance</p>
                   </div>
                </div>
@@ -183,7 +184,7 @@
                                      <a href="#" data-toggle="modal" data-target="#dapp">Update DAPP Balance</a>
                                   </li>
                                   <li>
-                                     <a href="#" data-toggle="modal" data-target="#reg-dapp">Register DAPP</a>
+                                     <a href="#" id="regdapp" data-toggle="modal" data-target="#reg-dapp">Register DAPP</a>
                                   </li>
                                </ul>
                             </div>
@@ -200,23 +201,23 @@
                                <img src="lib/img/logo.svg">
                             </div>
                             <div class="col-6 walletcard2">
-                                <span><img src="lib/img/validthru.svg"><span class="validthru">06/19</span></span>
+                                <span><img src="lib/img/validthru.svg"><span id="valid" class="validthru">06/19</span></span>
                             </div>
                             <div class="col-12 walletcard3">
-                              <input type="text" name="creditcard" value="2671 9860 9300 0202"  disabled="" />
+                              <input type="text" name="creditcard" id="address" disabled="" />
                               <p>Wallet Address</p>
                             </div>
                             <div class="col-6 walletcard4">
-                                <h5>$ 1,23,456</h5>
-                                <p>Wallet Address</p>
+                                <h5 id="wallet"></h5>
+                                <p>Wallet Balance</p>
                             </div>
                             <div class="col-6 walletcard5">
-                                <h5>271.03 Bel</h5>
+                                <h5 id="dapp"> </h5>
                                 <p>DAPP Balance</p>
                             </div>
                         </div>
                      </div>
-                     <div class="col-xl-5 col-lg-5 col-md-6 col-12">
+                     <!-- <div class="col-xl-5 col-lg-5 col-md-6 col-12">
                         <div class="col-12 walletcard" style="background: linear-gradient(to top, #45494C, #787F87 );">
                             <div class="col-6 walletcard4">
                                 <h5>$ 1,23,456</h5>
@@ -237,17 +238,16 @@
                                 <span><img src="lib/img/validthru.svg"><span class="validthru">06/19</span></span>
                             </div>                            
                         </div>
-                     </div>
+                     </div> -->
                   </div>
                </div>
             </div>
          </div>
       </section>
       <!--onload wallet Modal -->
-      <div id="wallet_onload" class="modal fade" role="dialog">
+      <!-- <div id="wallet_onload" class="modal fade" role="dialog">
          <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
+          <div class="modal-content">
                <div class="modal-header">
                   <div class="topsec">
                      <img src="lib/img/wallet_popicon.svg">
@@ -275,7 +275,7 @@
                </div>
             </div>
          </div>
-      </div>
+      </div> --> -->
       <!--onload wallet Modal end -->
       <!--recieve Modal -->
       <div id="recieve" class="modal fade" role="dialog">
@@ -383,8 +383,13 @@
                      </div>
                      <div class="form-group row">
                         <div class="col-12">
-                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                           <button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Submit</button>
+                           <input  id="company1" name="company" placeholder="company" type="text" required="required" class="form-control here">
+                        </div>
+                     </div>
+                     <div class="form-group row">
+                        <div class="col-12">
+                           <button type="button" class="btn btn-default" id="close" data-dismiss="modal">Close</button>
+                           <button type="button" class="btn btn-info btn-lg" onclick="registerdapp();">Submit</button>
                         </div>
                      </div>
                   </form>

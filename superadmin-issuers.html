@@ -16,7 +16,8 @@
         <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.css">
         <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/datatables.min.css">
-        <link rel="stylesheet" type="text/css" href="lib/css/custom.css">		
+        <link rel="stylesheet" type="text/css" href="lib/css/custom.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>		
     	<style>
     		div#example1_length , div#example1_filter {display: none;}
             table#example, table#example1 {padding: 15px;}
@@ -28,7 +29,8 @@
 			
         </style>
         <script src="superadmin-issuers.js"></script>
-	
+        <script src="constant.js"></script>
+	<script src="logout.js"></script>
     </head>
     
     <body onload="getIssuers();getAuthorizers();model();">
@@ -43,15 +45,15 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                         <ul class="nav navbar-nav menu" id="heading_list">
-                            <li class="active nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/issuenewcertificate.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Issue New Certificate</a>
+                            <li class="active nav-item"><a href="certificate.html" class="nav-link"><img class="menuicon n" src="lib/img/issuenewcertificate.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Issue New Certificate</a>
                             </li>
                             <li class="nav-item "><a href="#" class="nav-link active"><img class="menuicon n" src="lib/img/superadmin.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Super Admin</a>
                             </li>
                             <li class="nav-item"><a href="authorizer.html" class="nav-link"><img class="menuicon n" src="lib/img/authorizer.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Authorizer</a>
                             </li>
-                            <li class="nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/kyc.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Update KYC</a>
+                            <li class="nav-item"><a href="kyc.html" class="nav-link"><img class="menuicon n" src="lib/img/kyc.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Update KYC</a>
                             </li>
-                            <li class="nav-item logout"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/logout.svg"><img class="menuicon a" src=""></a>
+                            <li class="nav-item logout"><a href="#" onclick="logout()" class="nav-link"><img class="menuicon n" src="lib/img/logout.svg"><img class="menuicon a" src=""></a>
                             </li>
                         </ul>
                     </div>
@@ -62,9 +64,9 @@
                     <div class="col-xl-2 col-lg-3 col-md-3 col-12 nopadding leftmenu">
                     	<div class="profile">
                         	<img src="lib/img/profile.jpg" width="60">
-                        	<h6>Srini Rajkumar</h6>
-                        	<p>Belfrics BT Private Limited</p>
-                        	<h4>$ 1,23,456</h4>
+                        	<h6 id="name"></h6>
+                        	<p id="company"></p>
+                        	<h4 id="balance"></h4>
                         	<p>Available Balance</p>
                         </div>
                     </div>
@@ -140,7 +142,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-12">
                                                 <ul class="members_title_head text-right">
                                                     <li>
-                                                        <a href="#" data-toggle="modal" data-target="#add-user"><img src="lib/img/register.svg">&nbsp;&nbsp; Add New Issuers</a>
+                                                        <a href="#" data-toggle="modal" data-target="#add-user" onclick="getCountries()"><img src="lib/img/register.svg">&nbsp;&nbsp; Add New Issuers</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -175,7 +177,7 @@
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-12">
                                                 <ul class="members_title_head text-right">
                                                     <li>
-                                                        <a href="#" data-toggle="modal" data-target="#add-authorizer"><img src="lib/img/register.svg">&nbsp;&nbsp; Add Authorizer</a>
+                                                        <a href="#" data-toggle="modal" data-target="#add-authorizer" onclick="getCountries1()"><img src="lib/img/register.svg">&nbsp;&nbsp; Add Authorizer</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -270,17 +272,17 @@
                             <div class="form-group row">
                               
                               <div class="col-12">
-                                <select id="countrycode" name="countrycode" required="required" class="custom-select">
+                                <select id="countrycode" name="countrycode" required="required" onclick="countryValidator()" class="custom-select">
                                   <option value="">Country Code</option>
-                                  <option value="">option1</option>
-                                  <option value="">option2</option>
+                                  
                                 </select>
                               </div>
                             </div>
+                            
                             <div class="form-group row">
                               
                               <div class="col-12">
-                                <input id="name" name="name" placeholder="Name" type="text" required="required" class="form-control here">
+                                <input id="issuername" name="name" placeholder="Name" type="text" required="required" class="form-control here">
                               </div>
                             </div>
                             <div class="form-group row">
@@ -295,22 +297,26 @@
                                 <input id="email" name="email" placeholder="Email Id" type="text" required="required" class="form-control here">
                               </div>
                             </div>
+                            
+                            
                             <div class="form-group row">
                               
-                              <div class="col-12">
-                                <div class="input-group">
-                                  <input id="password" name="password" placeholder="Password" type="password" required="required" class="form-control here"> 
-                                   <div class="input-group-append">
-                                      <span class="input-group-text"><i onClick="hideshow()" class="fa fa-eye" aria-hidden="true"></i></span>
-                                    </div>
+                                <div class="col-12">
+                                  <input id="type" name="type" type="text" value="merchant" disabled class="form-control here">
                                 </div>
                               </div>
-                            </div> 
+
+                              <div class="form-group row">
+                              
+                                <div class="col-12">
+                                  <input id="role" name="role" type="text" value="issuer" disabled class="form-control here">
+                                </div>
+                              </div>
                            
                             <div class="form-group row">
                               <div class="col-12">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Register</button>
+                                <button type="button" id="close" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" onclick="issuerRegister()" class="btn btn-info btn-lg" data-dismiss="modal">Register</button>
                               </div>
                             </div>
                       </form>
@@ -341,13 +347,12 @@
                             <div class="form-group row">
                               
                               <div class="col-12">
-                                <select id="countrycode" name="countrycode" required="required" class="custom-select">
+                                <select id="countrycode1" name="countrycode" required="required" onclick="countryValidator1()" class="custom-select">
                                   <option value="">Country Code</option>
-                                  <option value="">option1</option>
-                                  <option value="">option2</option>
                                 </select>
                               </div>
                             </div>
+                            
                             <div class="form-group row">
                               
                               <div class="col-12">
@@ -366,22 +371,26 @@
                                 <input id="email1" name="email" placeholder="Email Id" type="text" required="required" class="form-control here">
                               </div>
                             </div>
+                            
+                            
                             <div class="form-group row">
                               
-                              <div class="col-12">
-                                <div class="input-group">
-                                  <input id="password1" name="password" placeholder="Password" type="password" required="required" class="form-control here"> 
-                                   <div class="input-group-append">
-                                      <span class="input-group-text"><i onClick="hideshow()" class="fa fa-eye" aria-hidden="true"></i></span>
-                                    </div>
+                                <div class="col-12">
+                                  <input id="type1" name="type1" type="text" value="user" disabled class="form-control here">
                                 </div>
                               </div>
-                            </div> 
+
+                              <div class="form-group row">
+                              
+                                <div class="col-12">
+                                  <input id="role1" name="role1" type="text" value="authorizer" disabled class="form-control here">
+                                </div>
+                              </div>
                            
                             <div class="form-group row">
                               <div class="col-12">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-info btn-lg" data-dismiss="modal">Register</button>
+                                <button type="button" id="close1" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" onclick="authorizerRegister()" class="btn btn-info btn-lg" data-dismiss="modal">Register</button>
                               </div>
                             </div>
                       </form>

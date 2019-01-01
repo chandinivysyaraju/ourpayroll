@@ -1,10 +1,10 @@
-var token,secret,email,password;
+var token,secret,email,password,dappid;
 $(document).ready(function(){
     var email=localStorage.getItem("email");
 console.log(email);
 a=document.getElementById("emailid");
 a.value=email;
-a.disabled="true";
+//a.disabled="true";
     $("#login").click(async function(){
     // console.log(email,password);
     const loginResponse = await checkLogin();
@@ -71,11 +71,11 @@ a.disabled="true";
             if(hllogin["isSuccess"]===true)
                     {
                         localStorage.setItem("bkvsdm_token",k.token);
-                        CheckKYCStatus(token);
+                        getRole(email);
                      }
                          else
                      {
-                         console.log(hllogin[message]);
+                         console.log(hllogin.message);
                      }
         });
 } //end of hyperLedgerLogin function
@@ -104,13 +104,29 @@ a.disabled="true";
     async function getRole()
     {
         const data=await checkRole();
+        console.log(JSON.stringify(data));
+        alert(JSON.stringify(data));
         var roleid=data.role;
-        var dappid=data.dappid;
-        localStorage.setItem("roleId",roleid);
+         dappid=data.dappid;
             if((roleid==="new user")||(roleid==="superuser")||(roleid==="issuer")||(roleid==="authorizer"))
             {
+                localStorage.setItem("country",data.country);
+                localStorage.setItem("companyname",data.company);
+                localStorage.setItem("name",data.name);
+                localStorage.setItem("roleId",roleid);
                 localStorage.setItem("dappid",dappid)
                 console.log(roleid);
+                if(roleid==="authorizer"){
+                    const res=await getauthid();
+                    console.log(res);
+                    localStorage.setItem("authid",res.result.aid);
+                    alert(JSON.stringify(res));
+                }
+                if(roleid==="issuer"){
+                    const res=await getissuerid();
+                    console.log(res.result.iid);
+                    localStorage.setItem("issuerid",res.result.iid);
+                }
                window.location.href="dashboard.html";
             }
           
@@ -138,28 +154,39 @@ a.disabled="true";
         }
     }
 
-   async function CheckKYCStatus(token)
-   {
-       let result;
-       try
-       {
+   async function getauthid(){
+        let result;
+        try{
         result = await $.ajax({
-            type: 'get',
-            url: 'http://54.254.174.74:8080/api/v1/user/countries/kyc',
-            headers: {"belrium-token" : token}});
-            // console.log(result);
-            var obj=result.data[0].kycstatus;
-            if(true){
-                getRole(email);
-            }
-            else{
-                window.location.href="../KycUpload/KycUpload.html";
-            }
+                type: 'post',
+                url: HOST_URL+"/"+dappid+"/"+"authorizers/getId",
+                data: '{"email":"' + email +'"}',
+                contentType: 'application/json;charset=UTF-8',
+                dataType: 'json'});
+                return result;
         }
         catch(error)
         {
             console.log(error);
         }
+        
+    }
+   async function getissuerid(){
+        let result;
+        try{
+        result = await $.ajax({
+                type: 'post',
+                url: HOST_URL+"/"+dappid+"/"+"issuers/getId",
+                data: '{"email":"' + email +'"}',
+                contentType: 'application/json;charset=UTF-8',
+                dataType: 'json'});
+                return result;
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+        
     }
 
 function escapeInput(input) {
