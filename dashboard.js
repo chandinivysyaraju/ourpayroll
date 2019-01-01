@@ -3,6 +3,8 @@ var company=localStorage.getItem("companyname");
 var email=localStorage.getItem("email");
 var belriumtoken=localStorage.getItem("belToken");
 var dappid=localStorage.getItem("dappid");
+var bel=localStorage.getItem("bel");
+
 function model(){
     console.log(role);
     if((role==="superuser")||(role==="new user")){

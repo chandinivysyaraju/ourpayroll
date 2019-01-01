@@ -2,6 +2,13 @@ var secret="cactus peasant return inside filter morning wasp floor museum nature
 var pid1;
 var dappid=localStorage.getItem("dappid");
 var aid=localStorage.getItem("authid");
+var role=localStorage.getItem("roleId");
+var company=localStorage.getItem("companyname");
+var email=localStorage.getItem("email");
+var belriumtoken=localStorage.getItem("belToken");
+var dappid=localStorage.getItem("dappid");
+var bel=localStorage.getItem("bel");
+
 async function authorizer(){
   var params={
     aid:aid
@@ -240,4 +247,8 @@ function signhere(){
 sign(pid1);
 }
 
-
+function authorizerDashboard(){
+  document.getElementById("username").innerText=email;
+  document.getElementById("balance").innerText=(bel+" "+"BEL");
+  document.getElementById("company").innerText=company;
+}

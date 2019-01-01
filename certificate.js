@@ -1,5 +1,8 @@
 //var dappid ="48a7d6bd571d8a636bfc7d64781e03e4dc80df75c99ca98788c63697f9a2d56a";
 //var HOST_URL="http://18.188.23.5:9305/api/dapps";
+var countryData,countryCode;
+const count_countries=253;
+var registerData;
 var str;
 var role=localStorage.getItem("roleId");
 var company=localStorage.getItem("companyname");
@@ -341,3 +344,74 @@ async function initialIssue(){
     console.log("IT was a success");
     document.getElementById(issuedetails["empid"]+'status').innerText = "Initiated";
 }
+
+//Register new employee functions
+
+function getCountries()
+{
+    $.get("http://54.254.174.74:8080/api/v1/countries",function(data){
+        // console.log(data);
+        countryData = data;
+        var x = document.getElementById("countrycode");
+        for(var i=0 ;i<count_countries;i++){
+            var option = document.createElement("option");
+            option.text = countryData['data'][i]['countryName'];
+            x.add(option);
+        }
+    });
+}
+
+function countryValidator(){
+    var e = document.getElementById("countrycode");
+    // console.log(e);
+    var strUser = e.options[e.selectedIndex].text;
+    // console.log(e.options[e.selectedIndex]);
+    var i=e.selectedIndex-1;
+    //console.log(strUser);
+    console.log(countryData['data'][i]['countryCode']);
+    countryCode = countryData['data'][i]['countryCode'];
+    console.log(countryData['data'][i]['countryID']);
+}
+
+async function register(){
+  registerData={
+    countryCode:countryCode,
+    email:document.getElementById("email").value,
+    lastName:document.getElementById("lname").value,
+    name:document.getElementById("fname").value,
+    designation:document.getElementById("designation1").value,
+    bank:document.getElementById("rbank").value,
+    accountNumber:document.getElementById("accnum").value,
+    pan:document.getElementById("pannum").value,
+    salary:document.getElementById("salary1").value,
+    dappid:dappid,
+    token:"",
+    groupName:"Dapps",
+  };
+console.log(registerData);
+const res3 = await registerEmployee();
+console.log(res3);
+if(res3.isSuccess==="true"){
+  document.getElementById("close").click();
+}
+}
+
+// function for registering new employee
+async function registerEmployee(){
+  let result;
+  try{
+      result = await $.ajax({
+      url: HOST_URL+"/"+dappid+"/"+"registerEmployee",
+      type: 'post',
+      data:JSON.stringify(registerData),
+      contentType: 'application/json;charset=UTF-8',
+      dataType: 'json'
+      });
+      return result;
+  }
+  catch (error){
+    if(error){
+      console.log(error);
+      }
+    }
+  }
