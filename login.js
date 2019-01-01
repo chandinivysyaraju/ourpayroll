@@ -212,7 +212,7 @@ a.value=email;
      {
          const kycstatus=await CheckKYCStatus(token);
          var obj=kycstatus.data[0].kycstatus;
-        // console.log(obj);
+        console.log("kycStatus: "+obj);
         localStorage.setItem("kycStatus",obj);
         
      } //end of getKycStatus function
