@@ -10,6 +10,13 @@ $(document)
     $.unblockUI();
  }); // end of document function
 
+var str;
+var role=localStorage.getItem("roleId");
+var company=localStorage.getItem("companyname");
+var email=localStorage.getItem("email");
+var belriumtoken=localStorage.getItem("belToken");
+var dappid=localStorage.getItem("dappid");
+var bel=localStorage.getItem("bel");
 var token;
 var email;
 var fileName;
@@ -17,7 +24,6 @@ var fileObj;
 var reqMetaFormArr=[];
 var bkvsdm_token=localStorage.getItem("bkvsdm_token");
 token=localStorage.getItem("belToken");
-email=localStorage.getItem("Email");
 var countryCode="";
 var invocation = new XMLHttpRequest();
 var kycDoc1uploadedAt;
@@ -44,7 +50,25 @@ var metaData={ };
 // load function
 function load()
 {
-    fetchKYCDoucment();
+    if((role==="superuser")||(role==="new user")){
+        var list = document.getElementById('heading_list');
+       list.childNodes[5].remove();
+       list.childNodes[1].remove();
+       }
+       if(role==="issuer"){
+           var list = document.getElementById('heading_list');
+           list.childNodes[5].remove();
+           list.childNodes[3].remove();
+       }  
+       if(role==="authorizer"){
+           var list = document.getElementById('heading_list');
+           list.childNodes[3].remove();
+           list.childNodes[1].remove();
+       }
+       document.getElementById("name").innerText=email;
+       document.getElementById("company").innerText=company;
+       document.getElementById("balance").innerText=(bel+" "+"BEL");
+       fetchKYCDoucment();
 } // end of load function
    
 //fetchKYCDocument function
@@ -653,7 +677,7 @@ function getPublicKey(passPhrase, kycUserDocumentID)
         });
   } //end of getPublicKey function
 
-  function enableKycgetPublicKey()
+async function enableKycgetPublicKey()
 {
     var secret = $('#enablKycSecret').val();
     $.post("https://node1.belrium.io/api/accounts/open",
@@ -668,7 +692,7 @@ function getPublicKey(passPhrase, kycUserDocumentID)
         });
   } //end of EnableKycgetPublicKey function
 
-  function doEnableKYC(publicKey)
+ async function doEnableKYC(publicKey)
   {
     var secret=localStorage.getItem("secret");
     let result;
@@ -707,8 +731,7 @@ function readURL(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();   
         reader.onload = function (e) {
-            $('#blah')
-                .attr('src', e.target.result);
+        $('#blah').attr('src', e.target.result);
         };
         reader.readAsDataURL(input.files[0]);
         validation();

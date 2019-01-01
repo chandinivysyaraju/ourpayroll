@@ -71,7 +71,8 @@ a.value=email;
             if(hllogin["isSuccess"]===true)
                     {
                         localStorage.setItem("bkvsdm_token",k.token);
-                        getRole(email);
+                        getKycStatus();
+                        getRole();
                      }
                          else
                      {
@@ -188,6 +189,33 @@ a.value=email;
         }
         
     }
+
+    async function CheckKYCStatus(token)
+    {
+        let result;
+        try
+        {
+         result = await $.ajax({
+             type: 'get',
+             url: 'http://54.254.174.74:8080/api/v1/user/countries/kyc',
+             headers: {"belrium-token" : token}});
+             return result;
+         }
+         catch(error)
+         {
+             console.log(error);
+         }
+     }
+ 
+     //getKycStatus function
+     async function getKycStatus()
+     {
+         const kycstatus=await CheckKYCStatus(token);
+         var obj=kycstatus.data[0].kycstatus;
+        // console.log(obj);
+        localStorage.setItem("kycStatus",obj);
+        
+     } //end of getKycStatus function
 
 function escapeInput(input) {
     return String(input)

@@ -21,15 +21,12 @@
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
   
         <link rel="stylesheet" type="text/css" href="lib/css/filepond.css">
-<<<<<<< HEAD
         <link rel="stylesheet" type="text/css" href="lib/css/custom.css">		
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-=======
         <link rel="stylesheet" type="text/css" href="lib/css/custom.css">	
         <script src="constant.js"></script>	
         <script src="logout.js"></script>
-        <script src="kyc.js"></script>
->>>>>>> 282cd2013c8446392f3ac4828c26d4d352e89962
+        <!-- <script src="kyc.js"></script> -->
     	<style>
     		div#example1_length,div#example1_filter {display: none;}
             table#example, table#example1 {	padding: 15px;}
@@ -96,12 +93,8 @@
     <script src="KycUpload.js"></script>
     <script src="constant.js"></script>
     </head>
-<<<<<<< HEAD
     <body onload="load()">   
-=======
     
-    <body onload="model();">
->>>>>>> 282cd2013c8446392f3ac4828c26d4d352e89962
         <header class="bel_dashboard_header">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg navbar-light land_page menubar navbar-expand-md">
@@ -132,13 +125,8 @@
                     <div class="col-xl-2 col-lg-3 col-md-3 col-12 nopadding leftmenu">
                     	<div class="profile">
                         	<img src="lib/img/profile.jpg" width="60">
-<<<<<<< HEAD
-                        	<h6></h6>
-                        	<p>Belfrics BT Private Limited</p>
-=======
                         	<h6 id="name"></h6>
                         	<p id="company"></p>
->>>>>>> 282cd2013c8446392f3ac4828c26d4d352e89962
                         	<h4 id="balance"></h4>
                         	<p>Available Balance</p>
                         </div>
@@ -209,7 +197,7 @@
 										<p>KYC Documents</p>
 									</div>
 									<div class="col-xl-3 col-lg-3 col-md-3 col-3 nopadding dash_details_view">
-										<p id="countryName"></p>
+										<b id="countryName"></b>
 									</div>
 									<div class="kyc-border"></div>
 								</div>
@@ -217,9 +205,13 @@
 									<p>Lets Identify the organizario by providing any of the following Certificates</p>
 								</div>
 								            
-            <table style="width:90%;margin-left: 25px;margin-right:25px;" id="tblKycDoc" class="borderless"></table>    
+            <table style="width:90%;margin-left: 25px;margin-right:25px;" id="tblKycDoc" class="borderless"></table>   
+            <button id="enableKyc" style="float:right;margin-right: 25px;margin-top: 25px" class="btn btn-default kyc-enabled-btn kyc-button" (click)="openEnableKycModal()">
+             <i class="fa fa-toggle-on"> Enable KYC</i>
+            </button> 
             </div>
             </div>
+            
         </section>
             <!--Popup for Upload KYC Button -->  
             <!-- Modal -->
@@ -320,20 +312,12 @@
       </div>
     </div>
   </div>
-  <button
-            id="enableKyc"
-             class="btn btn-default kyc-enabled-btn kyc-button"
-             (click)="openEnableKycModal()">
-             <i class="fa fa-toggle-on"> Enable KYC</i>
-     </button>
         <script type="text/javascript" src="lib/js/bootstrap.min.js"></script>
        <script type="text/javascript" src="lib/js/datatables.min.js"></script>
         <script type="text/javascript" src="lib/js/dropzone.js"></script>
 		<script type="text/javascript" src="lib/js/utils.js"></script>
        <script src="lib/js/filepond.min.js"></script>
        <script src="lib/js/filepond.js"></script>
-
-  Turn all file input elements into ponds -->
  <script>
   FilePond.parse(document.body);
  </script>
