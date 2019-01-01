@@ -1,0 +1,221 @@
+.redClass{
+color: red;
+}
+
+.greenClass{
+    color: green;
+}
+.borderless td, .borderless th {
+    border: none;
+}
+.progress{    margin-bottom: 0;
+    height: 4px;
+    border-radius: 0;}
+.progress-bar{    background-color: #07c25f;}
+.progress{background-color: #b1b1b1;}
+input[type="file"]:disabled {
+    background: #ccc;
+  }
+  .btn-disable{
+    background-color:#EBEBE4;
+  }
+
+
+.kyc-document{
+    vertical-align: inherit !important;
+}
+span.mandatory{
+    /* position: absolute;
+    line-height: 6;
+    vertical-align: super; */
+    color: red;
+    font-size: 15px;
+    /* left: 160px; */
+}
+ /* .progress-bar{    background-color: #07c25f;} */
+  .progress-bar{
+    position: relative;
+    /* border-radius: 0px; */
+    height: 3px;
+    /* -webkit-box-shadow: none; */
+    box-shadow: none;
+    margin: 0px -2px;
+    bottom: -10px;
+    left: 3px;
+    box-shadow: none;
+    background: green;
+    width: calc(100% - 3px);
+}
+.progress-bar::after{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: green;
+    top: 12px;
+    left: 112%;
+    margin-top: -15px;
+    margin-left: -15px;
+    border-radius: 50%;
+    padding: 3px;
+}
+.progress-barr{
+    position: relative;
+    height: 3px;
+    box-shadow: none;
+    margin: 0px -2px;
+    bottom: -10px;
+    left: 3px;
+    box-shadow: none;
+    background: red;
+    width: 90px;
+    width: calc(100% - 3px);
+}
+.progress-barr::after{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: red;
+    top: 12px;
+    left: 112%;
+    margin-top: -15px;
+    margin-left: -15px;
+    border-radius: 50%;
+    padding: 3px;
+}
+.input-disabled{background-color:#EBEBE4;border:1px solid #ABADB3;padding:2px 1px;}
+
+.dot-verified-circle{
+    height: 10px;
+    width: 10px;
+    background-color: green;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: 7px;
+}
+.dot-unverified-circle{
+    height: 10px;
+    width: 10px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: 7px;
+}
+
+
+.progress-bar-verified-circle{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: green;
+    top: 12px;
+    left: 7%;
+    margin-top: -15px;
+    margin-left: -15px;
+    border-radius: 50%;
+    padding: 3px;
+}
+.progress-bar-unverified-circle{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    display: block;
+    background: red;
+    top: 12px;
+    left: 7%;
+    margin-top: -15px;
+    margin-left: -15px;
+    border-radius: 50%;
+    padding: 3px;
+}
+.pending{   
+    color: #dc3545;
+    padding: 5px 15px;
+    border-radius: 6px;
+    border: 1px solid #dc3545;
+    font-size: 15px;
+}
+.approved{
+    color: #28a745;
+    padding: 5px 15px;
+    border-radius: 6px;
+    border: 1px solid #28a745;
+    font-size: 15px;
+}
+.expired{   
+    color: rgb(172, 16, 16);
+    padding: 5px 15px;
+    border-radius: 6px;
+    border: 1px solid #eb0e6a;
+    font-size: 15px;
+}
+.denied{ 
+    color: rgb(172, 16, 16);
+    padding: 5px 15px;
+    border-radius: 6px;
+    border: 1px solid #eb0e6a;
+    font-size: 15px;
+}
+.upload_document{    background: #28a745;
+    color: #fff;
+}
+.panel-default>.panel-heading{    background-color: #e9e9e9;}
+.verfied .fa-check{
+    padding-right: 6px;padding-left: 12px;
+}
+.unverfied .fa-exclamation-triangle{
+    padding-right: 5px;
+    padding-left: 5px;
+    display: none;
+}
+.pending .fa-envelope-square{
+    padding-right: 5px;
+    padding-left: 5px;
+    display: none;
+}
+.approved .fa-check{
+    padding-right: 5px;
+    padding-left: 5px;
+    display: none;
+}
+.expired .fa-exclamation-triangle{    
+    padding-right: 5px;
+    padding-left: 5px;
+    display: none;
+} 
+.denied .fa-ban{
+    padding-right: 6px;padding-left: 12px;
+}
+
+.semi-bold{
+font-weight: 600;
+}
+
+
+.kyc-enabled-btn{
+    background:#415BF6 !important; 
+    color: #fff !important;
+    border: none;
+}
+
+.kyc-disabled-btn{
+    background: #596FF6 !important; 
+    color: #fff !important;
+    border: none;
+}
+
+.modal-top
+{
+    margin-top: 45px !important;
+}
+
+.cls-div-date
+{
+    z-index: 100000 !important;
+}

@@ -1,0 +1,176 @@
+KYC document fetched Successful{
+    "data": {
+        "countries": [
+            {
+                "address": "A3apDqrvu4YcY6G6WXqRG7A6JwLW2NzGEyIN",
+                "kycDocumentTypes": [
+                    {
+                        "kycDocumentMetas": [
+                            {
+                                "kycDocumentMetaId": 1,
+                                "channelData": "{\"fee\": 0.001, \"uuid\": \"dddbfdbd-2c5a-43a0-a1c3-ebe54f88c5751545398379475\", \"address\": \"AEqFopYGYHGCo6jt7k5AV8DLtuaMdkmX76IN\", \"channel\": \"indiaadhaar\", \"countryCode\": \"IN\"}",
+                                "description": "This is aadhar",
+                                "documentName": "Aadhar",
+                                "kycUserDocument": {
+                                    "hashDigest": "8546b2836116afa105cef13ac5fb54c5b544efa70dff7143a3ce5de210397a82",
+                                    "uploadedAt": "2018-12-31 12:08:17.0Z",
+                                    "documentStatus": "Pending",
+                                    "documentmeta": "{\"ExpirationDate\": \"2018-12-14\"}",
+                                    "verifiedBy": null,
+                                    "verificationTransaction": {
+                                        "transactionType": "PRIVATE_BLOCKCHAIN",
+                                        "destinationAddress": "NA",
+                                        "transactionStatus": "CONFIRMED",
+                                        "description": "Document Verification transaction",
+                                        "creationDate": "2018-12-31 12:52:27.0Z",
+                                        "transactionHash": "ffcd8042f145696f26b6d7c40652382aaaa278997b6c5750c5b8d4a6719fb13f"
+                                    },
+                                    "paymentTransaction": {
+                                        "transactionType": "PUBLIC_BLOCKCHAIN_MERCHANT_USER_PAYMENT",
+                                        "destinationAddress": "AEqFopYGYHGCo6jt7k5AV8DLtuaMdkmX76IN",
+                                        "transactionStatus": "CONFIRMED",
+                                        "description": "Payment made by merchant imroz.alam@oodlestechnologies.com for document 19 for user vinodhp@yopmail.com",
+                                        "creationDate": "2018-12-31 12:09:32.0Z",
+                                        "transactionHash": "e7a7d0e549f1aad1a330b7161ca4ff923a6e57da889fcbe2f073dbe4b28b8215"
+                                    },
+                                    "kycUserDocumentID": 19,
+                                    "url": null
+                                },
+                                "isMandatory": false
+                            }
+                        ],
+                        "documentType": "Address",
+                        "kycDocumentTypeId": 2
+                    },
+                    {
+                        "kycDocumentMetas": [
+                            {
+                                "kycDocumentMetaId": 2,
+                                "channelData": "{\"fee\": 0.001, \"uuid\": \"dddbfdbd-2c5a-43a0-a1c3-ebe54f88c5751545398379475\", \"address\": \"AEqFopYGYHGCo6jt7k5AV8DLtuaMdkmX76IN\", \"channel\": \"indiaadhaar\", \"countryCode\": \"IN\"}",
+                                "description": "This is voter card",
+                                "documentName": "Voter card",
+                                "kycUserDocument": {
+                                    "hashDigest": "c242a23ba40a8a1e216bc472ff202a89a59efa875fa6ffe898dfdd833792ddcf",
+                                    "uploadedAt": "2018-12-31 12:45:56.0Z",
+                                    "documentStatus": "Pending",
+                                    "documentmeta": "{\"ExpirationDate\": \"2018-12-11\"}",
+                                    "verifiedBy": null,
+                                    "verificationTransaction": {
+                                        "transactionType": "PRIVATE_BLOCKCHAIN",
+                                        "destinationAddress": "NA",
+                                        "transactionStatus": "CONFIRMED",
+                                        "description": "Document Verification transaction",
+                                        "creationDate": "2018-12-31 12:48:52.0Z",
+                                        "transactionHash": "62bd63c59475bf82d86ce9847ae3037c604da36d6d5e5aa1df222b81130f884b"
+                                    },
+                                    "paymentTransaction": {
+                                        "transactionType": "PUBLIC_BLOCKCHAIN_MERCHANT_USER_PAYMENT",
+                                        "destinationAddress": "AEqFopYGYHGCo6jt7k5AV8DLtuaMdkmX76IN",
+                                        "transactionStatus": "CONFIRMED",
+                                        "description": "Payment made by merchant imroz.alam@oodlestechnologies.com for document 20 for user vinodhp@yopmail.com",
+                                        "creationDate": "2018-12-31 12:46:20.0Z",
+                                        "transactionHash": "e1b1af7f5ec8f50f8bbadd5ff6f8e70e80f935c4caed266ac31f53a2729e4908"
+                                    },
+                                    "kycUserDocumentID": 20,
+                                    "url": null
+                                },
+                                "isMandatory": true
+                            }
+                        ],
+                        "documentType": "Identity",
+                        "kycDocumentTypeId": 1
+                    },
+                    {
+                        "kycDocumentMetas": [
+                            {
+                                "kycDocumentMetaId": 3,
+                                "channelData": "{\"fee\": 0.001, \"uuid\": \"dddbfdbd-2c5a-43a0-a1c3-ebe54f88c5751545398379475\", \"address\": \"AEqFopYGYHGCo6jt7k5AV8DLtuaMdkmX76IN\", \"channel\": \"indiaadhaar\", \"countryCode\": \"IN\"}",
+                                "description": "This is pan card",
+                                "documentName": "Pancard",
+                                "kycUserDocument": {
+                                    "hashDigest": "efb80186644006d8953e666d12a0f06c69fd1f2d716be72dd4f6e37b8468736c",
+                                    "uploadedAt": "2018-12-31 12:13:52.0Z",
+                                    "documentStatus": "Pending",
+                                    "documentmeta": "{}",
+                                    "verifiedBy": null,
+                                    "verificationTransaction": {
+                                        "transactionType": "PRIVATE_BLOCKCHAIN",
+                                        "destinationAddress": "NA",
+                                        "transactionStatus": "CONFIRMED",
+                                        "description": "Document Verification transaction",
+                                        "creationDate": "2018-12-31 12:52:20.0Z",
+                                        "transactionHash": "7aa340ec5bf0025a1f06879d187e0cb2152b9f9249fc42e9ccc8ebd91cd3a3e6"
+                                    },
+                                    "paymentTransaction": {
+                                        "transactionType": "PUBLIC_BLOCKCHAIN_MERCHANT_USER_PAYMENT",
+                                        "destinationAddress": "AEqFopYGYHGCo6jt7k5AV8DLtuaMdkmX76IN",
+                                        "transactionStatus": "CONFIRMED",
+                                        "description": "Payment made by merchant imroz.alam@oodlestechnologies.com for document 30 for user vinodhp@yopmail.com",
+                                        "creationDate": "2018-12-31 12:11:34.0Z",
+                                        "transactionHash": "a3e565350b3454599590b84fc56ff794acaf5006982e5586db05ecdf1edb50d3"
+                                    },
+                                    "kycUserDocumentID": 30,
+                                    "url": null
+                                },
+                                "isMandatory": false
+                            }
+                        ],
+                        "documentType": "Finance",
+                        "kycDocumentTypeId": 4
+                    },
+                    {
+                        "kycDocumentMetas": [
+                            {
+                                "kycDocumentMetaId": 4,
+                                "channelData": "{\"fee\": 0.001, \"uuid\": \"dddbfdbd-2c5a-43a0-a1c3-ebe54f88c5751545398379475\", \"address\": \"AEqFopYGYHGCo6jt7k5AV8DLtuaMdkmX76IN\", \"channel\": \"indiaadhaar\", \"countryCode\": \"IN\"}",
+                                "description": "This is graduation",
+                                "documentName": "Graduation",
+                                "kycUserDocument": {
+                                    "hashDigest": "8546b2836116afa105cef13ac5fb54c5b544efa70dff7143a3ce5de210397a82",
+                                    "uploadedAt": "2018-12-31 12:09:14.0Z",
+                                    "documentStatus": "Pending",
+                                    "documentmeta": "{}",
+                                    "verifiedBy": null,
+                                    "verificationTransaction": {
+                                        "transactionType": "PRIVATE_BLOCKCHAIN",
+                                        "destinationAddress": "NA",
+                                        "transactionStatus": "CONFIRMED",
+                                        "description": "Document Verification transaction",
+                                        "creationDate": "2018-12-31 12:52:33.0Z",
+                                        "transactionHash": "865ce715c824f839dd80c4ef3e1a8b38c9bbdafce5b8f359970c2d0f7676717b"
+                                    },
+                                    "paymentTransaction": {
+                                        "transactionType": "PUBLIC_BLOCKCHAIN_MERCHANT_USER_PAYMENT",
+                                        "destinationAddress": "AEqFopYGYHGCo6jt7k5AV8DLtuaMdkmX76IN",
+                                        "transactionStatus": "CONFIRMED",
+                                        "description": "Payment made by merchant imroz.alam@oodlestechnologies.com for document 29 for user vinodhp@yopmail.com",
+                                        "creationDate": "2018-12-31 11:55:19.0Z",
+                                        "transactionHash": "02f52651b1e2cc6bf48be210c21fdeb1b2b051a71f462469d0b4979e3ef8d08e"
+                                    },
+                                    "kycUserDocumentID": 29,
+                                    "url": null
+                                },
+                                "isMandatory": false
+                            }
+                        ],
+                        "documentType": "Education",
+                        "kycDocumentTypeId": 3
+                    }
+                ],
+                "countryCode": "IN",
+                "blockchainStatus": "ACTIVE",
+                "attached": "belrium_primary",
+                "countryName": "India",
+                "blockchainEnabledTransaction": false,
+                "countryDialCode": "91",
+                "countryID": 105,
+                "status": "INACTIVE"
+            }
+        ]
+    },
+    "fielderror": null,
+    "message": "User documents fetched successfully with there document meta data.",
+    "isSuccess": true,
+    "status": "OK",
+    "timestamp": 1546261035531
+}

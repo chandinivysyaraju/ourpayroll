@@ -17,8 +17,12 @@
         <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/datatables.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/filepond.min.css">
+        <link href="lib/css/kycUpload.css" rel="stylesheet" type="text/css">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  
         <link rel="stylesheet" type="text/css" href="lib/css/filepond.css">
         <link rel="stylesheet" type="text/css" href="lib/css/custom.css">		
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     	<style>
     		div#example1_length,div#example1_filter {display: none;}
             table#example, table#example1 {	padding: 15px;}
@@ -57,10 +61,35 @@
             .rightside { top: 245px!important;}
            }
         </style>
-	
+        <style>
+            body {
+              background-color: #EFF2FB;
+            }
+            
+            img{
+                max-width:200px;
+              }
+              input[type=file]{
+              padding:10px;
+              }
+            .jumbotron{
+                height: 140px;
+                width: 255px;
+            }
+            div {
+              position: relative;
+              overflow: hidden;
+            }
+            
+            </style>
+            
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>    
+    <script src="KycUpload.js"></script>
+    <script src="constant.js"></script>
     </head>
-    
-    <body>
+    <body onload="load()">   
         <header class="bel_dashboard_header">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg navbar-light land_page menubar navbar-expand-md">
@@ -91,9 +120,9 @@
                     <div class="col-xl-2 col-lg-3 col-md-3 col-12 nopadding leftmenu">
                     	<div class="profile">
                         	<img src="lib/img/profile.jpg" width="60">
-                        	<h6>Srini Rajkumar</h6>
+                        	<h6></h6>
                         	<p>Belfrics BT Private Limited</p>
-                        	<h4>$ 1,23,456</h4>
+                        	<h4 id="balance"></h4>
                         	<p>Available Balance</p>
                         </div>
                     </div>
@@ -163,123 +192,123 @@
 										<p>KYC Documents</p>
 									</div>
 									<div class="col-xl-3 col-lg-3 col-md-3 col-3 nopadding dash_details_view">
-										<p><img class="mr-2" src="lib/img/india-flag-icon-32.png">India</p>
+										<p id="countryName"></p>
 									</div>
 									<div class="kyc-border"></div>
 								</div>
 								<div class="col-xl-12 col-lg-12 col-md-12 col-12 dash_details_view kyc-sec-2 ">
 									<p>Lets Identify the organizario by providing any of the following Certificates</p>
 								</div>
-								<div class="col-xl-12 col-lg-12 col-md-12 col-12">
-									<div class="col-xl-4 col-lg-12 col-md-12 col-12">
-										<div class="col-xl-12 col-lg-12 col-md-12 col-12 kyc-address">
-											<p><b>Identity Proof</b> <span>*</span></p>
-											<form>
-											<div class="kyc-check-main">
-												
-												<div class="kyc-check kyc-upload custom-control custom-checkbox">
-												  <input class="custom-control-input active" type="checkbox" name="Check1" id="Check1" checked="" disabled> 
-												  <label class="custom-control-label" for="Check1">Upload</label>
-												</div>
-												<div class="kyc-check kyc-payment kyc-check-middle custom-control custom-checkbox">
-												  <input class="custom-control-input" type="checkbox" name="Check2" id="Check2" checked="" disabled> 
-												  <label class="custom-control-label" for="Check2">Payment</label>
-												</div>
-												<div class="kyc-check kyc-check-last kyc-verified custom-control custom-checkbox">
-												  <input class="custom-control-input" type="checkbox" name="Check3" id="Check3" checked="" disabled> 
-												  <label class="custom-control-label" for="Check3">Get Verified</label>
-												</div>
-												
-											</div>
-											<div class="kyc-box1-text">
-												<p class="mt-2">Pan Card</p>
-												<p>Uploaded On: 05/12/2018, 11:44:46</p>
-												<button type="button" class="btn btn-success">Approved</button>
-											</div>
-											</form>
-										</div>
-										
-									</div>
-									<div class="col-xl-4 col-lg-12 col-md-12 col-12">
-										<div class="col-xl-12 col-lg-12 col-md-12 col-12 kyc-address">
-											<p><b>Address Proof</b> <span>*</span></p>
-											<form>
-											<div class="kyc-check-main">
-												
-												<div class="kyc-check kyc-upload custom-control custom-checkbox">
-												  <input class="custom-control-input" type="checkbox" name="Check4" id="Check4" checked="" disabled> 
-												  <label class="custom-control-label" for="Check4">Upload</label>
-												</div>
-												<div class="kyc-check kyc-payment kyc-check-middle custom-control custom-checkbox">
-												  <input class="custom-control-input" type="checkbox" name="Check5" id="Check5"  checked="" disabled> 
-												  <label class="custom-control-label" for="Check5">Payment</label>
-												</div>
-												<div class="kyc-check-last kyc-verified custom-control custom-checkbox kyc-no-bg">
-												  <input class="custom-control-input" type="checkbox" name="Check6" id="Check6"  disabled> 
-												  <label class="custom-control-label" for="Check6">Get Verified</label>
-												</div>
-												
-											</div>
-											<div class="kyc-box1-text">
-												<p class="mt-2">Passport</p>
-												<p>Uploaded On: 05/12/2018, 11:44:46</p>
-												<button type="button" class="btn btn-danger">Pending</button>
-											</div>
-											</form>
-											
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-12 col-md-12 col-12">
-										<div class="col-xl-12 col-lg-12 col-md-12 col-12 kyc-address">
-											<p><b>Citizenship</b></p>
-											<form>
-											<div class="kyc-check-main">
-												
-												<div class=" kyc-no-bg kyc-check-citizn  kyc-upload custom-control custom-checkbox ">
-												  <input class="custom-control-input" type="checkbox" name="Check7" id="Check7" disabled> 
-												  <label class="custom-control-label" for="Check7">Upload</label>
-												</div>
-												<div class="kyc-no-bg kyc-check-citizn  kyc-payment kyc-check-middle custom-control custom-checkbox ">
-												  <input class="custom-control-input" type="checkbox" name="Check8" id="Check8"  disabled> 
-												  <label class="custom-control-label" for="Check8">Payment</label>
-												</div>
-												<div class="kyc-no-bg kyc-check-last kyc-verified custom-control custom-checkbox ">
-												  <input class="custom-control-input" type="checkbox" name="Check9" id="Check9"  disabled> 
-												  <label class="custom-control-label" for="Check9">Get Verified</label>
-												</div>
-												
-											</div>
-											<select class="form-control">
-											  <option>Visitor ID</option>
-											  <option>Visitor ID</option>
-											  <option>Visitor ID</option>
-											</select>
-											<div id="demo" class="collapse" style="overflow-y: auto;">
-												<div class="form-group files color">              
-                                                    <input type="file"   class="filepond"   name="filepond" multiple  data-max-file-size="3MB" data-max-files="3">
-												</div>
-                                               
-											</div>
-                                            <div class="kyc-box3-text">
-                                                    <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#demo">Upload</button>
-                                                </div>
-											
-											</form>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						
+								            
+            <table style="width:90%;margin-left: 25px;margin-right:25px;" id="tblKycDoc" class="borderless"></table>    
+            </div>
+            </div>
+        </section>
+            <!--Popup for Upload KYC Button -->  
+            <!-- Modal -->
+            <div class="modal fade" id="myUploadModal" role="dialog">
+                <div class="modal-dialog">      
+                  <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header" style="background-color: #415BF6">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title" style="color:#ffffff"></h4>
+                      </div>
+                      <div class="modal-body">
+                          <div id="form-pop"></div>
+                          <!-- <input type="date" name="idTourDateDetails" id="idTourDateDetails" class="form-control clsDatePicker"> <span class="input-group-addon"><i id="calIconTourDateDetails" class="glyphicon glyphicon-th"></i></span> -->
+                          <h3>Document Upload</h3>
+                          <div class="file btn btn-primary"> 
+                           Browse
+                           <input type='file' onchange="readURL(this);" /> 
+                          </div>
+                          <button id="uploadFile" onclick="UploadFile()" disabled>Upload</button> 
+                      </div>
+                      </div>
+                    </div>
+                  </div>  
+                  <!-- end for EnableKYC button popup --> 
+                <!--Popup for Enable KYC Button -->  
+                <!-- Modal -->
+                <div class="modal fade modal-top" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header" style="background-color: #415BF6">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title" style="color:#ffffff"><b>ENTER PASSPHRASE</b></h4>
+                        </div>
+                        <div class="modal-body">
+                          <h3>PassPhrase Value</h3>
+                          <input type="text" id="secret" name="secret" class="form-control" placeholder="Enter Your Passphrase" /><br><br>
+                          <button id="closeModalDialog" type="button" class="btn btn-danger" data-dismiss="modal"><b>Close</b></button>
+                          <button id="payment" type="button" class="btn btn-info" data-dismiss="modal" onclick="callPayment()"><b>Submit</b></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>     
+                  <!--Popup for Enable KYC Button -->  
+                <!-- Modal -->
+                <div class="modal fade modal-top" id="enableKycModal" role="dialog">
+                    <div class="modal-dialog">
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header" style="background-color: #415BF6">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title" style="color:#ffffff"><b>ENTER PASSPHRASE</b></h4>
+                        </div>
+                        <div class="modal-body">
+                          <h3>PassPhrase Value</h3>
+                          <input type="text" id="enableKycSecret" name="secret" class="form-control" placeholder="Enter Your Passphrase" /><br><br>
+                          <button id="closeModalDialog" type="button" class="btn btn-danger" data-dismiss="modal"><b>Close</b></button>
+                          <button id="enableKyc" type="button" class="btn btn-info" data-dismiss="modal" onclick="enableKycgetPublicKey()"><b>Submit</b></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>     
+          <!-- POP up for Error Upload message --> 
+          <div class="modal fade" id="ErrorModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #415BF6">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" style="color:#ffffff"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p id="errormsg"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        
-       
-        
-        <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js"></script>
+            <!-- </form> -->
+        </div>
+        <!-- Modal -->
+<div class="modal fade" id="mychModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+            id="enableKyc"
+             class="btn btn-default kyc-enabled-btn kyc-button"
+             (click)="openEnableKycModal()">
+             <i class="fa fa-toggle-on"> Enable KYC</i>
+     </button>
         <script type="text/javascript" src="lib/js/bootstrap.min.js"></script>
        <script type="text/javascript" src="lib/js/datatables.min.js"></script>
         <script type="text/javascript" src="lib/js/dropzone.js"></script>
@@ -287,10 +316,10 @@
        <script src="lib/js/filepond.min.js"></script>
        <script src="lib/js/filepond.js"></script>
 
-  <!-- Turn all file input elements into ponds -->
-  <script>
+  Turn all file input elements into ponds -->
+ <script>
   FilePond.parse(document.body);
-  </script>
+ </script>
 		<script>
         function preview_images() 
         {
