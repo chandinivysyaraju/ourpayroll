@@ -8,7 +8,7 @@ async function findEmp(){
         }
         const data = await home(param);
         console.log(data);
-        alert(data);
+      //  alert(data);
         if(data==="0" || data==="00")
         {
             window.location.href="login.html";
