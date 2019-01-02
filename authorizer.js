@@ -30,7 +30,7 @@ async function authorizer(){
   }
 }
 function add_issuedemployee(pid,emp,iid,time){
-   add_div='<a><tr> <td> <div class="custom-control custom-checkbox">  <input type="checkbox" class="custom-control-input" id="opt2" name="opt2"><label class="custom-control-label" for="opt2"></label> </div></td> <td onclick="displaydata('+pid+')">'+pid+'</td><td>'+emp+'</td> <td>'+iid+'</td><td>'+time+'</td>  <td class="table_viewbtn"> <input type="submit" name="signin" class="sign_btn" value="Sign" onclick="sign('+pid+')"></input> <input type="submit" name="signin" class="sign_btn" value="Reject" onclick="reject('+pid+')"></input> </td></tr>'
+   add_div='<a><tr> <td onclick="displaydata('+pid+')">'+pid+'</td><td>'+emp+'</td> <td>'+iid+'</td><td>'+time+'</td>  <td class="table_viewbtn"> <input type="submit" name="signin" class="sign_btn btn-success" value="Sign" onclick="sign('+pid+')"></input> <input type="submit" name="signin" class="sign_btn btn-danger" value="Reject" onclick="reject('+pid+')"></input> </td></tr>'
    document.getElementById('pending').innerHTML+=add_div;
 
  }
@@ -232,7 +232,7 @@ async function getPayslipData(pid){
             var newItem = document.createElement("LI");
             newItem.setAttribute('class','nav_item');
             newItem.setAttribute('role','presentation');
-            newItem.innerHTML+='<a id="open" href="#issue_new_certificate" aria-controls="issue_new_certificate" role="tab" data-toggle="tab" class="nav-link">Authorize Certificate</a>';
+            newItem.innerHTML+='<a id="open" href="#issue_new_certificate" aria-controls="issue_new_certificate" role="tab" data-toggle="tab" class="nav-link">AUTHORIZE PAYSLIP</a>';
           
             var list = document.getElementById("testing_list");
             list.insertBefore(newItem, list.childNodes[2]);

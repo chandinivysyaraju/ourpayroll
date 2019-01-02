@@ -67,7 +67,7 @@ async function getEmployee(){
       }
 
 function add_employee(emp_name,designation,emp_id){
-      add_div = '<div class="col-xl-4 col-lg-6 col-md-6 col-12 " id='+emp_id+'><div class="col-xl-12 col-lg-12 col-md-12 col-12 member_views_details"><div class="col-xl-3 col-lg-3 col-md-3 col-12 nopadding"><a href=""><img class="propic" src="lib/img/profile.jpg" width="55"></a></div><div class="col-xl-6 col-lg-6 col-md-6 col-12 nopadding"><h6>'+emp_name+'</h6><p class="p1">'+designation+'</p><p class="p2">'+emp_id+'</p></div><div class="col-xl-3 col-lg-3 col-md-3 col-12 nopadding"><a href="#" class="member_edit"><img src="lib/img/edit.svg"></a></div></div></div>';
+      add_div = '<div class="col-xl-4 col-lg-6 col-md-6 col-12 " id='+emp_id+'><div class="col-xl-12 col-lg-12 col-md-12 col-12 member_views_details"><div class="col-xl-3 col-lg-3 col-md-3 col-12 nopadding"><a href=""><img class="propic" src="lib/img/profile.jpg" width="55"></a></div><div class="col-xl-6 col-lg-6 col-md-6 col-12 nopadding"><h6>'+emp_name+'</h6><p class="p1">'+designation+'</p><p class="p2">'+emp_id+'</p></div><div class="col-xl-3 col-lg-3 col-md-3 col-12 nopadding"></div></div></div>';
       document.getElementById('members_div').innerHTML+=add_div;
 }
 

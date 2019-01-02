@@ -13,6 +13,7 @@ var bel=localStorage.getItem("bel");
 const iid = localStorage.getItem('issuerid');
 var pid ="";
 var selectedEmpid ='';
+var prev_pid = undefined;
 const calssButtons={'Pending':"btn-danger",'Authorized':'btn-primary','Issued':'btn-success','Initiated':'btn-warning'};
 
 function model(){
@@ -293,13 +294,19 @@ async function getissuedCertificates(){
     console.log('Success');
     document.getElementById('issuedBlock').innerHTML='';
     for(var i = 0 ; i <= issuedCerts.result.length;i++){
-    let division = '<div class="col-12 member_views_details " onclick="getIssuedDetails(\''+issuedCerts.result[i].pid+'\')"><div class="col-xl-3 col-lg-3 col-md-3 col-12 nopadding"><a href=""><img class="propic" src="lib/img/profile.jpg" width="55"></a></div><div class="col-xl-9 col-lg-9 col-md-9 col-12 nopadding"><h6>'+issuedCerts.result[i].name+'</h6><p class="p1">'+issuedCerts.result[i].designation+'</p><p class="p2">'+issuedCerts.result[i].empid+'</p><h6>Pay Slip Certificate</h6><p class="p4">ISSUED <span>on  '+Date(issuedCerts.result[i].timestampp)+'</span></p></div></div>';
+    let division = '<div class="col-12 member_views_details " onclick="getIssuedDetails(\''+issuedCerts.result[i].pid+'\')" id="prev'+issuedCerts.result[i].pid+'"><div class="col-xl-3 col-lg-3 col-md-3 col-12 nopadding"><img class="propic" src="lib/img/profile.jpg" width="55"></div><div class="col-xl-9 col-lg-9 col-md-9 col-12 nopadding"><h6>'+issuedCerts.result[i].name+'</h6><p class="p1">'+issuedCerts.result[i].designation+'</p><p class="p2">'+issuedCerts.result[i].empid+'</p><h6>Pay Slip Certificate</h6><p class="p4">ISSUED <span>on  '+Date(issuedCerts.result[i].timestampp)+'</span></p></div></div>';
         document.getElementById('issuedBlock').innerHTML+=division;
     }
 }
 
 async function getIssuedDetails(pid){
     console.log(pid);
+    if(prev_pid != undefined){
+        console.log('i am here');
+        document.getElementById('prev'+prev_pid).classList='col-12 member_views_details';
+    }
+    prev_pid=pid;
+    document.getElementById('prev'+pid).classList='col-12 member_views_details active';
     const payslipDetails = await $.ajax({
         url: HOST_URL+"/"+dappid+"/payslip/getPayslip",
         type: 'post',
