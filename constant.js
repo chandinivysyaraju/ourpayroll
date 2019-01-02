@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-var IP="http://54.157.252.226:9305";
+//var IP="http://54.157.252.226:9305";
 var HOST_URL="http://54.157.252.226:9305/api/dapps";
 var SDAPP_ID="048c1869547f60db8a6cd93b06a786abe5f50c4567198f4df0376462f9a20c5e";
-var dappid="07bbbeca298b151bccfbd0c5d8b2e76eca44b42a3dd8f082d65aa56532abdd00";
-=======
-var HOST_URL="http://54.157.252.226:9305/api/dapps";
-var SDAPP_ID="048c1869547f60db8a6cd93b06a786abe5f50c4567198f4df0376462f9a20c5e";
-// var dappid="48a7d6bd571d8a636bfc7d64781e03e4dc80df75c99ca98788c63697f9a2d56a";
->>>>>>> 2396d4fe78f0fb013d928ae159b086fad7ee8370
 var SWAGGERIP="http://54.254.174.74:8080/api/v1";

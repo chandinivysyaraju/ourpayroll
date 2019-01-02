@@ -353,7 +353,7 @@ else{
            if(((localKYCStatus=='ACTIVE' && blockchainKYCStatus=='ACTIVE') || localKYCStatus=='INACTIVE'))
            {
                 // alert("enablekyc");
-               $("#enableKyc").disabled= false;
+               $("#enableKyc").disabled= true;
            }
            else{
                 // alert("enablekyc1");
@@ -622,7 +622,7 @@ function kycPayment(kycUserDocumentID, secret)
                 $('#errormsg').text("Try Again");
                 $('#ErrorModal').modal('show');
                 $('#myModal').modal('hide');
-                $.unblockUI();
+               // $.unblockUI();
                 window.location.reload();
                 // console.log(data);
             }
@@ -693,11 +693,10 @@ async function enableKycgetPublicKey()
         {
         //    console.log("Public key: " + data.account.publicKey);
            publicKey=data.account.publicKey;
-          const Kycres=await doEnableKYC(publicKey,secret);
+          doEnableKYC(publicKey,secret);
           //window.location.reload();
         //   $('#errormsg').text("Enabled KYC");
         //   $('#ErrorModal').modal('show');
-        setTimeout(function(){window.location.href="dashboard.html"},5000);
         }
         });
   } //end of EnableKycgetPublicKey function
@@ -719,6 +718,10 @@ async function enableKycgetPublicKey()
             data:JSON.stringify(body),
             contentType: 'application/json;charset=UTF-8',
             dataType: 'json'});
+            if(result)
+            {
+                setTimeout(function(){window.location.href="dashboard.html"},5000);
+            }
             return result;
     }
     catch(error){
