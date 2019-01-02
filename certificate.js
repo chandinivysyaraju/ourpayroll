@@ -23,8 +23,7 @@ function model(){
        list.childNodes[1].remove();
        document.getElementById("reg").remove();
        document.getElementById("reg1").remove();
-      document.getElementById('removeThis').remove();
-
+    //   document.getElementById('removeThis').remove();
        }
        if(role==="issuer"){
            var list = document.getElementById('heading_list');
@@ -68,12 +67,12 @@ var data = data.result;
 var employee_data='';
 console.log(data);
 var disabled='';
-if(role==='superuser'){
-    disabled='disabled';
-}
 $.each(data,function(key,value){
     var target='';
     var func = '';
+    if(role==='superuser' || role ==='authorizer'){
+        disabled='disabled';
+    }
     if(value.status == 'Initiated'){
         target =' data-toggle="modal" data-target="#popup" ';
     }
@@ -285,7 +284,7 @@ async function getissuedCertificates(){
         dataType: 'json'
     });
     if(issuedCerts.isSuccess === undefined){
-        alert('Connection error');
+       alert('Connection error');
         return;
     }
     if(issuedCerts.isSuccess === false){
@@ -383,6 +382,7 @@ async function initialIssue(){
     document.getElementById(issuedetails["empid"]+'status').setAttribute('data-target','#popup');
     document.getElementById(issuedetails["empid"]+'status').setAttribute('data-toggle','modal');
     document.getElementById(issuedetails["empid"]+'status').setAttribute('onclick','');
+    document.getElementById(issuedetails["empid"]+'status').setAttribute('class',calssButtons['Initiated']);
 
     document.getElementById('tagclose').click();
 }

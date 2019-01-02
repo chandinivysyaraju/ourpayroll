@@ -57,7 +57,7 @@ async function pendingSigns(param){
 async function sign(pid){
   const res1 = await authorize(pid);
   console.log(JSON.stringify(res1));
-  alert(JSON.stringify(res1));
+ // alert(JSON.stringify(res1));
   authorizer();
 }
 
@@ -84,7 +84,7 @@ async function sign(pid){
       async function reject(pid){
         const res1=await rejectpayslip(pid);
         console.log(res1);
-        alert(JSON.stringify(res1));
+       // alert(JSON.stringify(res1));
         authorizer();
       }
 

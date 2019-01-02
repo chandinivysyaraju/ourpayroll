@@ -106,7 +106,7 @@ a.value=email;
     {
         const data=await checkRole();
         console.log(JSON.stringify(data));
-        alert(JSON.stringify(data));
+       // alert(JSON.stringify(data));
         var roleid=data.role;
          dappid=data.dappid;
             if((roleid==="new user")||(roleid==="superuser")||(roleid==="issuer")||(roleid==="authorizer"))
@@ -121,7 +121,7 @@ a.value=email;
                     const res=await getauthid();
                     console.log(res);
                     localStorage.setItem("authid",res.result.aid);
-                    alert(JSON.stringify(res));
+                  //  alert(JSON.stringify(res));
                 }
                 if(roleid==="issuer"){
                     const res=await getissuerid();
