@@ -11,12 +11,20 @@ var email=localStorage.getItem("email");
 var belriumtoken=localStorage.getItem("belToken");
 var dappid=localStorage.getItem("dappid");
 var bel=localStorage.getItem("bel");
+const iid = localStorage.getItem('issuerid');
+var pid ="";
+var selectedEmpid ='';
+const calssButtons={'Pending':"btn-danger",'Authorized':'btn-primary','Issued':'btn-success','Initiated':'btn-warning'};
+
 function model(){
     if((role==="superuser")||(role==="new user")){
         var list = document.getElementById('heading_list');
        list.childNodes[5].remove();
        list.childNodes[1].remove();
        document.getElementById("reg").remove();
+       document.getElementById("reg1").remove();
+      document.getElementById('removeThis').remove();
+
        }
        if(role==="issuer"){
            var list = document.getElementById('heading_list');
@@ -59,12 +67,35 @@ function(data)
 var data = data.result;
 var employee_data='';
 console.log(data);
+var disabled='';
+if(role==='superuser'){
+    disabled='disabled';
+}
 $.each(data,function(key,value){
+    var target='';
+    var func = '';
+    if(value.status == 'Initiated'){
+        target =' data-toggle="modal" data-target="#popup" ';
+    }
+    if(value.status == 'Authorized'){
+        target =' data-toggle="modal" data-target="#popup1" ';
+        if(value.iid != iid){
+            disabled ='disabled';
+        }else{
+            disabled ='';
+        }
+        func=",setPid("+value.pid+","+key+")";
+        console.log(data);
+    }
+    if(value.status=='Issued'){
+        target =' data-toggle="modal" data-target="#popup2" ';
+        
+    }
     employee_data += '<tr>';
     employee_data += '<td>'+key+'</td>';
     employee_data += '<td>'+value.name+'</td>';
     employee_data += '<td>'+value.designation+'</td>';
-    employee_data += '<td> <button  onclick="getStatus('+'\''+value.status+'\''+',\''+key+'\''+')" id='+key+'status>'+value.status+'</button> </td>';
+    employee_data += '<td> <button '+target+' '+disabled+' onclick="getStatus('+'\''+value.status+'\''+',\''+key+'\''+')'+func+' " id='+key+'status class ="'+calssButtons[value.status]+'" >'+value.status+' </button> </td>';
     employee_data += '</tr>';
     });
 
@@ -85,6 +116,7 @@ async function getStatus(status, empid){
         list = document.getElementById('testing_list');
         list.insertBefore(li,list.childNodes[2]);
     }
+    if(status ==='Pending'){
     console.log('{"empid":"'+empid+'"}');
     const employee = await $.ajax({
         url: HOST_URL+"/"+dappid+"/employeeData",
@@ -97,6 +129,7 @@ async function getStatus(status, empid){
     console.log(employee);
     document.getElementById('tabclick').click();
     fillDetails(employee);
+    }
 
 }
 
@@ -108,7 +141,10 @@ function escapeInput(input) {
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;');
  }
-
+function setPid(p,e){
+    pid = p;
+    selectedEmpid=e;
+}
 
  async function fillDetails(emp){
     
@@ -344,6 +380,11 @@ async function initialIssue(){
     }
     console.log("IT was a success");
     document.getElementById(issuedetails["empid"]+'status').innerText = "Initiated";
+    document.getElementById(issuedetails["empid"]+'status').setAttribute('data-target','#popup');
+    document.getElementById(issuedetails["empid"]+'status').setAttribute('data-toggle','modal');
+    document.getElementById(issuedetails["empid"]+'status').setAttribute('onclick','');
+
+    document.getElementById('tagclose').click();
 }
 
 //Register new employee functions
@@ -392,7 +433,8 @@ async function register(){
 console.log(registerData);
 const res3 = await registerEmployee();
 console.log(res3);
-if(res3.isSuccess==="true"){
+if(res3.isSuccess===true){
+    console.log("hai this is gudla")
   document.getElementById("close").click();
 }
 }
@@ -416,3 +458,40 @@ async function registerEmployee(){
       }
     }
   }
+
+async function finalIssue(){
+    var payslip ={
+        "pid": pid,
+        "fee": "0",
+        "iid": iid,
+        "secret": document.getElementById('passphrase1').value,
+        "dappid": dappid
+    };
+    let result;
+    console.log(payslip);
+  try{
+        result = await $.ajax({
+        url: HOST_URL+"/"+dappid+"/issueTransactionCall",
+        type: 'post',
+        data: JSON.stringify(payslip),
+        contentType: 'application/json;charset=UTF-8',
+        dataType: 'json'
+        });
+        console.log(result);
+        if(result.isSuccess == false){
+            alert("Failed to issue");
+            return;
+        }
+        if(result.transactionId != undefined){
+        document.getElementById(selectedEmpid+"status").value='Issued';
+        document.getElementById(selectedEmpid+'status').setAttribute('id','#popup2');
+        }
+    }
+    catch (error){
+      if(error){
+        console.log(error);
+    }
+  }
+
+}
+

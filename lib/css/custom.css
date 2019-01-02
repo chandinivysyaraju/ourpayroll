@@ -684,6 +684,230 @@ form#payslip label span {
     font-weight: 700;
     padding: 0px 25px;
 }
+
+#popup .topsec {
+    margin: auto;
+}
+#popup .topsec svg {
+    background: #415BF6;
+    border-radius: 50px;
+    padding: 10px;
+}
+#popup .modal-header {
+    background: #3535F0;
+    padding-bottom: 100px;
+    border: 0;
+    border-radius: 10px;
+}
+#popup .modal-body {
+    position: relative;
+    width: 95%;
+    margin: auto;
+    padding: 35px 10px 30px;
+    top: -75px;
+    background: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+}
+#popup .modal-content {
+    background: transparent;
+    border: 0;
+}
+#popup button.btn.btn-info.btn-lg {
+    background: #415BF6;
+    border-color: #415BF6;
+    border-radius: 5px;
+    border-width: 2px;
+     font-weight: 700;
+	 width:125px
+}
+#popup button.btn.btn-default {
+    border-color: #415BF6;
+    background: #ffffff;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #3535f0;
+    font-weight: 700;
+}
+#popup p.p2 {
+    color: #F14444;
+    font-weight: 700;
+    padding: 0px 28px;
+}
+#popup p.p1{
+    color: #8F8F8F;
+    font-weight: 700;
+    padding: 0px 25px;
+}
+
+#popup1 .topsec {
+    margin: auto;
+}
+#popup1 .topsec svg {
+    background: #415BF6;
+    border-radius: 50px;
+    padding: 10px;
+}
+#popup1 .modal-header {
+    background: #3535F0;
+    padding-bottom: 100px;
+    border: 0;
+    border-radius: 10px;
+}
+#popup1 .modal-body {
+    position: relative;
+    width: 95%;
+    margin: auto;
+    padding: 35px 10px 30px;
+    top: -75px;
+    background: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+}
+#popup1 .modal-content {
+    background: transparent;
+    border: 0;
+}
+#popup1 button.btn.btn-info.btn-lg {
+    background: #415BF6;
+    border-color: #415BF6;
+    border-radius: 5px;
+    border-width: 2px;
+     font-weight: 700;
+	 width:125px
+}
+#popup1 button.btn.btn-default {
+    border-color: #415BF6;
+    background: #ffffff;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #3535f0;
+    font-weight: 700;
+}
+#popup1 p.p2 {
+    color: #F14444;
+    font-weight: 700;
+    padding: 0px 28px;
+}
+#popup1 p.p1{
+    color: #8F8F8F;
+    font-weight: 700;
+    padding: 0px 25px;
+}
+#popup2 .topsec {
+    margin: auto;
+}
+#popup2 .topsec svg {
+    background: #415BF6;
+    border-radius: 50px;
+    padding: 10px;
+}
+#popup2 .modal-header {
+    background: #3535F0;
+    padding-bottom: 100px;
+    border: 0;
+    border-radius: 10px;
+}
+#popup2 .modal-body {
+    position: relative;
+    width: 95%;
+    margin: auto;
+    padding: 35px 10px 30px;
+    top: -75px;
+    background: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+}
+#popup2 .modal-content {
+    background: transparent;
+    border: 0;
+}
+#popup2 button.btn.btn-info.btn-lg {
+    background: #415BF6;
+    border-color: #415BF6;
+    border-radius: 5px;
+    border-width: 2px;
+     font-weight: 700;
+	 width:125px
+}
+#popup2 button.btn.btn-default {
+    border-color: #415BF6;
+    background: #ffffff;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #3535f0;
+    font-weight: 700;
+}
+#popup2 p.p2 {
+    color: #F14444;
+    font-weight: 700;
+    padding: 0px 28px;
+}
+#popup2 p.p1{
+    color: #8F8F8F;
+    font-weight: 700;
+    padding: 0px 25px;
+}
+#popup3 .topsec {
+    margin: auto;
+}
+#popup3 .topsec svg {
+    background: #415BF6;
+    border-radius: 50px;
+    padding: 10px;
+}
+#popup3 .modal-header {
+    background: #3535F0;
+    padding-bottom: 100px;
+    border: 0;
+    border-radius: 10px;
+}
+#popup3 .modal-body {
+    position: relative;
+    width: 95%;
+    margin: auto;
+    padding: 35px 10px 30px;
+    top: -75px;
+    background: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+}
+#popup3 .modal-content {
+    background: transparent;
+    border: 0;
+}
+#popup3 button.btn.btn-info.btn-lg {
+    background: #415BF6;
+    border-color: #415BF6;
+    border-radius: 5px;
+    border-width: 2px;
+     font-weight: 700;
+	 width:125px
+}
+#popup3 button.btn.btn-default {
+    border-color: #415BF6;
+    background: #ffffff;
+    border-radius: 5px;
+    width: 125px;
+    border-width: 2px;
+    color: #3535f0;
+    font-weight: 700;
+}
+#popup3 p.p2 {
+    color: #F14444;
+    font-weight: 700;
+    padding: 0px 28px;
+}
+#popup3 p.p1{
+    color: #8F8F8F;
+    font-weight: 700;
+    padding: 0px 25px;
+}
+
+
 #add-user .topsec {
     margin: auto;
 }
