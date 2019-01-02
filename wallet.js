@@ -36,7 +36,8 @@ async function registerdapp(){
     token=localStorage.getItem("belToken");
   const result=await CheckKYCStatus(token)
   console.log(result);
-    if(bel>50)
+    // if(bel>50)
+    if(true)
     {
   var passphrase=document.getElementById("passphrase1").value;
   var dappname=document.getElementById("dappname").value;
@@ -61,6 +62,7 @@ if(res["isSuccess"]===true){
     alert("Your DAPP got "+JSON.stringify(res));
     localStorage.setItem("dappid",res["dappid"]);
     document.getElementById("close").click();
+    document.getElementById("logout").click();
 
     }
 }

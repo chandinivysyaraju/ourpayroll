@@ -2,12 +2,10 @@
 //document function
 $(document)
  .ajaxStart(function () {
-    //$.blockUI({ message: '<img src="https://payload345.cargocollective.com/1/18/582678/9219397/loading-ttcredesign.gif" />' });
-    $.blockUI({ message: null});
+    $.blockUI({ message: '<i  class="fa fa-circle-o-notch fa-spin" style="font-size:150px; color: #00bfff"></i>',css: {backgroundColor: 'transparent', border: '0'} });
  })
  .ajaxStop(function () {
-    //setTimeout(function(){$.unblockUI()},10000);
-    $.unblockUI();
+    setTimeout(function(){$.unblockUI()},3000);
  }); // end of document function
 
 var str;
@@ -354,11 +352,11 @@ else{
         //    alert("enablekyc2" + localKYCStatus+ ":" + blockchainKYCStatus);
            if(((localKYCStatus=='ACTIVE' && blockchainKYCStatus=='ACTIVE') || localKYCStatus=='INACTIVE'))
            {
-            //    alert("enablekyc");
-               $("#enableKyc").disabled= true;
+                // alert("enablekyc");
+               $("#enableKyc").disabled= false;
            }
            else{
-            //    alert("enablekyc1");
+                // alert("enablekyc1");
                $("#enableKyc").disabled= false;
            }
        }
@@ -420,7 +418,8 @@ else{
         if(kycResponseData.isSuccess){
             let kycUserDocumentID = kycResponseData.data.kycUserDocumentID;
             // console.log(kycUserDocumentID);
-            openPaymentModal(kycUserDocumentID);
+            //openPaymentModal(kycUserDocumentID);
+            window.location.reload();
         }
     } // end of kycUploadStatusfunction function
 
@@ -448,6 +447,10 @@ function generateMetaForm(form_res)
 {
     // console.log(form_res.data.formproperties[0]);
     var metaForm=document.getElementById("form-pop");
+    while(metaForm.hasChildNodes())
+    {
+        metaForm.removeChild(metaForm.lastChild);
+    }
     for (var i = 0, l =  form_res.data.formproperties.length; i < l; i++) {
         let formData=form_res.data.formproperties[i];
         let label=formData.label;
@@ -587,7 +590,7 @@ function callPayment(){
 //kycPayment function
 function kycPayment(kycUserDocumentID, secret) 
 {
-    $.blockUI({ message: '<img src="https://payload345.cargocollective.com/1/18/582678/9219397/loading-ttcredesign.gif" />' });
+    $.blockUI({ message: '<i  class="fa fa-circle-o-notch fa-spin" style="font-size:150px; color: #00bfff"></i>',css: {backgroundColor: 'transparent', border: '0'} });
     setTimeout(function(){$.unblockUI()},12000);
     $.ajax({
         url: SWAGGERIP+'/kycuserdocuments/payment',
@@ -601,9 +604,10 @@ function kycPayment(kycUserDocumentID, secret)
             var i=0;
             while(data.status==="confirmed" || i<3)
             {
-                $.blockUI({ message: '<img src="https://payload345.cargocollective.com/1/18/582678/9219397/loading-ttcredesign.gif" />' });
-                setTimeout(function(){$.unblockUI()},20000);
+                $.blockUI({ message: '<i  class="fa fa-circle-o-notch fa-spin" style="font-size:150px; color: #00bfff"></i>',css: {backgroundColor: 'transparent', border: '0'} });
+                setTimeout(function(){$.unblockUI()},10000);
                 i++;
+                //window.location.reload();
             }
             if(data.status==="confirmed")
             {
@@ -619,6 +623,7 @@ function kycPayment(kycUserDocumentID, secret)
                 $('#ErrorModal').modal('show');
                 $('#myModal').modal('hide');
                 $.unblockUI();
+                window.location.reload();
                 // console.log(data);
             }
         },
@@ -679,7 +684,8 @@ function getPublicKey(passPhrase, kycUserDocumentID)
 
 async function enableKycgetPublicKey()
 {
-    var secret = $('#enablKycSecret').val();
+    var secret = $('#enableKycSecret').val();
+    // alert(secret);
     $.post("https://node1.belrium.io/api/accounts/open",
       {secret:secret,countryCode:countryCode},
       function(data){
@@ -687,27 +693,30 @@ async function enableKycgetPublicKey()
         {
         //    console.log("Public key: " + data.account.publicKey);
            publicKey=data.account.publicKey;
-           doEnableKYC(publicKey);
+          const Kycres=await doEnableKYC(publicKey,secret);
+          //window.location.reload();
+        //   $('#errormsg').text("Enabled KYC");
+        //   $('#ErrorModal').modal('show');
+        setTimeout(function(){window.location.href="dashboard.html"},5000);
         }
         });
   } //end of EnableKycgetPublicKey function
 
- async function doEnableKYC(publicKey)
+ async function doEnableKYC(publicKey,secret)
   {
-    var secret=localStorage.getItem("secret");
     let result;
     var body={
         countryCode:countryCode,
         publicKey: publicKey,
-        secondSecret: "",
+        secondSecret: " ",
         secret: secret
     };
     try{
         result=await $.ajax({
             type: 'put',
-            url: SWAGGERIP+"transactions/enable/account",
+            url: SWAGGERIP+"/transactions/enable/account",
             headers: {"belrium-token" : token},
-            data:body,
+            data:JSON.stringify(body),
             contentType: 'application/json;charset=UTF-8',
             dataType: 'json'});
             return result;
@@ -716,12 +725,15 @@ async function enableKycgetPublicKey()
         if(error)
         {
             console.log(error);
+            $('#errormsg').text(error["responseJSON"]["message"]);
+            $('#ErrorModal').modal('show');
         }
     }
   }// end of doEnableKYC function
 
   //openEnableKycModal function
 function openEnableKycModal(){
+    // alert("open enable modal");
     $('#enableKycModal').modal('show');
 } // end of openEnableKycModal function
 

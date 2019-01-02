@@ -23,7 +23,8 @@ async function model(){
     $("#balance").text(bel+" "+"BEL");
     $("#balance1").text(bel+" "+"BEL");
     console.log("kycStatus: "+kycStatus);
-    if(kycStatus==="false")
+    //if(kycStatus==="false")
+    if(false)
     {
         window.location.href="kyc.html";
     }

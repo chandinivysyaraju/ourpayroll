@@ -18,15 +18,12 @@
         <link rel="stylesheet" type="text/css" href="lib/css/datatables.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/filepond.min.css">
         <link href="lib/css/kycUpload.css" rel="stylesheet" type="text/css">
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-  
         <link rel="stylesheet" type="text/css" href="lib/css/filepond.css">
         <link rel="stylesheet" type="text/css" href="lib/css/custom.css">		
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="lib/css/custom.css">	
         <script src="constant.js"></script>	
         <script src="logout.js"></script>
-        <!-- <script src="kyc.js"></script> -->
     	<style>
     		div#example1_length,div#example1_filter {display: none;}
             table#example, table#example1 {	padding: 15px;}
@@ -206,7 +203,7 @@
 								</div>
 								            
             <table style="width:90%;margin-left: 25px;margin-right:25px;" id="tblKycDoc" class="borderless"></table>   
-            <button id="enableKyc" style="float:right;margin-right: 25px;margin-top: 25px" class="btn btn-default kyc-enabled-btn kyc-button" (click)="openEnableKycModal()">
+            <button id="enableKyc" style="float:right;margin-right: 25px;margin-top: 25px" class="btn btn-default kyc-enabled-btn kyc-button" onclick="openEnableKycModal()">
              <i class="fa fa-toggle-on"> Enable KYC</i>
             </button> 
             </div>
@@ -264,7 +261,7 @@
                       <div class="modal-content">
                         <div class="modal-header" style="background-color: #415BF6">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title" style="color:#ffffff"><b>ENTER PASSPHRASE</b></h4>
+                          <h4 class="modal-title" style="color:#ffffff"></h4>
                         </div>
                         <div class="modal-body">
                           <h3>PassPhrase Value</h3>
