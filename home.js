@@ -22,6 +22,7 @@ async function findEmp(){
             console.log("Invalid exist code");
         }
 }
+
 async function home(params){
         let result;
         try{

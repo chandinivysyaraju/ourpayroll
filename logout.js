@@ -2,5 +2,5 @@
     function logout(){
         console.log("haiii");
         localStorage.clear();
-        window.location.href="landing_page.html";
+        window.location.href="Home.html";
 }

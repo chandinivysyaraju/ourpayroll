@@ -1,5 +1,6 @@
 //var dappid ="48a7d6bd571d8a636bfc7d64781e03e4dc80df75c99ca98788c63697f9a2d56a";
 //var HOST_URL="http://18.188.23.5:9305/api/dapps";
+var iid= localStorage.getItem("issuerid");
 var countryData,countryCode;
 const count_countries=253;
 var registerData;
@@ -279,7 +280,7 @@ async function getissuedCertificates(){
     const issuedCerts = await $.ajax({
         url: HOST_URL+"/"+dappid+"/issuer/issuedPayslips",
         type: 'post',
-        data: '{"iid":"1" ,"limit":5, "offset":'+next_page+'}',
+        data: '{"iid":'+iid+' ,"limit":5, "offset":'+next_page+'}',
         contentType: 'application/json;charset=UTF-8',
         dataType: 'json'
     });

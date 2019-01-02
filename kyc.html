@@ -14,17 +14,17 @@
         <link rel="stylesheet" type="text/css" href="lib/css/bootstrap-grid.css">
         <link rel="stylesheet" type="text/css" href="lib/css/bootstrap-grid.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.css">
-        <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.min.css">
+        <!-- <link rel="stylesheet" type="text/css" href="lib/css/font-awesome.min.css"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/datatables.min.css">
         <link rel="stylesheet" type="text/css" href="lib/css/filepond.min.css">
         <link href="lib/css/kycUpload.css" rel="stylesheet" type="text/css">
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-  
         <link rel="stylesheet" type="text/css" href="lib/css/filepond.css">
+        <link rel="stylesheet" type="text/css" href="lib/css/custom.css">		
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="lib/css/custom.css">	
         <script src="constant.js"></script>	
         <script src="logout.js"></script>
-        <script src="kyc.js"></script>
     	<style>
     		div#example1_length,div#example1_filter {display: none;}
             table#example, table#example1 {	padding: 15px;}
@@ -91,8 +91,8 @@
     <script src="KycUpload.js"></script>
     <script src="constant.js"></script>
     </head>
+    <body onload="load()">   
     
-    <body onload="model();">
         <header class="bel_dashboard_header">
             <div class="container-fluid">
                 <nav class="navbar navbar-expand-lg navbar-light land_page menubar navbar-expand-md">
@@ -104,11 +104,11 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                         <ul class="nav navbar-nav menu" id="heading_list">
-                            <li class="active nav-item"><a href="certificate.html" class="nav-link"><img class="menuicon n" src="lib/img/issuenewcertificate.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Issue New Certificate</a>
+                            <li class="active nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/issuenewcertificate.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Issue New Certificate</a>
                             </li>
-                            <li class="nav-item "><a href="superadmin-issuers.html" class="nav-link active"><img class="menuicon n" src="lib/img/superadmin.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Super Admin</a>
+                            <li class="nav-item "><a href="#" class="nav-link active"><img class="menuicon n" src="lib/img/superadmin.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Super Admin</a>
                             </li>
-                            <li class="nav-item"><a href="authorizer.html" class="nav-link"><img class="menuicon n" src="lib/img/authorizer.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Authorizer</a>
+                            <li class="nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/authorizer.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Authorizer</a>
                             </li>
                             <li class="nav-item"><a href="#" class="nav-link"><img class="menuicon n" src="lib/img/kyc.svg"><img class="menuicon a" src="">&#xA0;&#xA0;Update KYC</a>
                             </li>
@@ -195,7 +195,7 @@
 										<p>KYC Documents</p>
 									</div>
 									<div class="col-xl-3 col-lg-3 col-md-3 col-3 nopadding dash_details_view">
-										<p id="countryName"></p>
+										<b id="countryName"></b>
 									</div>
 									<div class="kyc-border"></div>
 								</div>
@@ -203,9 +203,13 @@
 									<p>Lets Identify the organizario by providing any of the following Certificates</p>
 								</div>
 								            
-            <table style="width:90%;margin-left: 25px;margin-right:25px;" id="tblKycDoc" class="borderless"></table>    
+            <table style="width:90%;margin-left: 25px;margin-right:25px;" id="tblKycDoc" class="borderless"></table>   
+            <button id="enableKyc" style="float:right;margin-right: 25px;margin-top: 25px" class="btn btn-default kyc-enabled-btn kyc-button" onclick="openEnableKycModal()">
+             <i class="fa fa-toggle-on"> Enable KYC</i>
+            </button> 
             </div>
             </div>
+            
         </section>
             <!--Popup for Upload KYC Button -->  
             <!-- Modal -->
@@ -258,7 +262,7 @@
                       <div class="modal-content">
                         <div class="modal-header" style="background-color: #415BF6">
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title" style="color:#ffffff"><b>ENTER PASSPHRASE</b></h4>
+                          <h4 class="modal-title" style="color:#ffffff"></h4>
                         </div>
                         <div class="modal-body">
                           <h3>PassPhrase Value</h3>
@@ -306,20 +310,12 @@
       </div>
     </div>
   </div>
-  <button
-            id="enableKyc"
-             class="btn btn-default kyc-enabled-btn kyc-button"
-             (click)="openEnableKycModal()">
-             <i class="fa fa-toggle-on"> Enable KYC</i>
-     </button>
         <script type="text/javascript" src="lib/js/bootstrap.min.js"></script>
        <script type="text/javascript" src="lib/js/datatables.min.js"></script>
         <script type="text/javascript" src="lib/js/dropzone.js"></script>
 		<script type="text/javascript" src="lib/js/utils.js"></script>
        <script src="lib/js/filepond.min.js"></script>
        <script src="lib/js/filepond.js"></script>
-
-  Turn all file input elements into ponds -->
  <script>
   FilePond.parse(document.body);
  </script>

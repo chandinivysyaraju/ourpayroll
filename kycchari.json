@@ -1,0 +1,176 @@
+KYC document fetched Successful{
+    "data": {
+        "countries": [
+            {
+                "address": "A48ryXj63rfa5MZSJkzeS35YfEjjNzEMEpIN",
+                "kycDocumentTypes": [
+                    {
+                        "kycDocumentMetas": [
+                            {
+                                "kycDocumentMetaId": 1,
+                                "channelData": "{\"fee\": 0.001, \"uuid\": \"dddbfdbd-2c5a-43a0-a1c3-ebe54f88c5751545398379475\", \"address\": \"AEqFopYGYHGCo6jt7k5AV8DLtuaMdkmX76IN\", \"channel\": \"indiaadhaar\", \"countryCode\": \"IN\"}",
+                                "description": "This is aadhar",
+                                "documentName": "Aadhar",
+                                "kycUserDocument": {
+                                    "hashDigest": "8be67e3736459e362a76d8050596e99a49ec0fba94f1f93063d099573632cfbe",
+                                    "uploadedAt": "2019-01-02 05:41:22.0Z",
+                                    "documentStatus": "Pending",
+                                    "documentmeta": "{\"ExpirationDate\": \"2019-01-12\"}",
+                                    "verifiedBy": null,
+                                    "verificationTransaction": {
+                                        "transactionType": "PRIVATE_BLOCKCHAIN",
+                                        "destinationAddress": "NA",
+                                        "transactionStatus": "CONFIRMED",
+                                        "description": "Document Verification transaction",
+                                        "creationDate": "2019-01-02 06:30:32.0Z",
+                                        "transactionHash": "cd9c34ea1af17d3aeba2c3be27e753fe99c2b50bb36973f4f2a324cef0952a9c"
+                                    },
+                                    "paymentTransaction": {
+                                        "transactionType": "PUBLIC_BLOCKCHAIN",
+                                        "destinationAddress": "AEqFopYGYHGCo6jt7k5AV8DLtuaMdkmX76IN",
+                                        "transactionStatus": "CONFIRMED",
+                                        "description": "Payment For Document Verifiation",
+                                        "creationDate": "2019-01-02 05:42:09.0Z",
+                                        "transactionHash": "db8b0d68ad2481792558845d034630796c9358c4c4f2192875d67d2d6ed46021"
+                                    },
+                                    "kycUserDocumentID": 32,
+                                    "url": null
+                                },
+                                "isMandatory": false
+                            }
+                        ],
+                        "documentType": "Address",
+                        "kycDocumentTypeId": 2
+                    },
+                    {
+                        "kycDocumentMetas": [
+                            {
+                                "kycDocumentMetaId": 2,
+                                "channelData": "{\"fee\": 0.001, \"uuid\": \"dddbfdbd-2c5a-43a0-a1c3-ebe54f88c5751545398379475\", \"address\": \"AEqFopYGYHGCo6jt7k5AV8DLtuaMdkmX76IN\", \"channel\": \"indiaadhaar\", \"countryCode\": \"IN\"}",
+                                "description": "This is voter card",
+                                "documentName": "Voter card",
+                                "kycUserDocument": {
+                                    "hashDigest": "7cb73d10ae9c6ee305085cc4cbe78339180462a28587757ffb90f391e9f52fef",
+                                    "uploadedAt": "2019-01-02 06:19:03.0Z",
+                                    "documentStatus": "Pending",
+                                    "documentmeta": "{\"ExpirationDate\": \"2019-01-16\"}",
+                                    "verifiedBy": null,
+                                    "verificationTransaction": {
+                                        "transactionType": "PRIVATE_BLOCKCHAIN",
+                                        "destinationAddress": "NA",
+                                        "transactionStatus": "CONFIRMED",
+                                        "description": "Document Verification transaction",
+                                        "creationDate": "2019-01-02 06:30:36.0Z",
+                                        "transactionHash": "98c3ab99c3f5ed8ab0c9044ddfd35fd83c3709f484cbc0de7c857440583d51b2"
+                                    },
+                                    "paymentTransaction": {
+                                        "transactionType": "PUBLIC_BLOCKCHAIN",
+                                        "destinationAddress": "AEqFopYGYHGCo6jt7k5AV8DLtuaMdkmX76IN",
+                                        "transactionStatus": "CONFIRMED",
+                                        "description": "Payment For Document Verifiation",
+                                        "creationDate": "2019-01-02 06:19:44.0Z",
+                                        "transactionHash": "c7818f48fea0f7eb581ac4541aeca9597f428ac5b7546e1d2de53c64202ab460"
+                                    },
+                                    "kycUserDocumentID": 33,
+                                    "url": null
+                                },
+                                "isMandatory": true
+                            }
+                        ],
+                        "documentType": "Identity",
+                        "kycDocumentTypeId": 1
+                    },
+                    {
+                        "kycDocumentMetas": [
+                            {
+                                "kycDocumentMetaId": 3,
+                                "channelData": "{\"fee\": 0.001, \"uuid\": \"dddbfdbd-2c5a-43a0-a1c3-ebe54f88c5751545398379475\", \"address\": \"AEqFopYGYHGCo6jt7k5AV8DLtuaMdkmX76IN\", \"channel\": \"indiaadhaar\", \"countryCode\": \"IN\"}",
+                                "description": "This is pan card",
+                                "documentName": "Pancard",
+                                "kycUserDocument": {
+                                    "hashDigest": "d9698bc02fefec12212a9916ae75fbf6a9da3f35aa84d8ef4a252b0c32181289",
+                                    "uploadedAt": "2019-01-02 06:22:29.0Z",
+                                    "documentStatus": "Pending",
+                                    "documentmeta": "{}",
+                                    "verifiedBy": null,
+                                    "verificationTransaction": {
+                                        "transactionType": "PRIVATE_BLOCKCHAIN",
+                                        "destinationAddress": "NA",
+                                        "transactionStatus": "CONFIRMED",
+                                        "description": "Document Verification transaction",
+                                        "creationDate": "2019-01-02 06:30:39.0Z",
+                                        "transactionHash": "e42f6327c8a11fe680ff4bb33f3fdd7876d0cd2e7207ab6c9e3700c99fde2a3d"
+                                    },
+                                    "paymentTransaction": {
+                                        "transactionType": "PUBLIC_BLOCKCHAIN",
+                                        "destinationAddress": "AEqFopYGYHGCo6jt7k5AV8DLtuaMdkmX76IN",
+                                        "transactionStatus": "CONFIRMED",
+                                        "description": "Payment For Document Verifiation",
+                                        "creationDate": "2019-01-02 06:23:08.0Z",
+                                        "transactionHash": "61babea935135318ff8e08948553b987fd9f27d6784f11810dceeaf3686093c2"
+                                    },
+                                    "kycUserDocumentID": 34,
+                                    "url": null
+                                },
+                                "isMandatory": false
+                            }
+                        ],
+                        "documentType": "Finance",
+                        "kycDocumentTypeId": 4
+                    },
+                    {
+                        "kycDocumentMetas": [
+                            {
+                                "kycDocumentMetaId": 4,
+                                "channelData": "{\"fee\": 0.001, \"uuid\": \"dddbfdbd-2c5a-43a0-a1c3-ebe54f88c5751545398379475\", \"address\": \"AEqFopYGYHGCo6jt7k5AV8DLtuaMdkmX76IN\", \"channel\": \"indiaadhaar\", \"countryCode\": \"IN\"}",
+                                "description": "This is graduation",
+                                "documentName": "Graduation",
+                                "kycUserDocument": {
+                                    "hashDigest": "97eac12a1a0d2e6da545723d8cf636e88188256fefb43739f2b62ea99925dcce",
+                                    "uploadedAt": "2019-01-02 06:30:04.0Z",
+                                    "documentStatus": "Pending",
+                                    "documentmeta": "{}",
+                                    "verifiedBy": null,
+                                    "verificationTransaction": {
+                                        "transactionType": "PRIVATE_BLOCKCHAIN",
+                                        "destinationAddress": "NA",
+                                        "transactionStatus": "CONFIRMED",
+                                        "description": "Document Verification transaction",
+                                        "creationDate": "2019-01-02 06:30:42.0Z",
+                                        "transactionHash": "bf41512094c083d9a83defdba9373f66ebe5b85b5499db94200608d1d78d5030"
+                                    },
+                                    "paymentTransaction": {
+                                        "transactionType": "PUBLIC_BLOCKCHAIN",
+                                        "destinationAddress": "AEqFopYGYHGCo6jt7k5AV8DLtuaMdkmX76IN",
+                                        "transactionStatus": "CONFIRMED",
+                                        "description": "Payment For Document Verifiation",
+                                        "creationDate": "2019-01-02 06:25:41.0Z",
+                                        "transactionHash": "6179e74ffba1b55886f74161880b08dd18381654eb6cc36071a8e9e0776d79f1"
+                                    },
+                                    "kycUserDocumentID": 35,
+                                    "url": null
+                                },
+                                "isMandatory": false
+                            }
+                        ],
+                        "documentType": "Education",
+                        "kycDocumentTypeId": 3
+                    }
+                ],
+                "countryCode": "IN",
+                "blockchainStatus": null,
+                "attached": "belrium_primary",
+                "countryName": "India",
+                "blockchainEnabledTransaction": false,
+                "countryDialCode": "91",
+                "countryID": 105,
+                "status": "INACTIVE"
+            }
+        ]
+    },
+    "fielderror": null,
+    "message": "User documents fetched successfully with there document meta data.",
+    "isSuccess": true,
+    "status": "OK",
+    "timestamp": 1546410643646
+}

@@ -3,27 +3,52 @@ var company=localStorage.getItem("companyname");
 var email=localStorage.getItem("email");
 var belriumtoken=localStorage.getItem("belToken");
 var dappid=localStorage.getItem("dappid");
-var bel=localStorage.getItem("bel");
+var kycStatus=localStorage.getItem("kycStatus");
+var bel;
 
-function model(){
+async function model(){
     console.log(role);
-    if((role==="superuser")||(role==="new user")){
-     var list = document.getElementById('heading_list');
-    list.childNodes[5].remove();
-    list.childNodes[1].remove();
-    document.getElementById("issue").remove();
+    const res4 = await getAddress();
+    console.log("res4: "+res4);
+    var address=res4.data.countries[0].wallets[0].address;
+    console.log(address);
+    localStorage.setItem("address",address);
+    const res5 = await getBalance(address);
+    console.log("res5 :"+res5);
+    var balance=JSON.parse(res5.data).balance;
+    bel=balance/10000000000;
+    console.log(bel);
+    localStorage.setItem("bel",bel);
+    $("#address").text(address);
+    $("#balance").text(bel+" "+"BEL");
+    $("#balance1").text(bel+" "+"BEL");
+    console.log("kycStatus: "+kycStatus);
+    if(kycStatus==="false")
+   // if(false)
+    {
+        window.location.href="kyc.html";
     }
-    if(role==="issuer"){
-        var list = document.getElementById('heading_list');
-        list.childNodes[5].remove();
-        list.childNodes[3].remove();
-    }  
-    if(role==="authorizer"){
-        var list = document.getElementById('heading_list');
-        list.childNodes[3].remove();
-        list.childNodes[1].remove();
+    else
+    {
+        if((role==="superuser")||(role==="new user")){
+            var list = document.getElementById('heading_list');
+            list.childNodes[5].remove();
+            list.childNodes[1].remove();
+            document.getElementById("issue").remove();
+        }
+        if(role==="issuer"){
+            var list = document.getElementById('heading_list');
+            list.childNodes[5].remove();
+            list.childNodes[3].remove();
+        }  
+        if(role==="authorizer"){
+            var list = document.getElementById('heading_list');
+            list.childNodes[3].remove();
+            list.childNodes[1].remove();
+        }
     }
  }
+
 async function issueDashboard(){
     document.getElementById("username").innerText=email;
     if(role!="new user"){
@@ -48,19 +73,6 @@ async function issueDashboard(){
         add_issuedemployee(res6[i].name,res6[i].empid);
     }
     }
-    const res4 = await getAddress();
-    console.log(res4);
-    var address=res4.data.countries[0].wallets[0].address;
-    localStorage.setItem("address",address);
-     $("#address").text(address);
-
-    const res5 = await getBalance(address);
-    console.log(res5);
-    var balance=JSON.parse(res5.data).balance;
-    var bel=balance/10000000000;
-    localStorage.setItem("bel",bel);
-     $("#balance").text(bel+" "+"BEL");
-     $("#balance1").text(bel+" "+"BEL");
 }
 
 async function totalCertsIssued(){
