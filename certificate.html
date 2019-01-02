@@ -124,7 +124,7 @@
                                     </svg>Members </a></li>
                         	</ul>
                             
-                                <p class="footer">&copy;2019 BellBook<br>Powered by Belrium Blockchain</p>
+                                <p class="footer">&copy;2019 BelBook<br>Powered by Belrium Blockchain</p>
                            
                         </div>
                     </div>
@@ -149,8 +149,8 @@
                                                          <input type="text" id="MonthYear" placeholder="mm-yyyy" class="form-control col-md-12 col-12 datebtn" onclick="getEmployees()">
                                                          <label class="calender_icon"><img src="lib/img/calendaricon.svg" onclick="showCalendarControl('MonthYear')"></label>
                                                     </div>
-                                                    <div class="form-group col-md-3 col-12">
-                                                        <a id="reg" href="#" data-toggle="modal" data-target="#reg-new-emp"><img src="lib/img/register.svg">&nbsp;&nbsp; Register New Employee</a>
+                                                    <div id="reg" class="form-group col-md-3 col-12">
+                                                        <a  href="#" data-toggle="modal" data-target="#reg-new-emp"><img src="lib/img/register.svg">&nbsp;&nbsp; Register New Employee</a>
                                                     </div>
                                                 </form>
                                             </div>
@@ -357,8 +357,8 @@
                                                          <!-- <input type="text" placeholder="08 / 2018" class="form-control col-md-12 col-12 datebtn">
                                                          <label class="calender_icon"><img src="lib/img/calendaricon.svg"></label> -->
                                                     </div>
-                                                    <div class="form-group col-md-3 col-12" >
-                                                        <a href="#" data-toggle="modal" data-target="#reg-new-emp"><img src="lib/img/register.svg">&nbsp;&nbsp; Register New Employee</a>
+                                                    <div id="reg1" class="form-group col-md-3 col-12" >
+                                                        <a href="#"  data-toggle="modal" data-target="#reg-new-emp"><img src="lib/img/register.svg">&nbsp;&nbsp; Register New Employee</a>
                                                     </div>
                                                 </form>
                                             </div>
@@ -453,7 +453,7 @@
                                                                 <div class="iss_new_certify_netsal">
                                                                     <h4>Net Salary: $<span id="issuedNetSalary"></span></h4>
                                                                     <p id="issuedSalaryWords"></p>
-                                                                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#issCertify" onclick="signhere()">Issue</button>
+                                                                    <!-- <button id="removeThis" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#issCertify" onclick="signhere()">Issue</button> -->
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -489,7 +489,7 @@
                     <span class="input-group-text"><i onClick="hideshow()" class="fa fa-eye" aria-hidden="true"></i></span>
                     </div>
                     <br>
-                    <p class="p2">Note: Issue payslip transaction charges 0.001 BEL</p>
+                    <!-- <p class="p2">Note: Issue payslip transaction charges 0.001 BEL</p> -->
                 <button type="button" class="btn btn-default" data-dismiss="modal" id ='tagclose'>Cancel</button>
                 <button class="btn btn-info btn-lg" onclick="initialIssue()">Issue Certificate</button>
               </div>
@@ -500,6 +500,99 @@
         </div>
         <!-- Modal -->
 
+
+
+        <!-- popup -->
+
+        <div id="popup" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <div class="topsec">
+                     <img src="lib/img/ico1.svg">
+                  </div>
+                </div>
+                <div class="modal-body">
+                      <p class="p1" style="color:blue">Waiting for Authorization</p>
+                  
+                      <!-- Mohan [12:09 PM] -->
+                      <div class="input-group-append">
+                      <!-- <input id="passphrase" name="passphrase" placeholder="Enter your Passphrase" type="password" required="required" class="form-control here">
+                      <span class="input-group-text"><i onClick="hideshow()" class="fa fa-eye" aria-hidden="true"></i></span> -->
+                      </div>
+                      <br>
+                      <!-- <p class="p2">Note: Issue payslip transaction charges 0.001 BEL</p> -->
+                  <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+                  <!-- <button class="btn btn-info btn-lg" onclick="initialIssue()">Issue Certificate</button> -->
+                </div>
+               
+              </div>
+  
+            </div>
+          </div>
+        <!-- popup -->
+<!-- popup1 -->
+
+<div id="popup1" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="topsec">
+             <img src="lib/img/ico1.svg">
+          </div>
+        </div>
+        <div class="modal-body">
+              <p class="p1">Are you sure you want to issue the certificate</p>
+          
+              <!-- Mohan [12:09 PM] -->
+              <div class="input-group-append">
+              <input id="passphrase1" name="passphrase" placeholder="Enter your Passphrase" type="password" required="required" class="form-control here">
+              <span class="input-group-text"><i onClick="hideshow()" class="fa fa-eye" aria-hidden="true"></i></span>
+              </div>
+              <br>
+              <p class="p2">Note: Issue payslip transaction charges 0.001 BEL</p>
+          <button type="button" class="btn btn-default" data-dismiss="modal" id ='tagclose1'>Close</button>
+          <button class="btn btn-info btn-lg" onclick="finalIssue()">Issue Payslip</button>
+        </div>
+       
+      </div>
+
+    </div>
+  </div>
+<!-- popup1 -->
+
+<!-- popup2 -->
+
+<div id="popup2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="topsec">
+             <img src="lib/img/ico1.svg">
+          </div>
+        </div>
+        <div class="modal-body">
+              <p class="p1">PaySlip is already Issued</p>
+          
+              <!-- Mohan [12:09 PM]
+              <div class="input-group-append">
+              <input id="passphrase" name="passphrase" placeholder="Enter your Passphrase" type="password" required="required" class="form-control here">
+              <span class="input-group-text"><i onClick="hideshow()" class="fa fa-eye" aria-hidden="true"></i></span>
+              </div>
+              <br>
+              <p class="p2">Note: Issue payslip transaction charges 0.001 BEL</p> -->
+          <button type="button" class="btn btn-default" data-dismiss="modal" id ='tagclose'>Close</button>
+          <!-- <button class="btn btn-info btn-lg" onclick="finalIssue()">Issue Certificate</button> -->
+        </div>
+       
+      </div>
+
+    </div>
+  </div>
+<!-- popup3 -->
 
 
 <!--Register New Employee Modal -->

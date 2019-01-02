@@ -1,9 +1,10 @@
-var role,bel,user,companyname,email,wallet,address,token;
-function model(){
+var role,bel,user,companyname,email,wallet,address,token,dappid;
+async function model(){
 role=localStorage.getItem("roleId");
 bel=localStorage.getItem("bel");
 email=localStorage.getItem("email");
 address=localStorage.getItem("address");
+dappid = localStorage.getItem('dappid');
 companyname=localStorage.getItem("companyname")
 document.getElementById("name").innerText=email;
 document.getElementById("balance").innerText=(bel+" "+"BEL");
@@ -12,7 +13,7 @@ document.getElementById("company").innerText=companyname;
 }
 // document.getElementById("valid").innerText=
 document.getElementById("wallet").innerText=(bel+" "+"BEL");
-document.getElementById("address").value=address;
+document.getElementById("address").innerText=address;
 //document.getElementById("dapp").innerText=bel
   console.log(role);
   if((role==="superuser")||(role==="new user")){
@@ -30,8 +31,33 @@ document.getElementById("address").value=address;
       var list = document.getElementById('heading_list');
       list.childNodes[3].remove();
       list.childNodes[1].remove();
+      document.getElementById("regdapp").remove();
   }
+  var response = await getDappBalance();
+  if( response == undefined){
+      response='0';
+  }
+  document.getElementById('dapp1').innerText= response + " BEL";
 }
+
+async function getDappBalance(){
+    var result;
+    try
+       {
+        result = await $.ajax({
+            type: 'get',
+            url: HOST_URL+"/"+dappid+"/"+"accounts/balance",            
+            data:{"dappId":dappid, "address":address}
+    });
+            console.log(result);
+            return result['account']['balances'][0];
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+}
+
 async function registerdapp(){
     token=localStorage.getItem("belToken");
   const result=await CheckKYCStatus(token)

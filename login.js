@@ -114,7 +114,7 @@ a.value=email;
                 localStorage.setItem("companyname",data.company);
                 localStorage.setItem("name",data.name);
                 localStorage.setItem("roleId",roleid);
-                localStorage.setItem("dappid",dappid)
+                localStorage.setItem("dappid",dappid);
                 console.log(roleid);
                 if(roleid==="authorizer"){
                     const res=await getauthid();
@@ -171,6 +171,7 @@ a.value=email;
         }
         
     }
+
    async function getissuerid(){
         let result;
         try{
@@ -185,8 +186,7 @@ a.value=email;
         catch(error)
         {
             console.log(error);
-        }
-        
+        } 
     }
 
 function escapeInput(input) {
@@ -197,4 +197,3 @@ function escapeInput(input) {
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;');
  }
-
