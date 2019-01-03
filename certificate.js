@@ -41,9 +41,11 @@ function model(){
            var list1 = document.getElementById('testing_list');
            list1.childNodes[5].remove();
        }
+       if(role!="new user"){
+       document.getElementById("balance").innerText=(bel+" "+"BEL");
+       }
        document.getElementById("username").innerText=email;
        document.getElementById("company").innerText=company;
-       document.getElementById("balance").innerText=(bel+" "+"BEL");
     }
 var employeeCertificate;
 var prev='';
