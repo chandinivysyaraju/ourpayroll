@@ -9,7 +9,7 @@ var bel;
 async function model(){
     console.log(role);
     const res4 = await getAddress();
-    console.log("res4: "+res4);
+    console.log("res4: "+JSON.stringify(res4));
     var address=res4.data.countries[0].wallets[0].address;
     console.log(address);
     localStorage.setItem("address",address);
