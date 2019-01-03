@@ -498,6 +498,7 @@ async function finalIssue(){
         if(result.transactionId != undefined){
         document.getElementById(selectedEmpid+"status").value='Issued';
         document.getElementById(selectedEmpid+'status').setAttribute('id','#popup2');
+        document.getElementById('tagclose3').click();
         }
     }
     catch (error){
