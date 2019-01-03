@@ -188,6 +188,6 @@ async function recentIssued(){
 
 function add_issuedemployee(name,empid){
 
-   add_div=' <tr><td class="table_prppic"><a href=""><img src="lib/img/profile.jpg" width="40"></a></td><td class="table_proname">'+name+' <br><span>emp'+empid+'</span></td><td class="table_issued">Issued</td><td class="table_viewbtn"><a href="#">View Certificate</a></td></tr> ';
+   add_div=' <tr><td class="table_prppic"><a href=""><img src="lib/img/profile.jpg" width="40"></a></td><td class="table_proname">'+name+' <br><span>emp'+empid+'</span></td><td class="table_issued">Issued</td></tr> ';
    document.getElementById('recent_div').innerHTML+=add_div;
 }
