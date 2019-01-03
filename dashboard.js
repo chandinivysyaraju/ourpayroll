@@ -45,6 +45,7 @@ async function model(){
             var list = document.getElementById('heading_list');
             list.childNodes[3].remove();
             list.childNodes[1].remove();
+            document.getElementById("issue").remove();
         }
     }
  }
