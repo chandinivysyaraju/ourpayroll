@@ -88,7 +88,7 @@
                               </div> -->
                               <div class="form-group">
                                     
-                                 <input type="submit" id="login" data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-lg login-button swal" value="Login">
+                                 <input type="submit" id="login" data-toggle="modal" data-target="#popup" class="btn btn-primary btn-lg login-button swal" value="Login">
                               </div>
                               <span id="message"></span>
                            </form>
@@ -113,17 +113,17 @@
                   </div>
                 </div>
                 <div class="modal-body">
-                      <p class="p1" style="color:blue">Waiting for Authorization</p>
+                      <p class="p1" style="color:blue">Enter SecretKey</p>
                   
                       <!-- Mohan [12:09 PM] -->
                       <div class="input-group-append">
-                      <!-- <input id="passphrase" name="passphrase" placeholder="Enter your Passphrase" type="password" required="required" class="form-control here">
-                      <span class="input-group-text"><i onClick="hideshow()" class="fa fa-eye" aria-hidden="true"></i></span> -->
+                      <input id="secretkey" name="passphrase" placeholder="Enter your secretkey" type="password" required="required" class="form-control here">
+                      <span class="input-group-text"><i onClick="hideshow()" class="fa fa-eye" aria-hidden="true"></i></span>
                       </div>
                       <br>
                       <!-- <p class="p2">Note: Issue payslip transaction charges 0.001 BEL</p> -->
-                  <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
-                  <button class="btn btn-info btn-lg" id ='secret' onclick="initialIssue()">Issue Certificate</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal" >Cancel</button>
+                  <button class="btn btn-info btn-lg" id ='secret' >Submit</button>
                 </div>
                
               </div>
@@ -159,6 +159,17 @@
          // $(document).ready(function() {
          //     $('#login_form').validate();
          // });
+
+         function hideshow(){
+            
+            var phrase = document.getElementById('passphrase');
+        
+             if(phrase.type === "password"){
+              phrase.type = "text";}
+            else{phrase.type = "password"}
+            
+            
+        }
       </script>
    </body>
 </html>
