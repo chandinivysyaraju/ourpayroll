@@ -24,7 +24,7 @@ function model(){
        list.childNodes[1].remove();
        document.getElementById("reg").remove();
        document.getElementById("reg1").remove();
-       var list1 = document.getElementById('testing_list');
+       var list1 = document.getElementById(' testing_list');
       list1.childNodes[5].remove();
      //  document.getElementById("issuedcerts").remove();
     //   document.getElementById('removeThis').remove();
