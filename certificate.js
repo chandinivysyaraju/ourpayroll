@@ -38,6 +38,8 @@ function model(){
            var list = document.getElementById('heading_list');
            list.childNodes[3].remove();
            list.childNodes[1].remove();
+           var list1 = document.getElementById('testing_list');
+           list1.childNodes[5].remove();
        }
        document.getElementById("username").innerText=email;
        document.getElementById("company").innerText=company;
@@ -133,7 +135,6 @@ async function getStatus(status, empid){
     document.getElementById('tabclick').click();
     fillDetails(employee);
     }
-
 }
 
 function escapeInput(input) {
