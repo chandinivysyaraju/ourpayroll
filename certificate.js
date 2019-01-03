@@ -42,10 +42,10 @@ function model(){
            list1.childNodes[5].remove();
        }
        if(role!="new user"){
-       document.getElementById("balance").innerText=(bel+" "+"BEL");
+        document.getElementById("company").innerText=company;
        }
        document.getElementById("username").innerText=email;
-       document.getElementById("company").innerText=company;
+       document.getElementById("balance").innerText=(bel+" "+"BEL");
     }
 var employeeCertificate;
 var prev='';
