@@ -64,7 +64,7 @@ async function sign(){
  if(res1.isSuccess===true){
    document.getElementById('tagclose1').click();
  }
-  authorizer();
+ setTimeout(authorizer(),2000);
 }
 
  async function authorize(pid){
@@ -93,7 +93,7 @@ async function sign(){
         const res1=await rejectpayslip(clickedpid);
         console.log(res1);
        // alert(JSON.stringify(res1));
-        authorizer();
+        setTimeout(authorizer(),2000);
       }
 
       async function rejectpayslip(pid){
