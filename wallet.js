@@ -20,6 +20,7 @@ document.getElementById("address").innerText=address;
    var list = document.getElementById('heading_list');
   list.childNodes[5].remove();
   list.childNodes[1].remove();
+  if(role==='superuser')
   document.getElementById("regdapp").remove();
   }
   if(role==="issuer"){

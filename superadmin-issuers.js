@@ -29,6 +29,11 @@ function model(){
       list.childNodes[3].remove();
       list.childNodes[1].remove();
   }
+  if(role === 'new user'){
+      document.getElementById('removeThis2').remove();
+      document.getElementById('removeThis3').remove();
+
+  }
   if(role!="new user"){
     document.getElementById("name").innerText=email;
     document.getElementById("company").innerText=company;
