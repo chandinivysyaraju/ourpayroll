@@ -265,7 +265,7 @@
                                                     <div class="iss_new_certify_netsal">
                                                         <h4>Net Salary: $<span id="netsalary"></span></h4>
                                                         <p id="words"></p>
-                                                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#issCertify" onclick="signhere()">Sign</button>
+                                                        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#popup1" onclick="signhere()">Sign</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -320,7 +320,64 @@
             </div>
         </section>
         
-        
+        <!-- popup1 -->
+
+<div id="popup1" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="topsec">
+             <img src="lib/img/ico1.svg">
+          </div>
+        </div>
+        <div class="modal-body">
+              <p class="p1">Are you sure you want to Sign the payslip</p>
+          
+              <!-- Mohan [12:09 PM] -->
+              <div class="input-group-append">
+              <input id="passphrase1" name="passphrase" placeholder="Enter your Passphrase" type="password" required="required" class="form-control here">
+              <span class="input-group-text"><i onClick="hideshow()" class="fa fa-eye" aria-hidden="true"></i></span>
+              </div>
+              <br>
+              
+          <button type="button" class="btn btn-default" data-dismiss="modal" id ='tagclose1'>Close</button>
+          <button class="btn btn-info btn-lg" onclick="sign()">Sign Payslip</button>
+        </div>
+       
+      </div>
+
+    </div>
+  </div>
+<!-- popup1 -->
+<div id="popup2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="topsec">
+             <img src="lib/img/ico1.svg">
+          </div>
+        </div>
+        <div class="modal-body">
+              <p class="p1">Are you sure you want to reject</p>
+          
+              <!-- Mohan [12:09 PM]
+              <div class="input-group-append">
+              <input id="passphrase" name="passphrase" placeholder="Enter your Passphrase" type="password" required="required" class="form-control here">
+              <span class="input-group-text"><i onClick="hideshow()" class="fa fa-eye" aria-hidden="true"></i></span>
+              </div>
+              <br>
+              <p class="p2">Note: Issue payslip transaction charges 0.001 BEL</p> -->
+          <button type="button" class="btn btn-default" data-dismiss="modal" id ='tagclose'>Cancel</button>
+          <button class="btn btn-info btn-lg" onclick="reject()">Reject</button>
+        </div>
+       
+      </div>
+
+    </div>
+  </div>
+<!-- popup3 -->
        
         
         <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js"></script>

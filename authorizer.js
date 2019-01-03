@@ -1,5 +1,6 @@
-var secret="cactus peasant return inside filter morning wasp floor museum nature iron can";
+//var secret="cactus peasant return inside filter morning wasp floor museum nature iron can";
 var pid1;
+var clickedpid=undefined;
 var dappid=localStorage.getItem("dappid");
 var aid=localStorage.getItem("authid");
 var role=localStorage.getItem("roleId");
@@ -30,11 +31,13 @@ async function authorizer(){
   }
 }
 function add_issuedemployee(pid,emp,iid,time){
-   add_div='<a><tr> <td onclick="displaydata('+pid+')">'+pid+'</td><td>'+emp+'</td> <td>'+iid+'</td><td>'+time+'</td>  <td class="table_viewbtn"> <input type="submit" name="signin" class="sign_btn btn-success" value="Sign" onclick="sign('+pid+')"></input> <input type="submit" name="signin" class="sign_btn btn-danger" value="Reject" onclick="reject('+pid+')"></input> </td></tr>'
+   add_div='<a><tr> <td onclick="displaydata('+pid+')">'+pid+'</td><td>'+emp+'</td> <td>'+iid+'</td><td>'+time+'</td>  <td class="table_viewbtn"> <input type="submit" name="signin" class="sign_btn btn-success" value="Sign" data-toggle="modal" data-target="#popup1" onclick="takedata('+pid+')"></input> <input type="submit" name="signin" class="sign_btn btn-danger" data-toggle="modal" data-target="#popup2" value="Reject" onclick="takedata('+pid+')"></input> </td></tr>'
    document.getElementById('pending').innerHTML+=add_div;
 
  }
-
+function takedata(pid){
+  clickedpid=pid;
+}
 
 async function pendingSigns(param){
     let result;
@@ -54,14 +57,19 @@ async function pendingSigns(param){
         }
       }
     }
-async function sign(pid){
-  const res1 = await authorize(pid);
+async function sign(){
+  const res1 = await authorize(clickedpid);
   console.log(JSON.stringify(res1));
  // alert(JSON.stringify(res1));
+ if(res1.isSuccess===true){
+   document.getElementById('tagclose1').click();
+ }
   authorizer();
 }
 
  async function authorize(pid){
+   const secret=document.getElementById("passphrase1").value;
+   console.log(secret);
    console.log(pid);
       let result;
         try{
@@ -81,8 +89,8 @@ async function sign(pid){
         }
       }
 
-      async function reject(pid){
-        const res1=await rejectpayslip(pid);
+      async function reject(){
+        const res1=await rejectpayslip(clickedpid);
         console.log(res1);
        // alert(JSON.stringify(res1));
         authorizer();
@@ -133,6 +141,18 @@ async function authorizedAssets(){
   }
 }
 }
+
+function hideshow(){
+            
+  var phrase = document.getElementById('passphrase1');
+
+   if(phrase.type === "password"){
+    phrase.type = "text";}
+  else{phrase.type = "password"}
+  
+  
+}
+
 function add_authorizedemployee(pid,emp,iid,time){
   console.log(pid);
 add_div='<tr><td><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="opt2" name="opt2"><label class="custom-control-label" for="opt2"></label> </div> </td><td>'+pid+'</td> <td>'+emp+'</td><td>'+iid+'</td> <td>'+time+'</td> </tr>'
@@ -168,23 +188,23 @@ async function displaydata(pid){
             parent.childNodes[2].remove()
            //document.getElementById('testing').innerHTML="";
             create();
-            console.log(res1.name);
-            paycycle=res1.month+","+res1.year;
-            allowances=Number(res1.hra)+Number(res1.lta)+Number(res1.ma);
-            totaldeductions=Number(res1.professionalTax)+Number(res1.providentFund);
-            earnings=allowances+Number(res1.basicPay);
+            console.log(res1.result.name);
+            paycycle=res1.result.month+","+res1.result.year;
+            allowances=Number(res1.result.hra)+Number(res1.result.lta)+Number(res1.result.ma);
+            totaldeductions=Number(res1.result.professionalTax)+Number(res1.result.providentFund);
+            earnings=allowances+Number(res1.result.basicPay);
             net=earnings-totaldeductions;
-            document.getElementById("ps_empname").value=res1.name;
-            document.getElementById("ps_pay").value=res1.basicPay;
-            document.getElementById("ps_designation").value=res1.designation;
-            document.getElementById("ps_idnum").value=res1.empid;
+            document.getElementById("ps_empname").value=res1.result.name;
+            document.getElementById("ps_pay").value=res1.result.basicPay;
+            document.getElementById("ps_designation").value=res1.result.designation;
+            document.getElementById("ps_idnum").value=res1.result.empid;
            document.getElementById("ps_paycycle").value=paycycle;
-            document.getElementById("ps_bankdetails").value=res1.bank;
-            document.getElementById("basic").textContent=res1.basicPay;
+            document.getElementById("ps_bankdetails").value=res1.result.bank;
+            document.getElementById("basic").textContent=res1.result.basicPay;
             document.getElementById("allowances").textContent=allowances;
             document.getElementById("earnings").textContent=earnings;
-            document.getElementById("pt").textContent=res1.professionalTax;
-            document.getElementById("pf").textContent=res1.providentFund;
+            document.getElementById("pt").textContent=res1.result.professionalTax;
+            document.getElementById("pf").textContent=res1.result.providentFund;
             document.getElementById("total").textContent=totaldeductions;
             document.getElementById("netsalary").textContent=net;
             const value=inWords(net).toUpperCase();
