@@ -11,11 +11,11 @@ async function findEmp(){
       //  alert(data);
         if(data==="0" || data==="00")
         {
-            window.location.href="login.html";
+            window.location.href="ourpayroll/login.html";
         }
         else if(data==="-1")
         {  
-            window.location.href="register.html";
+            window.location.href="ourpayroll/register.html";
         }
         else
         {
