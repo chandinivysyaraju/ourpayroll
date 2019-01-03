@@ -71,7 +71,7 @@ a.value=email;
             if(hllogin["isSuccess"]===true)
                     {
                         localStorage.setItem("bkvsdm_token",k.token);
-                        getKycStatus();
+                       // getKycStatus();
                         getRole();
                      }
                          else
