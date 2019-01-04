@@ -19,7 +19,7 @@ async function model(){
     bel=balance/10000000000;
     console.log(bel);
     localStorage.setItem("bel",bel);
-    $("#address").text(address);
+    document.getElementById('address').innerText=address;
     $("#balance").text(bel+" "+"BEL");
     $("#balance1").text(bel+" "+"BEL");
     console.log("kycStatus: "+kycStatus);

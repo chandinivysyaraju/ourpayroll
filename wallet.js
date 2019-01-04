@@ -13,7 +13,7 @@ document.getElementById("company").innerText=companyname;
 }
 // document.getElementById("valid").innerText=
 document.getElementById("wallet").innerText=(bel+" "+"BEL");
-document.getElementById("address").innerText=address;
+document.getElementById("address").value=address;
 //document.getElementById("dapp").innerText=bel
   console.log(role);
   if((role==="superuser")||(role==="new user")){
